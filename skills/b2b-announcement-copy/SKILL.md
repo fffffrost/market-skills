@@ -52,7 +52,7 @@ State availability, participation conditions, contact or CTA, and any qualificat
 - Prefer steady official language over hype.
 - Remove unnecessary clauses before adding polish.
 - Borrow only high-level structure from references; change the opening rhythm, metaphor, and evidence sequence.
-- Avoid absolute language such as “唯一、彻底、全面重构、一个接口全域经营” unless supported and approved.
+- Avoid absolute language such as “唯一、彻底、全面重构、效果保证” unless supported and approved.
 - For corporate communication, prefer “启动内测、定位于、通过……协同、帮助客户……” over inflated certainty.
 - Keep sentences easy to quote and repost.
 
@@ -65,4 +65,3 @@ Do not use this skill for consumer ad slogans, fictional launches, or a general 
 ## Compatibility and license
 
 Works with Agent Skills-compatible tools. No external service is required. Version 1.0.0, MIT License.
-

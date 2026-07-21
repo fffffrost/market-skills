@@ -24,7 +24,7 @@ export default function HomePage() {
             别从空白<br />
             <span>Prompt</span> 开始。
           </h1>
-          <p className="hero-lead">装上经过实战提炼的方法，再开始工作。10 个可安装 Agent Skills，覆盖从洞察到复盘的完整市场链路。</p>
+          <p className="hero-lead">为市场人量身打造的 AI Skill Hub。装上经过实战提炼的方法，覆盖从洞察到复盘的完整工作链。</p>
           <form action="/skills" className="hero-search">
             <label htmlFor="hero-query">你现在要完成什么市场任务？</label>
             <div>
@@ -137,4 +137,3 @@ export default function HomePage() {
     </>
   );
 }
-

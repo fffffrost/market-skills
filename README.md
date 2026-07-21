@@ -73,12 +73,25 @@ npm run build
 sudo mkdir -p /var/www/market-skills
 sudo cp -R out/. /var/www/market-skills/
 sudo cp deploy/nginx-market-skills.conf /etc/nginx/sites-available/market-skills
+sudo test ! -L /etc/nginx/sites-enabled/default || sudo unlink /etc/nginx/sites-enabled/default
 sudo ln -sfn /etc/nginx/sites-available/market-skills /etc/nginx/sites-enabled/market-skills
 sudo nginx -t
 sudo systemctl reload nginx
 ```
 
-备案通过前可使用服务器公网 IP 验证。备案通过后再解析 `mktskill.com`，签发 HTTPS 证书并完成正式上线检查。
+腾讯云轻量应用服务器防火墙需放行 TCP 80。备案通过前可仅允许当前管理端公网 IP，并使用服务器公网 IP 验证；备案通过后再正式开放 Web 端口、解析 `mktskill.com`、签发 HTTPS 证书并完成上线检查。
+
+### SSH 加固
+
+先确认服务器已配置 SSH 公钥，并保持当前会话不退出，再执行：
+
+```bash
+sudo install -m 644 deploy/sshd-market-skills.conf /etc/ssh/sshd_config.d/00-market-skills-hardening.conf
+sudo sshd -t
+sudo systemctl reload ssh
+```
+
+重载后必须另开会话复验密钥登录成功。该配置会禁用密码和键盘交互认证，未配置公钥的设备将无法直接登录。
 
 ## License
 
