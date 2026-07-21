@@ -4,7 +4,7 @@ const githubRepo = process.env.NEXT_PUBLIC_GITHUB_REPO || fallbackRepo;
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 const isRepoConfigured = githubRepo !== fallbackRepo;
 
-if (process.env.VERCEL_ENV === "production" && !isRepoConfigured) {
+if (process.env.NODE_ENV === "production" && !isRepoConfigured) {
   throw new Error("生产部署前必须配置 NEXT_PUBLIC_GITHUB_REPO。请使用 owner/market-skills 格式。");
 }
 
@@ -22,4 +22,3 @@ export function getInstallCommand(slug?: string) {
   const base = `npx skills add ${siteConfig.githubRepo}`;
   return slug ? `${base} --skill ${slug}` : base;
 }
-

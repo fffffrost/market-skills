@@ -10,11 +10,11 @@ cp .env.example .env.local
 npm run dev
 ```
 
-复制示例环境变量后，本地页面会使用真实 GitHub 仓库。Vercel 生产部署必须配置：
+复制示例环境变量后，本地页面会使用真实 GitHub 仓库。生产构建使用：
 
 ```env
 NEXT_PUBLIC_GITHUB_REPO=fffffrost/market-skills
-NEXT_PUBLIC_SITE_URL=https://your-domain.example
+NEXT_PUBLIC_SITE_URL=https://mktskill.com
 ```
 
 未配置真实 GitHub 仓库时，生产构建会主动失败，避免线上展示不可用的安装命令。
@@ -63,12 +63,22 @@ npx skills add . --list
 npx skills add . --skill research-competitors --agent codex --copy -y
 ```
 
-## 发布
+## 腾讯云发布
 
-1. 在 Vercel 导入 `fffffrost/market-skills`。
-2. 配置两个公开环境变量并部署。
-3. 从线上仓库分别验证单个 Skill 与整包安装命令。
-4. 如有自定义域名，更新 `NEXT_PUBLIC_SITE_URL` 后重新部署。
+项目使用 Next.js 静态导出，`npm run build` 会生成 `out/`：
+
+```bash
+npm ci
+npm run build
+sudo mkdir -p /var/www/market-skills
+sudo cp -R out/. /var/www/market-skills/
+sudo cp deploy/nginx-market-skills.conf /etc/nginx/sites-available/market-skills
+sudo ln -sfn /etc/nginx/sites-available/market-skills /etc/nginx/sites-enabled/market-skills
+sudo nginx -t
+sudo systemctl reload nginx
+```
+
+备案通过前可使用服务器公网 IP 验证。备案通过后再解析 `mktskill.com`，签发 HTTPS 证书并完成正式上线检查。
 
 ## License
 

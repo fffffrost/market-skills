@@ -6,11 +6,14 @@
 
 ## 当前状态
 
-- 状态：首版已发布到 GitHub，等待连接 Vercel、配置站点地址并上线
+- 状态：首版已发布到 GitHub；ICP备案审核中；腾讯云静态部署适配已完成，服务器初始化与上线进行中
 - GitHub：https://github.com/fffffrost/market-skills
+- 域名：`mktskill.com`
+- 云资源：腾讯云上海轻量应用服务器，2 核 2G、3M、40GB、包年
+- ICP 备案：已提交，等待腾讯云初审、工信部短信核验与管局审核
 - 产品名：MARKET//SKILLS
 - 副标题：市场人的 AI Skill Hub
-- 技术方案：Next.js App Router、TypeScript、静态生成、客户端搜索筛选、Vercel Analytics
+- 技术方案：Next.js App Router、TypeScript、静态导出、Nginx、客户端搜索筛选
 - 授权：MIT
 - 页面：首页、静态 Skill 目录、10 个静态详情页、安装指南、404、sitemap、robots
 - 内容：10 个第一方 Skill，覆盖洞察、策略、内容、执行和复盘
@@ -30,7 +33,8 @@
 - 按洞察、策略、内容、执行、复盘五个工作阶段组织，而不是按工具或模型分类。
 - 首版没有账号、投稿、收藏、评论、排行榜、付费、CMS 或服务端数据库。
 - 外部作者的配图和封面 Skill 未纳入第一方首发。
-- 公开 GitHub 仓库固定为 `fffffrost/market-skills`；自定义域名和 Vercel 登录不写入仓库，发布时通过环境变量连接。
+- 公开 GitHub 仓库固定为 `fffffrost/market-skills`；生产站点部署在腾讯云上海轻量应用服务器，由 Nginx 托管静态导出文件。
+- 生产公开配置写入 `.env.production`；域名解析与 HTTPS 在 ICP 备案通过后启用。
 
 ## 验证状态
 
@@ -38,13 +42,13 @@
 - Skill：10/10 通过项目校验与官方 `quick_validate.py`。
 - 组件测试：4/4 通过。
 - 浏览器测试：桌面与 375px 移动端共 8/8 通过。
-- 生产构建：18 个静态页面/资源生成成功，目录页无服务端运行依赖。
+- 生产构建：18 个静态页面/资源导出到 `out/`，目录页无服务端运行依赖。
 - 安装：已在隔离的临时 Git 项目中验证本地源和公开 GitHub 源；单个 Skill 安装为 1/1，整包安装为 10/10。
 - 视觉：已检查首页桌面、首页移动端和 Skill 详情长页截图。
 - GitHub：公开仓库已创建，`main` 已通过 SSH 推送并与本地同步；首发代码提交为 `797058698dde`。
 
 ## 明确下一步
 
-1. 在 Vercel 导入 `fffffrost/market-skills`，配置 `NEXT_PUBLIC_GITHUB_REPO` 和 `NEXT_PUBLIC_SITE_URL`。
-2. 连接已注册的自定义域名，更新站点地址并重新部署。
-3. 验证生产站点的页面、安装命令复制和统计脚本。
+1. 完成 Ubuntu 24.04 初始化、Nginx 配置和公网 IP 验证。
+2. 关注腾讯云备案初审通知，按通知完成人工核验与工信部短信核验。
+3. 备案通过后解析 `mktskill.com`、签发 HTTPS 证书并完成生产验收。
