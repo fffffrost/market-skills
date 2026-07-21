@@ -22,4 +22,14 @@
 - 未完成事项：尚未导入 Vercel、配置生产环境变量和自定义域名，也尚未从公开 GitHub 源执行单个与整包安装复验。
 - 明确下一步：在 Vercel 导入 `fffffrost/market-skills`，设置仓库与站点 URL，完成部署后复验安装命令并连接自定义域名。
 
+## 2026-07-21 13:23 CST — Shuangs-MacBook-Air.local
+
+- 本次目标：从刚发布的公开 GitHub 仓库复验单个与整包安装接口。
+- 完成内容：在两个独立的 `/tmp` 临时 Git 项目中分别执行单个 Skill 与整包安装；两次均从 `https://github.com/fffffrost/market-skills.git` 克隆，不依赖本地工作区。
+- 涉及文件：仅更新 `PROJECT.md` 和 `WORKLOG.md`；安装产物位于系统临时目录，未写入项目或用户全局 Skill 目录。
+- 重要决定：远程安装验证使用非交互复制模式；单个安装指定 `research-competitors`，整包安装覆盖仓库发现的全部 10 个 Skill。
+- 验证结果：单个安装成功且发现 1 个 Skill 目录；整包安装成功且发现 10 个 Skill 目录；公开 GitHub 源可被 skills CLI 正常克隆和解析。
+- 未完成事项：Vercel 部署、生产环境变量、自定义域名连接和线上页面验证尚未完成。
+- 明确下一步：将 GitHub 仓库导入 Vercel，配置真实站点 URL 后部署并连接自定义域名。
+
 <!-- WORKLOG_APPEND_POINT_DO_NOT_REMOVE -->
