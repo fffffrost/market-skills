@@ -1,0 +1,31 @@
+- slug: research-competitors
+  positive: 调研中国连锁零售 AI 营销工具的竞争格局，并区分直接竞品和替代方案。
+  negative: 查询某家公司的注册地址和客服电话。
+- slug: voice-of-customer-synthesis
+  positive: 从访谈、工单和客户评论中提炼影响产品定位的 VOC 洞察。
+  negative: 计算一份定量问卷需要多少统计样本。
+- slug: positioning-proposal
+  positive: 基于产品、用户和竞品证据提出三条定位路线并推荐一条。
+  negative: 不提供背景，只写十条广告口号。
+- slug: integrated-campaign-brief
+  positive: 为一次新品上市建立含受众、渠道、资产和衡量方法的 Campaign Brief。
+  negative: 只排一周的社媒发帖日期，不涉及 Campaign 目标。
+- slug: b2b-announcement-copy
+  positive: 把产品资料和草稿改成稳健可信的 B2B 官宣文章。
+  negative: 为虚构饮料创作夸张的消费者广告口号。
+- slug: wechat-article-editor
+  positive: 诊断并重构这篇公众号长文的结构、证据和语言节奏。
+  negative: 为一张海报写不超过十二个字的短文案。
+- slug: content-repurposing
+  positive: 把这篇白皮书改成公众号转发语、社媒短帖和一分钟口播。
+  negative: 没有任何源材料，从零制定全年内容战略。
+- slug: event-promotion-plan
+  positive: 为六周后的线下沙龙制定报名漏斗、传播节奏和会后跟进。
+  negative: 设计会场座位布局和餐饮菜单。
+- slug: sop-flowchart
+  positive: 把线索资格规则整理成一线可执行的 Mermaid 流程图和规则表。
+  negative: 为品牌日制作一张装饰性宣传海报。
+- slug: campaign-retrospective
+  positive: 根据原始目标、渠道数据和执行记录完成 Campaign 复盘。
+  negative: 持续监控今天还未结束的广告投放实时仪表盘。
+

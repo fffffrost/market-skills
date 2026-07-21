@@ -1,0 +1,18 @@
+slug: voice-of-customer-synthesis
+title: 用户声音提炼
+english_name: Voice of Customer Synthesis
+summary: 从访谈、评论和客户反馈中识别任务、张力与决策障碍，同时保留证据链和样本边界。
+phase: insight
+phase_label: 洞察
+roles: [用户研究, 产品市场, 内容, 客户成功]
+tasks: [访谈整理, VOC 分析, 评论洞察, 需求聚类]
+inputs: [访谈记录, 评论与工单, 销售笔记, 研究目标]
+outputs: [洞察主题卡, 用户原声, 分群差异, 行动矩阵]
+compatibility: [Codex, Claude Code, Cursor, OpenCode]
+dependencies: [宿主需能读取用户提供的材料]
+version: 1.0.0
+updated_at: 2026-07-21
+featured: true
+order: 2
+example_prompt: 把这 12 份客户访谈整理成面向新产品定位的 VOC 洞察，保留引用和样本限制。
+

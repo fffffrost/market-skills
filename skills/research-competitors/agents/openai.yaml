@@ -1,0 +1,4 @@
+interface:
+  display_name: "竞品研究"
+  short_description: "从多角度发现、严格分层到决策建议的完整竞品研究工作方法"
+  default_prompt: "Use $research-competitors to map this market and identify decision-relevant competitors."

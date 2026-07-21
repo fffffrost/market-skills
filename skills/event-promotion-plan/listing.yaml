@@ -1,0 +1,18 @@
+slug: event-promotion-plan
+title: 活动传播排期
+english_name: Event Promotion Plan
+summary: 从目标受众和报名漏斗倒推活动前中后的渠道、素材、负责人、审批和跟进节奏。
+phase: execution
+phase_label: 执行
+roles: [活动营销, 整合营销, 社群, 销售协同]
+tasks: [活动传播, 报名转化, 直播推广, 会后跟进]
+inputs: [活动目标, 时间地点, 受众, 渠道与资源]
+outputs: [传播节奏, 素材排期, 责任矩阵, 应急预案]
+compatibility: [Codex, Claude Code, Cursor, OpenCode]
+dependencies: [生成表格或日历取决于宿主能力]
+version: 1.0.0
+updated_at: 2026-07-21
+featured: true
+order: 8
+example_prompt: 为 9 月 18 日的线下行业沙龙制定六周传播排期，目标是 120 个合格报名和 70% 到场率。
+

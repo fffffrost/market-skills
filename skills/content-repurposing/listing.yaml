@@ -1,0 +1,18 @@
+slug: content-repurposing
+title: 多平台内容改写
+english_name: Content Repurposing
+summary: 先锁定事实底座，再按每个渠道的角色、受众和原生节奏重组内容，而不是机械缩写。
+phase: content
+phase_label: 内容
+roles: [内容, 社媒, 产品市场, 销售赋能]
+tasks: [一稿多发, 内容拆条, 长文转短帖, 视频口播]
+inputs: [核心内容, 事实口径, 目标渠道, 目标受众]
+outputs: [渠道内容包, 发布文案, 口播脚本, 溯源说明]
+compatibility: [Codex, Claude Code, Cursor, OpenCode]
+dependencies: [宿主需能读取源内容]
+version: 1.0.0
+updated_at: 2026-07-21
+featured: true
+order: 7
+example_prompt: 把这篇产品发布长文改成公众号转发语、三条社媒短帖和一条 60 秒口播，所有事实可追溯。
+

@@ -1,0 +1,4 @@
+interface:
+  display_name: "用户声音提炼"
+  short_description: "从访谈、评论与反馈中提炼可追溯、可行动的客户洞察结论"
+  default_prompt: "Use $voice-of-customer-synthesis to turn these customer materials into actionable insights."

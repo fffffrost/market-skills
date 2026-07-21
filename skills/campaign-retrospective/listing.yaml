@@ -1,0 +1,18 @@
+slug: campaign-retrospective
+title: Campaign 复盘
+english_name: Campaign Retrospective
+summary: 从目标、漏斗、执行和解释四层复盘结果，明确证据强度、归因边界与下一步负责人。
+phase: review
+phase_label: 复盘
+roles: [整合营销, 增长, 活动营销, 市场负责人]
+tasks: [Campaign 复盘, 效果分析, 活动总结, 经验沉淀]
+inputs: [原始目标, 渠道数据, 执行记录, 团队反馈]
+outputs: [结果记分卡, 关键发现, 归因边界, 行动清单]
+compatibility: [Codex, Claude Code, Cursor, OpenCode]
+dependencies: [数据文件读取能力可提升分析效率]
+version: 1.0.0
+updated_at: 2026-07-21
+featured: true
+order: 10
+example_prompt: 基于原始 Brief、渠道数据和团队记录复盘这次 Campaign，区分事实、推断和待验证假设。
+

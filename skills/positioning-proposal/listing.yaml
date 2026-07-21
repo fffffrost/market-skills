@@ -1,0 +1,18 @@
+slug: positioning-proposal
+title: 定位提案
+english_name: Positioning Proposal
+summary: 从目标人群、参照系、价值承诺和可信证据出发，形成可选择、可验证的定位方向。
+phase: strategy
+phase_label: 策略
+roles: [产品市场, 品牌, 市场策略, 创始团队]
+tasks: [产品定位, 价值主张, 品类定义, 定位评审]
+inputs: [产品资料, 用户洞察, 竞品信息, 商业目标]
+outputs: [定位陈述, 备选路线, 信息层级, 验证计划]
+compatibility: [Codex, Claude Code, Cursor, OpenCode]
+dependencies: [无强制外部依赖]
+version: 1.0.0
+updated_at: 2026-07-21
+featured: true
+order: 3
+example_prompt: 基于这份产品资料、VOC 和竞品报告，给出不超过三条定位路线并推荐一条。
+

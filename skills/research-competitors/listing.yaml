@@ -1,0 +1,18 @@
+slug: research-competitors
+title: 竞品研究
+english_name: Research Competitors
+summary: 广泛发现候选对象，再用严格门槛分层，最终形成能支持产品与市场决策的竞品结论。
+phase: insight
+phase_label: 洞察
+roles: [产品市场, 市场策略, 品牌, 增长]
+tasks: [竞品调研, 竞争格局, 替代方案, 官网对标]
+inputs: [产品资料, 目标市场, 研究目标, 已知竞品]
+outputs: [竞品分层地图, 锚定式对比, 证据台账, 决策建议]
+compatibility: [Codex, Claude Code, Cursor, OpenCode]
+dependencies: [实时调研需要联网搜索能力]
+version: 1.0.0
+updated_at: 2026-07-21
+featured: true
+order: 1
+example_prompt: 调研面向中国连锁零售企业的 AI 营销助手竞品，区分直接竞品、平台原生能力和相邻替代方案。
+

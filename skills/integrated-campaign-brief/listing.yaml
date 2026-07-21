@@ -1,0 +1,18 @@
+slug: integrated-campaign-brief
+title: 整合营销 Brief
+english_name: Integrated Campaign Brief
+summary: 把商业目标、受众洞察和渠道约束组织成一份创意、媒介与执行团队都能直接使用的 Brief。
+phase: strategy
+phase_label: 策略
+roles: [整合营销, 品牌, 产品市场, 市场负责人]
+tasks: [Campaign Brief, 上市推广, 传播战役, 渠道协同]
+inputs: [商业目标, 受众洞察, 产品信息, 预算与时间]
+outputs: [核心 Brief, 渠道角色, 交付清单, 衡量框架]
+compatibility: [Codex, Claude Code, Cursor, OpenCode]
+dependencies: [无强制外部依赖]
+version: 1.0.0
+updated_at: 2026-07-21
+featured: true
+order: 4
+example_prompt: 为这次新品上市建立一份整合营销 Brief，预算 50 万，目标是获得 3000 个有效试用。
+
