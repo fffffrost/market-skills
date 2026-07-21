@@ -92,4 +92,14 @@
 - 未完成事项：可读性、slogan 和 Skill 通用化改动尚未重新部署到腾讯云；备案、域名解析、HTTPS 与正式生产验收仍待后续完成。
 - 明确下一步：在本地预览确认首页 slogan 后，统一部署本轮静态导出；备案通过后完成域名、HTTPS 与正式生产验收。
 
+## 2026-07-21 16:26 CST — Shuang’s MacBook Air
+
+- 本次目标：将可读性、首页 slogan、Skill 通用化与服务器加固记录发布到 GitHub，并把对应静态站点部署到腾讯云。
+- 完成内容：完成最终差异、密钥和公司产品名称扫描；创建发布提交 `a7c7e72b65a9` 并推送 GitHub `main`；将 175 个干净静态文件上传腾讯云，通过临时发布目录完成原子切换并保留旧版回滚目录；保持备案期间现有来源限制不变；更新项目状态和部署记录。
+- 涉及文件：发布提交包含 `PROJECT.md`、`README.md`、`WORKLOG.md`、`app/globals.css`、`app/page.tsx`、`e2e/site.spec.ts`、`skills/b2b-announcement-copy/SKILL.md`、`deploy/sshd-market-skills.conf`；外部状态涉及 GitHub `main` 与腾讯云 Nginx 静态站点目录。
+- 重要决定：GitHub 作为源码真源先推送，腾讯云随后部署同一构建；服务器使用临时目录校验后再切换，旧版不删除以便回滚；打包时禁用 macOS 扩展属性，避免 AppleDouble 元数据进入生产目录。
+- 验证结果：`npm run verify` 全部通过；GitHub 远端与发布提交一致；首次归档因包含 196 个 AppleDouble 元数据文件而在切换前被完整性门禁拒绝，现网站点未受影响；干净归档重试成功，服务器本机首页 200、自定义 404 为 404；受限公网首页、技能库、详情页、安装指南和 robots 均为 200，不存在页面为 404；远端首页与本地 SHA-256 一致，新 slogan 存在，静态资源返回一年缓存和 `immutable`。
+- 未完成事项：ICP备案审核、域名解析、HTTPS、正式公网开放和生产监控验收仍待后续完成。
+- 明确下一步：继续处理备案通知；备案通过后解析 `mktskill.com`、开放正式 Web 访问、签发 HTTPS 证书并完成域名下的全量生产验收。
+
 <!-- WORKLOG_APPEND_POINT_DO_NOT_REMOVE -->
