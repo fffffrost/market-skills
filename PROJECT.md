@@ -6,7 +6,8 @@
 
 ## 当前状态
 
-- 状态：首版本地完成，等待连接 GitHub 与 Vercel 账号后公开发布
+- 状态：首版已发布到 GitHub，等待连接 Vercel、配置站点地址并上线
+- GitHub：https://github.com/fffffrost/market-skills
 - 产品名：MARKET//SKILLS
 - 副标题：市场人的 AI Skill Hub
 - 技术方案：Next.js App Router、TypeScript、静态生成、客户端搜索筛选、Vercel Analytics
@@ -29,7 +30,7 @@
 - 按洞察、策略、内容、执行、复盘五个工作阶段组织，而不是按工具或模型分类。
 - 首版没有账号、投稿、收藏、评论、排行榜、付费、CMS 或服务端数据库。
 - 外部作者的配图和封面 Skill 未纳入第一方首发。
-- GitHub 账号、自定义域名和 Vercel 登录不写入仓库，发布时通过环境变量连接。
+- 公开 GitHub 仓库固定为 `fffffrost/market-skills`；自定义域名和 Vercel 登录不写入仓库，发布时通过环境变量连接。
 
 ## 验证状态
 
@@ -40,11 +41,10 @@
 - 生产构建：18 个静态页面/资源生成成功，目录页无服务端运行依赖。
 - 安装：已在临时 Git 项目中验证单个 Skill 与整包 10 个 Skill 的本地安装。
 - 视觉：已检查首页桌面、首页移动端和 Skill 详情长页截图。
+- GitHub：公开仓库已创建，`main` 已通过 SSH 推送；远端分支指向首发提交 `797058698dde`。
 
 ## 明确下一步
 
-1. 在目标 GitHub 账号下创建公开仓库 `market-skills`，提交并推送当前 `main` 分支。
-2. 在 Vercel 导入仓库，配置 `NEXT_PUBLIC_GITHUB_REPO` 和 `NEXT_PUBLIC_SITE_URL`。
-3. 部署后从线上仓库再次验证单个与整包安装命令。
-4. 如需自定义域名，更新站点地址并重新部署。
-
+1. 在 Vercel 导入 `fffffrost/market-skills`，配置 `NEXT_PUBLIC_GITHUB_REPO` 和 `NEXT_PUBLIC_SITE_URL`。
+2. 部署后从线上仓库再次验证单个与整包安装命令。
+3. 连接已注册的自定义域名，更新站点地址并重新部署。

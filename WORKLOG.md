@@ -12,4 +12,14 @@
 - 未完成事项：尚未创建公开 GitHub 远程仓库、连接 Vercel、配置真实仓库/站点地址或完成线上安装验证；这些步骤需要用户账号登录。
 - 明确下一步：创建 `market-skills` 公开仓库并推送，设置 Vercel 环境变量后部署，再从线上仓库复验安装命令。
 
+## 2026-07-21 13:21 CST — Shuangs-MacBook-Air.local
+
+- 本次目标：创建 MARKET//SKILLS 公开 GitHub 仓库并推送首版代码。
+- 完成内容：在 GitHub 账号 `fffffrost` 下创建公开仓库 `market-skills`；将真实仓库地址写入示例环境变量、README 安装命令和发布说明；配置项目级 Git 提交身份；完成首发提交并通过 SSH 推送 `main`。
+- 涉及文件：`.env.example`、`README.md`、`PROJECT.md`、`WORKLOG.md`，以及首次纳入版本控制的首版项目文件。
+- 重要决定：仓库保持 Public；GitHub 端不初始化 README、`.gitignore` 或 License，使用本地已验证版本；远端使用 SSH 地址 `git@github.com:fffffrost/market-skills.git`；提交身份仅配置在当前仓库。
+- 验证结果：`npm run verify` 全部通过（10/10 Skill、4/4 组件测试、18 个静态页面/资源、8/8 E2E）；未发现常见私钥或令牌格式；SSH 推送成功；远端 `main` 已指向首发提交 `797058698dde`。
+- 未完成事项：尚未导入 Vercel、配置生产环境变量和自定义域名，也尚未从公开 GitHub 源执行单个与整包安装复验。
+- 明确下一步：在 Vercel 导入 `fffffrost/market-skills`，设置仓库与站点 URL，完成部署后复验安装命令并连接自定义域名。
+
 <!-- WORKLOG_APPEND_POINT_DO_NOT_REMOVE -->
