@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "next dev",
     "build": "npm run validate:skills && next build",
-    "deploy:tencent": "bash scripts/deploy-tencent.sh",
     "start": "python3 -m http.server 3000 --directory out",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",

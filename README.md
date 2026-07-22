@@ -63,32 +63,6 @@ npx skills add . --list
 npx skills add . --skill research-competitors --agent codex --copy -y
 ```
 
-## 腾讯云发布
-
-项目使用 Next.js 静态导出。正式发布通过 SSH 与 `rsync` 同步到独立 release 目录，校验成功后切换 Nginx 指向的软链接：
-
-```bash
-DEPLOY_HOST=<server-address> \
-DEPLOY_KEY=<private-key-path> \
-npm run deploy:tencent
-```
-
-脚本要求工作树干净，会重新构建、执行 SEO 校验、排除 macOS 元数据文件、比对文件数和首页哈希，并在远端冒烟检查失败时恢复上一版本。完整发布、检查、回滚和正式开放流程见 [`deploy/RUNBOOK.md`](deploy/RUNBOOK.md)。
-
-腾讯云轻量应用服务器防火墙需放行 TCP 80。备案通过前可仅允许当前管理端公网 IP，并使用服务器公网 IP 验证；备案通过后再正式开放 Web 端口、解析 `mktskill.com`、签发 HTTPS 证书并完成上线检查。腾讯云 CLI 和自动化助手适合管理云资源或远程执行命令；本站构建产物固定通过 `rsync` 发布。
-
-### SSH 加固
-
-先确认服务器已配置 SSH 公钥，并保持当前会话不退出，再执行：
-
-```bash
-sudo install -m 644 deploy/sshd-market-skills.conf /etc/ssh/sshd_config.d/00-market-skills-hardening.conf
-sudo sshd -t
-sudo systemctl reload ssh
-```
-
-重载后必须另开会话复验密钥登录成功。该配置会禁用密码和键盘交互认证，未配置公钥的设备将无法直接登录。
-
 ## License
 
 MIT

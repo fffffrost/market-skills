@@ -5,7 +5,13 @@ coverage/
 playwright-report/
 test-results/
 .vercel/
-.env*.local
+/.env*
+!/.env.example
+
+# Local project continuity and production operations
+/PROJECT.md
+/WORKLOG.md
+/deploy/
+/scripts/deploy-*.sh
 .DS_Store
 *.tsbuildinfo
-
