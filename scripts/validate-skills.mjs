@@ -17,6 +17,7 @@ const listingSchema = z.object({
   tasks: z.array(z.string()).min(1),
   inputs: z.array(z.string()).min(1),
   outputs: z.array(z.string()).min(1),
+  protocol_steps: z.array(z.string().regex(/[\u3400-\u9fff]/)).min(3).max(6),
   compatibility: z.array(z.string()).min(1),
   dependencies: z.array(z.string()).min(1),
   version: z.string().regex(/^\d+\.\d+\.\d+$/),

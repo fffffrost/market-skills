@@ -8,6 +8,7 @@ roles: [产品市场, 市场策略, 品牌, 增长]
 tasks: [竞品调研, 竞争格局, 替代方案, 官网对标]
 inputs: [产品资料, 目标市场, 研究目标, 已知竞品]
 outputs: [竞品分层地图, 锚定式对比, 证据台账, 决策建议]
+protocol_steps: [确定研究深度, 按竞品研究流程推进, 检查证据与结论边界]
 compatibility: [Codex, Claude Code, Cursor, OpenCode]
 dependencies: [实时调研需要联网搜索能力]
 version: 1.0.0
@@ -15,4 +16,3 @@ updated_at: 2026-07-21
 featured: true
 order: 1
 example_prompt: 调研面向中国连锁零售企业的 AI 营销助手竞品，区分直接竞品、平台原生能力和相邻替代方案。
-

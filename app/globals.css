@@ -358,6 +358,12 @@ select {
   letter-spacing: 0.1em;
 }
 
+.panel-topline {
+  min-height: 44px;
+  color: #a8b0a6;
+  font-size: 11px;
+}
+
 .radar-field {
   position: relative;
   height: 284px;
@@ -371,19 +377,40 @@ select {
   background-size: 28px 28px;
 }
 
+.radar-field::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: -42% 0 auto;
+  height: 46%;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgb(168 255 62 / 0.02) 42%,
+    rgb(168 255 62 / 0.24) 50%,
+    rgb(168 255 62 / 0.03) 58%,
+    transparent
+  );
+  opacity: 0;
+  animation: radar-scan 6s 850ms ease-in-out infinite;
+}
+
 .radar-field strong {
   z-index: 2;
   font: 700 76px/0.82 var(--display);
   color: var(--acid);
   letter-spacing: -0.08em;
+  text-shadow: 0 0 20px rgb(168 255 62 / 0.12);
+  animation: radar-core-boot 900ms 480ms both cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .radar-field small {
   z-index: 2;
   margin-top: 16px;
-  color: var(--muted);
-  font: 500 9px/1 var(--mono);
-  letter-spacing: 0.18em;
+  color: #a8b0a6;
+  font: 500 11px/1.2 var(--mono);
+  letter-spacing: 0.14em;
 }
 
 .radar-ring,
@@ -399,10 +426,11 @@ select {
   translate: -50% -50%;
   border: 1px solid rgb(168 255 62 / 0.26);
   border-radius: 50%;
+  animation: radar-ring-boot 850ms both cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.ring-1 { width: 184px; height: 184px; }
-.ring-2 { width: 106px; height: 106px; }
+.ring-1 { width: 184px; height: 184px; animation-delay: 360ms; }
+.ring-2 { width: 106px; height: 106px; animation-delay: 480ms; }
 
 .radar-cross {
   background: rgb(168 255 62 / 0.16);
@@ -417,8 +445,9 @@ select {
   left: 50%;
   top: 50%;
   transform-origin: left top;
-  background: conic-gradient(from 270deg at 0 0, rgb(168 255 62 / 0.25), transparent 22%);
-  animation: radar-sweep 5s linear infinite;
+  background: conic-gradient(from 270deg at 0 0, rgb(168 255 62 / 0.34), transparent 24%);
+  filter: drop-shadow(0 0 7px rgb(168 255 62 / 0.12));
+  animation: radar-sweep 6s linear infinite;
 }
 
 .radar-node {
@@ -427,11 +456,12 @@ select {
   border: 1px solid var(--acid);
   background: var(--bg);
   box-shadow: 0 0 8px var(--acid);
+  animation: radar-node-ping 3.6s ease-in-out infinite;
 }
 
-.node-1 { left: 27%; top: 35%; }
-.node-2 { right: 21%; top: 58%; }
-.node-3 { left: 38%; bottom: 18%; }
+.node-1 { left: 27%; top: 35%; animation-delay: 700ms; }
+.node-2 { right: 21%; top: 58%; animation-delay: 1.5s; }
+.node-3 { left: 38%; bottom: 18%; animation-delay: 2.3s; }
 
 .system-readout {
   display: grid;
@@ -453,16 +483,16 @@ select {
   font-family: var(--mono);
 }
 
-.system-readout span { color: var(--dim); font-size: 8px; letter-spacing: 0.1em; }
-.system-readout strong { margin-top: 6px; color: #cbd0c7; font-size: 10px; font-weight: 500; }
+.system-readout span { color: var(--muted); font-size: 10px; letter-spacing: 0.09em; }
+.system-readout strong { margin-top: 8px; color: #d2d8cf; font-size: 13px; font-weight: 500; }
 
 .boot-log {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
-  padding: 13px 17px;
+  padding: 14px 17px;
   color: var(--acid);
-  font: 500 8px/1 var(--mono);
+  font: 500 10px/1.4 var(--mono);
   text-transform: uppercase;
 }
 
@@ -1183,6 +1213,30 @@ select {
 
 @keyframes radar-sweep {
   to { rotate: 360deg; }
+}
+
+@keyframes radar-scan {
+  0%, 10% { opacity: 0; transform: translateY(-60%); }
+  16% { opacity: 0.72; }
+  48% { opacity: 0.16; }
+  56%, 100% { opacity: 0; transform: translateY(310%); }
+}
+
+@keyframes radar-ring-boot {
+  from { opacity: 0; scale: 0.72; }
+  68% { opacity: 0.72; scale: 1.05; }
+  to { opacity: 1; scale: 1; }
+}
+
+@keyframes radar-core-boot {
+  from { opacity: 0; scale: 0.74; }
+  62% { opacity: 1; scale: 1.08; text-shadow: 0 0 30px rgb(168 255 62 / 0.42); }
+  to { opacity: 1; scale: 1; text-shadow: 0 0 20px rgb(168 255 62 / 0.12); }
+}
+
+@keyframes radar-node-ping {
+  0%, 18%, 100% { opacity: 0.52; scale: 1; box-shadow: 0 0 6px rgb(168 255 62 / 0.45); }
+  8% { opacity: 1; scale: 1.55; box-shadow: 0 0 13px var(--acid); }
 }
 
 @keyframes status-pulse {

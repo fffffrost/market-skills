@@ -8,6 +8,7 @@ roles: [市场运营, SDR, 活动营销, 团队负责人]
 tasks: [SOP 流程, 资格判断, 话术逻辑, 跨团队交接]
 inputs: [现有流程, 规则与例外, 角色分工, 交付状态]
 outputs: [Mermaid 源码, 主流程图, 规则表, 交接说明]
+protocol_steps: [拆分流程信息, 绘制主流程与决策点, 交付流程图与规则表, 验证可读性与完整性]
 compatibility: [Codex, Claude Code, Cursor, OpenCode]
 dependencies: [可选 Mermaid 渲染能力]
 version: 1.0.0
@@ -15,4 +16,3 @@ updated_at: 2026-07-21
 featured: true
 order: 9
 example_prompt: 把这份 SDR 线索资格规则整理成纵向 Mermaid 流程图，复杂评分放在图外规则表。
-

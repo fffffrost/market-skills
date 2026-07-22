@@ -1,12 +1,34 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { JsonLd } from "@/components/json-ld";
 import { InstallCommand } from "@/components/install-command";
-import { getInstallCommand, siteConfig } from "@/lib/site-config";
+import { createPageMetadata } from "@/lib/seo";
+import { absoluteUrl, getInstallCommand, siteConfig } from "@/lib/site-config";
 import { getSkills } from "@/lib/skills";
 
-export const metadata: Metadata = {
-  title: "安装指南",
-  description: "安装 MARKET//SKILLS 单个 Skill 或完整技能库，并在使用前检查源码与依赖。",
+const description = "安装 MARKET//SKILLS 单个 Skill 或完整技能库，并在使用前检查源码与依赖。";
+
+export const metadata: Metadata = createPageMetadata({
+  title: "Agent Skill 安装指南",
+  description,
+  path: "/install/",
+});
+
+const installJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "@id": absoluteUrl("/install/#howto"),
+  url: absoluteUrl("/install/"),
+  name: "安装 MARKET//SKILLS",
+  description,
+  inLanguage: "zh-CN",
+  totalTime: "PT2M",
+  step: [
+    { "@type": "HowToStep", position: 1, name: "选择安装范围", text: "选择安装完整技能库或单个 Skill。" },
+    { "@type": "HowToStep", position: 2, name: "运行安装命令", text: "使用 skills CLI 运行页面提供的安装命令。" },
+    { "@type": "HowToStep", position: 3, name: "按需手动安装", text: "也可以复制 Skill 目录并保留其相对文件结构。" },
+    { "@type": "HowToStep", position: 4, name: "安装前审查源码", text: "检查触发条件、引用文件、依赖与工具权限。" },
+  ],
 };
 
 export default function InstallPage() {
@@ -14,6 +36,7 @@ export default function InstallPage() {
 
   return (
     <div className="install-page shell">
+      <JsonLd data={installJsonLd} />
       <header className="install-header">
         <div>
           <span className="section-code orange">SETUP / APPROX. 2 MIN</span>
@@ -79,4 +102,3 @@ export default function InstallPage() {
     </div>
   );
 }
-

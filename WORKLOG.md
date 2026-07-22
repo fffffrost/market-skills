@@ -102,4 +102,54 @@
 - 未完成事项：ICP备案审核、域名解析、HTTPS、正式公网开放和生产监控验收仍待后续完成。
 - 明确下一步：继续处理备案通知；备案通过后解析 `mktskill.com`、开放正式 Web 访问、签发 HTTPS 证书并完成域名下的全量生产验收。
 
+## 2026-07-21 17:58 CST — Shuang’s MacBook Air
+
+- 本次目标：改善首页“系统概览”面板内辅助文字偏小、阅读费力的问题。
+- 完成内容：将面板顶栏和模块状态提升到 11px，参数标签提升到 10px，参数值提升到 13px，底部保障项提升到 10px；同步增强文字对比度与间距；新增对应字号的浏览器回归断言。
+- 涉及文件：`app/globals.css`、`e2e/site.spec.ts`、`PROJECT.md`、`WORKLOG.md`。
+- 重要决定：保留雷达核心数字和辅助信息的层级差异，不把系统状态文字放大到正文尺度；本轮只调整用户指出的系统概览面板，不改动其他紧凑标签。
+- 验证结果：`npm run verify` 全部通过；10/10 Skill 校验、4/4 组件测试、18 个静态页面/资源构建和桌面与 375px 移动端 10/10 浏览器测试均通过；已人工检查系统概览面板的桌面与 375px 截图，未发现溢出，手机端底部保障项可自然换行。
+- 未完成事项：本轮系统概览字号优化尚未提交 GitHub 或部署到腾讯云；ICP备案、域名解析、HTTPS 与正式生产验收仍待后续完成。
+- 明确下一步：由用户刷新本地预览确认视觉效果；确认后将本轮改动发布到 GitHub 并同步部署到腾讯云。
+
+## 2026-07-21 18:31 CST — Shuang’s MacBook Air
+
+- 本次目标：把每个 Skill 详情页“它会怎样工作”模块中的英文步骤改为适合中文市场用户阅读的中文流程。
+- 完成内容：为 10 个 `listing.yaml` 分别补充 3–6 条任务导向的中文执行步骤；详情页改为读取该字段，并将栏目识别码调整为“EXECUTION PROTOCOL / 执行流程”；构建期校验要求每个 Skill 提供含中文的流程元数据；补充组件测试夹具和详情页回归断言，同时修正安装命令测试对旧仓库占位符的依赖。
+- 涉及文件：`app/skills/[slug]/page.tsx`、`lib/skill-schema.ts`、`scripts/validate-skills.mjs`、`components/skill-explorer.test.tsx`、`e2e/site.spec.ts`、10 个 `skills/*/listing.yaml`、`PROJECT.md`、`WORKLOG.md`。
+- 重要决定：不翻译或改写安装后供 Agent 执行的 `SKILL.md` 标题；站点展示与 Agent 指令结构解耦，由 `listing.yaml` 维护面向用户的中文流程，避免 UI 文案受内部英文结构限制。
+- 验证结果：`npm run verify` 全部通过；10/10 Skill 校验、4/4 组件测试、18 个静态页面/资源构建和桌面与 375px 移动端 10/10 浏览器测试均通过；已人工检查 VOC 页 375px 五步流程和桌面六步复盘流程，中文长度未造成溢出或异常换行。
+- 未完成事项：本轮中文流程及上一轮系统概览字号优化尚未提交 GitHub 或部署到腾讯云；ICP备案、域名解析、HTTPS 与正式生产验收仍待后续完成。
+- 明确下一步：由用户刷新本地详情页确认中文流程；确认后将两轮本地改动一起发布到 GitHub，并同步部署到腾讯云。
+
+## 2026-07-21 19:00 CST — Shuang’s MacBook Air
+
+- 本次目标：在域名备案完成前补齐网站 SEO 与 GEO 技术基础，重点完善 TDK、规范 URL、社交分享和机器可读信息。
+- 完成内容：统一首页、技能库、安装指南和 10 个 Skill 详情页的页面级元数据；将详情页标题补充为明确的 AI Skill 搜索意图；为 13 个可索引页面添加自引用 canonical，并将筛选参数规范到技能库主 URL；统一 sitemap 与静态路径尾斜杠；新增 WebSite、CollectionPage、ItemList、HowTo、BreadcrumbList 和 SoftwareSourceCode JSON-LD；生成并检查 1200×630 OG/Twitter PNG；补充 Nginx 图片 MIME 配置、生产站点 URL 门禁、构建后 SEO 校验和浏览器回归测试。
+- 涉及文件：`app/layout.tsx`、`app/page.tsx`、`app/skills/page.tsx`、`app/skills/[slug]/page.tsx`、`app/install/page.tsx`、`app/sitemap.ts`、`app/opengraph-image.tsx`、`app/twitter-image.tsx`、`components/json-ld.tsx`、`lib/site-config.ts`、`lib/seo.ts`、`lib/social-image.tsx`、`scripts/validate-seo.mjs`、`deploy/nginx-market-skills.conf`、`e2e/site.spec.ts`、`package.json`、`PROJECT.md`、`WORKLOG.md`。
+- 重要决定：TDK 使用独立页面标题与描述，详情页标题采用“任务名 AI Skill - MARKET//SKILLS”；canonical、sitemap 和导出路径统一尾斜杠；结构化数据只描述页面真实展示内容；不添加 `llms.txt` 等非通用标记；当前继续允许所有爬虫，GPTBot 训练抓取权限留待正式开放前由用户确认。
+- 验证结果：`npm run verify` 全部通过；10/10 Skill 校验、4/4 组件测试、20 个静态页面/资源构建、13/13 页面 SEO 专项校验和桌面/375px 共 12/12 浏览器测试通过；当前本地导出为 177 个文件；OG 与 Twitter 图片均为 1200×630 PNG，人工检查未发现裁切或字体缺失。
+- 未完成事项：本轮 SEO/GEO、本地中文流程与首页字号改动尚未提交 GitHub 或部署腾讯云；ICP备案、域名解析、HTTPS、站长平台提交与线上抓取验证仍待后续完成；GPTBot 是否允许用于潜在训练尚未确定。
+- 明确下一步：用户确认本地版本后统一发布；备案通过前确认 GPTBot 策略，备案通过后完成域名、HTTPS、公网开放和生产验收，再向 Google、百度与 Bing 提交站点与 sitemap。
+
+## 2026-07-22 10:12 CST — Shuang’s MacBook Air
+
+- 本次目标：为首页系统概览的“10 MODULES READY”雷达区域增加更有存在感、但不干扰首屏阅读的动画效果。
+- 完成内容：保留原有旋转扫描扇面并调整节奏；新增圆环与核心数字的一次性启动聚焦、每六秒一次的纵向扫描光带，以及三个信号点的错峰脉冲；沿用全站减少动效规则；新增关键动画名称的浏览器回归断言。
+- 涉及文件：`app/globals.css`、`e2e/site.spec.ts`、`PROJECT.md`、`WORKLOG.md`。
+- 重要决定：采用纯 CSS 实现，不增加客户端脚本；核心数字只在启动时强调，持续动画集中在扫描与信号点，避免与左侧主标题争夺注意力。
+- 验证结果：`npm run verify` 全部通过；10/10 Skill 校验、4/4 组件测试、20 个静态页面/资源构建、13/13 页面 SEO 专项校验和桌面/375px 共 12/12 浏览器测试通过；实际预览确认核心启动、扫描光带和信号点动画生效且无横向溢出。
+- 未完成事项：本轮雷达动画及此前本地改动尚未提交 GitHub 或部署腾讯云；ICP备案、域名解析、HTTPS、正式公网开放与 GPTBot 策略仍待后续处理。
+- 明确下一步：由用户在当前预览中确认动效强度；确认后统一提交并发布当前本地版本。
+
+## 2026-07-22 11:43 CST — Shuang’s MacBook Air
+
+- 本次目标：在等待 ICP 备案期间规划 MARKET//SKILLS 后续版本，形成不依赖域名开放也能推进的执行路线。
+- 完成内容：核对当前页面、10 个 Skill、测试、部署状态和本地未发布改动；新增 `ROADMAP.md`，将后续拆为上线闭环、可信度与反馈、工作路径与需求驱动扩展、有限贡献试点四个门槛式版本；定义发现、安装意向、使用质量和需求信号四类观察指标；同步记录腾讯云审核已通过、域名实名未满 3 天待再次提交管局的最新状态。
+- 涉及文件：`ROADMAP.md`、`PROJECT.md`、`WORKLOG.md`。
+- 重要决定：ICP 只阻塞域名正式公网开放，不阻塞 GitHub 发布、CI、内容与上线预案；先建立上线和反馈闭环，再根据真实数据扩 Skill；扩目录前必须解除校验器对 10 个 Skill 和固定 `Version 1.0.0` 的写死约束；账号、社区、付费、CMS 和服务端数据库继续暂缓。
+- 验证结果：已逐项对照当前仓库实现与未完成事项；路线图为每个版本设置了范围、完成门槛和明确暂缓项；本轮仅修改项目文档，未改动功能代码或既有未提交成果。
+- 未完成事项：当前 Launch Candidate 尚未提交 GitHub 或重新部署；CI、发布版本约定、反馈入口、上线运行手册和 3 个代表性案例尚待实现；备案仍待提交管局、短信核验和管局审核。
+- 明确下一步：先确认并发布当前 Launch Candidate，然后从 `site-v1.0.0` 的 CI 与上线运行手册开始实施，备案流程按腾讯云通知并行处理。
+
 <!-- WORKLOG_APPEND_POINT_DO_NOT_REMOVE -->

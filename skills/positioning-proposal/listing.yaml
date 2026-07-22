@@ -8,6 +8,7 @@ roles: [产品市场, 品牌, 市场策略, 创始团队]
 tasks: [产品定位, 价值主张, 品类定义, 定位评审]
 inputs: [产品资料, 用户洞察, 竞品信息, 商业目标]
 outputs: [定位陈述, 备选路线, 信息层级, 验证计划]
+protocol_steps: [建立证据基础, 做出关键策略选择, 生成并比较定位路线, 组织最终交付, 守住定位边界]
 compatibility: [Codex, Claude Code, Cursor, OpenCode]
 dependencies: [无强制外部依赖]
 version: 1.0.0
@@ -15,4 +16,3 @@ updated_at: 2026-07-21
 featured: true
 order: 3
 example_prompt: 基于这份产品资料、VOC 和竞品报告，给出不超过三条定位路线并推荐一条。
-

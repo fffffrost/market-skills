@@ -8,6 +8,7 @@ roles: [产品市场, 公关, 内容, 品牌]
 tasks: [产品官宣, 发布文章, 转发文案, 稿件审校]
 inputs: [产品资料, 事实口径, 现有草稿, 参考文章]
 outputs: [发布长文, 开篇段落, 转发语, 编辑说明]
+protocol_steps: [确立信息来源优先级, 明确本次交付形式, 搭建发布叙事, 检查表达边界, 按发布顺序交付]
 compatibility: [Codex, Claude Code, Cursor, OpenCode]
 dependencies: [无强制外部依赖]
 version: 1.0.0
@@ -15,4 +16,3 @@ updated_at: 2026-07-21
 featured: true
 order: 5
 example_prompt: 基于产品资料和现有草稿，改成一篇稳健的 B2B 产品官宣文章，并标出待确认事实。
-

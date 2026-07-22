@@ -8,6 +8,7 @@ roles: [整合营销, 品牌, 产品市场, 市场负责人]
 tasks: [Campaign Brief, 上市推广, 传播战役, 渠道协同]
 inputs: [商业目标, 受众洞察, 产品信息, 预算与时间]
 outputs: [核心 Brief, 渠道角色, 交付清单, 衡量框架]
+protocol_steps: [诊断任务与约束, 搭建整合营销逻辑, 按团队使用顺序交付, 通过评审关卡]
 compatibility: [Codex, Claude Code, Cursor, OpenCode]
 dependencies: [无强制外部依赖]
 version: 1.0.0
@@ -15,4 +16,3 @@ updated_at: 2026-07-21
 featured: true
 order: 4
 example_prompt: 为这次新品上市建立一份整合营销 Brief，预算 50 万，目标是获得 3000 个有效试用。
-

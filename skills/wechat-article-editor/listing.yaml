@@ -8,6 +8,7 @@ roles: [内容, 公关, 品牌, 产品市场]
 tasks: [长文审稿, 结构优化, 标题摘要, 发布校对]
 inputs: [文章草稿, 事实资料, 目标读者, 账号语气]
 outputs: [修订正文, 标题摘要, 修改说明, 待确认事项]
+protocol_steps: [确认本次编辑模式, 分层诊断并重写, 按发布顺序交付, 守住事实与作者声音]
 compatibility: [Codex, Claude Code, Cursor, OpenCode]
 dependencies: [宿主需能读取用户提供的文稿]
 version: 1.0.0
@@ -15,4 +16,3 @@ updated_at: 2026-07-21
 featured: true
 order: 6
 example_prompt: 审校这篇公众号长文，重点解决开头绕、结构重复和结论不够稳的问题，不要改变事实口径。
-

@@ -1,7 +1,8 @@
 import Link from "next/link";
+import { JsonLd } from "@/components/json-ld";
 import { InstallCommand } from "@/components/install-command";
 import { SkillCard } from "@/components/skill-card";
-import { getInstallCommand } from "@/lib/site-config";
+import { absoluteUrl, getInstallCommand, siteConfig } from "@/lib/site-config";
 import { getSkills } from "@/lib/skills";
 
 const phaseMeta = [
@@ -12,11 +13,24 @@ const phaseMeta = [
   { key: "review", no: "05", label: "复盘", verb: "把经验变成资产", code: "LEARN" },
 ] as const;
 
+const homeJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": absoluteUrl("/#website"),
+  url: absoluteUrl("/"),
+  name: siteConfig.name,
+  alternateName: "市场人的 AI Skill Hub",
+  description: siteConfig.description,
+  inLanguage: "zh-CN",
+  sameAs: [siteConfig.githubUrl],
+};
+
 export default function HomePage() {
   const skills = getSkills();
 
   return (
     <>
+      <JsonLd data={homeJsonLd} />
       <section className="hero shell">
         <div className="hero-copy reveal reveal-1">
           <div className="eyebrow"><span>READY</span> / 中文市场任务库 · v1.0</div>

@@ -13,6 +13,7 @@ export const skillListingSchema = z.object({
   tasks: z.array(z.string().min(1)).min(1),
   inputs: z.array(z.string().min(1)).min(1),
   outputs: z.array(z.string().min(1)).min(1),
+  protocol_steps: z.array(z.string().min(2)).min(3).max(6),
   compatibility: z.array(z.string().min(1)).min(1),
   dependencies: z.array(z.string().min(1)).min(1),
   version: z.string().regex(/^\d+\.\d+\.\d+$/),
@@ -24,4 +25,3 @@ export const skillListingSchema = z.object({
 
 export type SkillListing = z.infer<typeof skillListingSchema>;
 export type SkillPhase = (typeof phases)[number];
-

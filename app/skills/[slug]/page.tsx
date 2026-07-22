@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { JsonLd } from "@/components/json-ld";
 import { InstallCommand } from "@/components/install-command";
-import { getInstallCommand, siteConfig } from "@/lib/site-config";
+import { createPageMetadata } from "@/lib/seo";
+import { absoluteUrl, getInstallCommand, siteConfig } from "@/lib/site-config";
 import { getSkill, getSkills } from "@/lib/skills";
 
 type SkillPageProps = { params: Promise<{ slug: string }> };
@@ -15,22 +17,66 @@ export async function generateMetadata({ params }: SkillPageProps): Promise<Meta
   const { slug } = await params;
   const skill = getSkill(slug);
   if (!skill) return {};
-  return {
-    title: skill.title,
+  return createPageMetadata({
+    title: skill.title + " AI Skill",
     description: skill.summary,
-    openGraph: { title: `${skill.title} // MARKET//SKILLS`, description: skill.summary },
-  };
+    path: "/skills/" + skill.slug + "/",
+    keywords: [skill.english_name, ...skill.tasks, ...skill.roles],
+  });
 }
 
 export default async function SkillDetailPage({ params }: SkillPageProps) {
   const { slug } = await params;
   const skill = getSkill(slug);
   if (!skill) notFound();
-
-  const sections = [...skill.body.matchAll(/^## (.+)$/gm)].map((match) => match[1]);
+  const skillPath = "/skills/" + skill.slug + "/";
+  const skillUrl = absoluteUrl(skillPath);
+  const skillJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": absoluteUrl(skillPath + "#webpage"),
+        url: skillUrl,
+        name: skill.title + " AI Skill",
+        description: skill.summary,
+        inLanguage: "zh-CN",
+        isPartOf: { "@id": absoluteUrl("/#website") },
+        mainEntity: { "@id": absoluteUrl(skillPath + "#skill") },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "首页", item: absoluteUrl("/") },
+          { "@type": "ListItem", position: 2, name: "技能库", item: absoluteUrl("/skills/") },
+          { "@type": "ListItem", position: 3, name: skill.title, item: skillUrl },
+        ],
+      },
+      {
+        "@type": "SoftwareSourceCode",
+        "@id": absoluteUrl(skillPath + "#skill"),
+        name: skill.title,
+        alternateName: skill.english_name,
+        description: skill.summary,
+        url: skillUrl,
+        ...(siteConfig.isRepoConfigured
+          ? { codeRepository: siteConfig.githubUrl + "/tree/main/skills/" + skill.slug }
+          : {}),
+        version: skill.version,
+        dateModified: skill.updated_at,
+        license: "https://opensource.org/license/mit",
+        inLanguage: "zh-CN",
+        programmingLanguage: ["Markdown", "YAML"],
+        runtimePlatform: skill.compatibility,
+        keywords: skill.tasks,
+        isAccessibleForFree: true,
+      },
+    ],
+  };
 
   return (
     <article className={`skill-detail phase-${skill.phase}`}>
+      <JsonLd data={skillJsonLd} />
       <div className="shell">
         <nav className="breadcrumbs" aria-label="面包屑">
           <Link href="/skills">技能库</Link><span>/</span><span>{skill.slug}</span>
@@ -77,11 +123,11 @@ export default async function SkillDetailPage({ params }: SkillPageProps) {
 
         <div className="detail-lower-grid">
           <section className="protocol-panel">
-            <span className="panel-kicker">EXECUTION PROTOCOL</span>
+            <span className="panel-kicker">EXECUTION PROTOCOL / 执行流程</span>
             <h2>它会怎样工作</h2>
             <ol>
-              {sections.filter((section) => !section.toLowerCase().includes("compatibility")).slice(0, 6).map((section, index) => (
-                <li key={section}><span>{String(index + 1).padStart(2, "0")}</span>{section}</li>
+              {skill.protocol_steps.map((step, index) => (
+                <li key={step}><span>{String(index + 1).padStart(2, "0")}</span>{step}</li>
               ))}
             </ol>
           </section>
@@ -124,4 +170,3 @@ export default async function SkillDetailPage({ params }: SkillPageProps) {
     </article>
   );
 }
-

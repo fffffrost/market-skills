@@ -9,6 +9,7 @@ vi.mock("next/navigation", () => ({
 }));
 
 const base: Omit<SkillListing, "slug" | "title" | "english_name" | "summary" | "phase" | "phase_label" | "roles" | "tasks" | "inputs" | "outputs" | "order" | "example_prompt"> = {
+  protocol_steps: ["准备材料", "执行分析", "整理交付"],
   compatibility: ["Codex"],
   dependencies: ["无"],
   version: "1.0.0",
@@ -73,4 +74,3 @@ describe("SkillExplorer", () => {
     expect(within(empty as HTMLElement).getByRole("button", { name: "重置检索" })).toBeInTheDocument();
   });
 });
-
