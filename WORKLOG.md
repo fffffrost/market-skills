@@ -152,4 +152,15 @@
 - 未完成事项：当前 Launch Candidate 尚未提交 GitHub 或重新部署；CI、发布版本约定、反馈入口、上线运行手册和 3 个代表性案例尚待实现；备案仍待提交管局、短信核验和管局审核。
 - 明确下一步：先确认并发布当前 Launch Candidate，然后从 `site-v1.0.0` 的 CI 与上线运行手册开始实施，备案流程按腾讯云通知并行处理。
 
+## 2026-07-22 13:17 CST — Shuang’s MacBook Air
+
+- 本次目标：启动 `site-v1.0.0` 上线闭环，将当前 Launch Candidate 发布到 GitHub 与腾讯云，并建立可重复的 CLI 发布流程、CI 和运行手册。
+- 完成内容：将中文执行流程、SEO/GEO、分享图、首页视觉和路线文档提交并推送；新增 GitHub Actions CI；新增本地 `npm run deploy:tencent` 与远端 release 激活脚本；发布流程改为生产构建后通过 SSH 和 `rsync` 上传，排除 macOS 元数据，校验文件数与首页哈希，切换 Nginx `current` 软链接并执行冒烟检查；新增发布、检查、回滚和备案后正式开放运行手册；提交 `28519a1` 最终部署为 release `20260722131625-28519a1`。
+- 涉及文件：`.github/workflows/ci.yml`、`README.md`、`package.json`、`scripts/deploy-tencent.sh`、`deploy/activate-release.sh`、`deploy/nginx-market-skills.conf`、`deploy/RUNBOOK.md`、`PROJECT.md`、`ROADMAP.md`、`WORKLOG.md`，以及提交 `84213a4` 中的 Launch Candidate 文件。
+- 重要决定：腾讯云 `tccli` 和 TAT 用于云资源管理或远程命令，静态构建产物固定使用 SSH 与 `rsync` 发布；Nginx 只指向可原子替换的 `current` 软链接；旧 release 不自动删除；网站使用 `site-vX.Y.Z` 标签，Skill 版本独立；正式 `site-v1.0.0` 标签等备案和域名验收完成后再创建。
+- 验证结果：`npm run verify` 全部通过，含 10/10 Skill、4/4 组件测试、20 个静态页面/资源、13/13 SEO 页面和桌面/移动端 12/12 浏览器测试；部署脚本通过 Bash 语法、参数预检和实际端到端发布；远端 active release 共 177 个文件且无 `.DS_Store` 或 `._*`；Nginx 配置、服务状态和服务器本机冒烟检查通过；受限公网首页、目录、详情页、安装页、robots、sitemap 均为 200，未知页面为 404，分享图为 `image/png`，公网首页 SHA-256 与本地一致。
+- 异常与处理：最初的临时 `tar` 切换命令携带了 macOS 扩展属性文件且回滚逻辑不可靠，导致服务器本机短暂返回 404；发现后立即恢复旧站点到 200。改用版本化 `rsync` 脚本后，前两次激活因 Nginx reload 后旧 worker 短暂响应而触发安全回滚；最终改为轮询线上首页哈希直到命中本次构建，再执行其他检查，随后发布成功。失败 release 保留但未激活，生产当前链接只指向已验证 release。
+- 未完成事项：三类反馈 Issue 模板与站内入口、3 个代表性案例、基础外部监控、GPTBot 策略、备案提交管局、短信核验、域名解析、HTTPS、站长平台提交和正式 `site-v1.0.0` 标签仍待后续完成。
+- 明确下一步：实现三类 GitHub Issue 模板和全站反馈入口，再准备 3 个代表性 Skill 的合成案例；备案流程按腾讯云通知并行处理。
+
 <!-- WORKLOG_APPEND_POINT_DO_NOT_REMOVE -->
