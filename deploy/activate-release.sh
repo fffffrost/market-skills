@@ -89,14 +89,15 @@ restore_previous_release() {
 }
 
 verify_site() {
-  [ "$(curl -sS -o /dev/null -w '%{http_code}' -H 'Host: mktskill.com' http://127.0.0.1/)" = 200 ] || return 1
+  local served_hash
+  served_hash=$(curl -fsS -H 'Host: mktskill.com' http://127.0.0.1/ 2>/dev/null | sha256sum | awk '{print $1}') || return 1
+  [ "$served_hash" = "$expected_hash" ] || return 1
   [ "$(curl -sS -o /dev/null -w '%{http_code}' -H 'Host: mktskill.com' http://127.0.0.1/skills/research-competitors/)" = 200 ] || return 1
   [ "$(curl -sS -o /dev/null -w '%{http_code}' -H 'Host: mktskill.com' http://127.0.0.1/install/)" = 200 ] || return 1
   [ "$(curl -sS -o /dev/null -w '%{http_code}' -H 'Host: mktskill.com' http://127.0.0.1/robots.txt)" = 200 ] || return 1
   [ "$(curl -sS -o /dev/null -w '%{http_code}' -H 'Host: mktskill.com' http://127.0.0.1/does-not-exist)" = 404 ] || return 1
-  curl -fsSI -H 'Host: mktskill.com' http://127.0.0.1/opengraph-image | tr -d '\r' | grep -qi '^Content-Type: image/png' || return 1
-  curl -fsS -H 'Host: mktskill.com' http://127.0.0.1/ | grep -q '为市场人量身打造的 AI Skill Hub' || return 1
-  curl -fsS -H 'Host: mktskill.com' http://127.0.0.1/skills/research-competitors/ | grep -q 'EXECUTION PROTOCOL / 执行流程' || return 1
+  curl -fsSI -H 'Host: mktskill.com' http://127.0.0.1/opengraph-image 2>/dev/null | tr -d '\r' | grep -qi '^Content-Type: image/png' || return 1
+  curl -fsS -H 'Host: mktskill.com' http://127.0.0.1/skills/research-competitors/ 2>/dev/null | grep -q 'EXECUTION PROTOCOL / 执行流程' || return 1
 }
 
 cp -a "$nginx_config" "$config_backup"
@@ -127,7 +128,16 @@ if ! systemctl reload nginx; then
   exit 1
 fi
 
-if ! verify_site; then
+verified=0
+for ((attempt = 1; attempt <= 20; attempt += 1)); do
+  if verify_site; then
+    verified=1
+    break
+  fi
+  sleep 0.25
+done
+
+if [ "$verified" -ne 1 ]; then
   restore_previous_release
   echo "Remote smoke tests failed; restored the previous release." >&2
   exit 1

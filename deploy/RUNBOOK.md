@@ -31,7 +31,7 @@ npm run deploy:tencent
 3. 用 `rsync` 将 `out/` 同步到独立的 release 目录，并排除 `.DS_Store` 与 `._*`。
 4. 对比文件数和首页 SHA-256。
 5. 校验 Nginx 配置后切换 `/var/www/market-skills-current` 软链接。
-6. 重载 Nginx并检查首页、详情页、安装页、robots、404、分享图 MIME 和关键文案。
+6. 重载 Nginx，轮询到首页响应哈希与本次构建一致后，再检查详情页、安装页、robots、404、分享图 MIME 和关键文案。
 7. 任一激活或冒烟检查失败时恢复上一个软链接和 Nginx 配置。
 
 发布成功后会输出 release ID、文件数、首页哈希和 Nginx 状态。旧 release 不会自动删除。
