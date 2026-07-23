@@ -1,7 +1,9 @@
 import Link from "next/link";
+import { CaseCard } from "@/components/case-card";
 import { JsonLd } from "@/components/json-ld";
 import { InstallCommand } from "@/components/install-command";
 import { SkillCard } from "@/components/skill-card";
+import { getCases } from "@/lib/cases";
 import { absoluteUrl, getInstallCommand, siteConfig } from "@/lib/site-config";
 import { getSkills } from "@/lib/skills";
 
@@ -27,6 +29,7 @@ const homeJsonLd = {
 
 export default function HomePage() {
   const skills = getSkills();
+  const cases = getCases();
 
   return (
     <>
@@ -125,9 +128,25 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="case-featured-section shell" aria-labelledby="cases-featured-title">
+        <div className="section-heading">
+          <div>
+            <span className="section-code orange">03 / FIELD REPORTS</span>
+            <h2 id="cases-featured-title">方法怎么用，<br />要看一次完整工作。</h2>
+          </div>
+          <div className="case-featured-intro">
+            <p>从输入、执行到人工判断点，查看 Skill 怎样进入具体任务。</p>
+            <Link className="text-link" href="/cases">打开案例库 →</Link>
+          </div>
+        </div>
+        <div className="home-case-grid">
+          {cases.map((caseStudy) => <CaseCard caseStudy={caseStudy} key={caseStudy.slug} />)}
+        </div>
+      </section>
+
       <section className="principles-section shell" id="principles" aria-labelledby="principles-title">
         <div className="principles-copy">
-          <span className="section-code">03 / QUALITY PROTOCOL</span>
+          <span className="section-code">04 / QUALITY PROTOCOL</span>
           <h2 id="principles-title">不是写得长，<br />而是做得稳。</h2>
           <p>每个 Skill 都把营销工作的判断标准、输入边界和交付结构写进 Agent 的工作方式里。</p>
         </div>
@@ -141,7 +160,7 @@ export default function HomePage() {
 
       <section className="install-cta shell">
         <div className="cta-copy">
-          <span className="section-code orange">04 / INITIALIZE</span>
+          <span className="section-code orange">05 / INITIALIZE</span>
           <h2>一次安装，<br />补齐整个市场工作链。</h2>
           <p>也可以只选择当前需要的单个 Skill。支持 Codex、Claude Code、Cursor 与其他兼容 Agent Skills 的工具。</p>
           <Link className="primary-link" href="/install">查看安装说明 ↗</Link>

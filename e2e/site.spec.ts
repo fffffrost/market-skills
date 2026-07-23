@@ -6,6 +6,7 @@ test("home exposes the complete workflow and install path", async ({ page }) => 
   await expect(page.getByText(/为市场人量身打造的 AI Skill Hub/)).toBeVisible();
   await expect(page.getByText("10", { exact: true })).toBeVisible();
   await expect(page.getByRole("link", { name: "竞品研究" })).toBeVisible();
+  await expect(page.getByRole("link", { name: /先划清竞品边界/ })).toBeVisible();
   await expect(page.getByText(/npx skills add [\w-]+\/market-skills/).first()).toBeVisible();
 });
 
@@ -27,12 +28,30 @@ test("skill detail contains inputs, outputs and an install command", async ({ pa
   await expect(page.getByText("EXECUTION PROTOCOL / 执行流程")).toBeVisible();
   await expect(page.locator(".protocol-panel li").first()).toContainText("确定研究深度");
   await expect(page.getByText(/--skill research-competitors/)).toBeVisible();
+  await expect(page.getByRole("link", { name: /先划清竞品边界/ })).toBeVisible();
+});
+
+test("case library shows a reproducible synthetic work trace", async ({ page }) => {
+  await page.goto("/cases");
+  await expect(page.getByRole("heading", { name: /看 Skill 怎样/ })).toBeVisible();
+  await expect(page.getByText(/首批案例均使用虚构场景与合成数据/)).toBeVisible();
+  await expect(page.getByRole("link", { name: /先划清竞品边界/ })).toBeVisible();
+
+  await page.goto("/cases/map-competitors-before-comparing");
+  await expect(page.getByRole("heading", { name: "先划清竞品边界，再做对比" })).toBeVisible();
+  await expect(page.getByText("DATA DISCLOSURE")).toBeVisible();
+  await expect(page.getByText("真正要回答的问题")).toBeVisible();
+  await expect(page.locator(".case-process li")).toHaveCount(4);
+  await expect(page.locator(".case-artifact-grid article")).toHaveCount(4);
+  await expect(page.getByRole("link", { name: /查看 Skill 详情/ })).toBeVisible();
 });
 
 test("mobile layout does not create horizontal page overflow", async ({ page }) => {
-  await page.goto("/");
-  const sizes = await page.evaluate(() => ({ width: window.innerWidth, scroll: document.documentElement.scrollWidth }));
-  expect(sizes.scroll).toBeLessThanOrEqual(sizes.width + 1);
+  for (const route of ["/", "/cases", "/cases/map-competitors-before-comparing"]) {
+    await page.goto(route);
+    const sizes = await page.evaluate(() => ({ width: window.innerWidth, scroll: document.documentElement.scrollWidth }));
+    expect(sizes.scroll, route).toBeLessThanOrEqual(sizes.width + 1);
+  }
 });
 
 test("primary body copy keeps a readable type size", async ({ page }) => {
@@ -88,4 +107,19 @@ test("SEO metadata is page-specific and machine-readable", async ({ page, reques
   expect(await sitemap.text()).toContain(canonical!);
   const robots = await request.get("/robots.txt");
   expect(await robots.text()).toContain("User-Agent: *");
+
+  await page.goto("/cases/map-competitors-before-comparing");
+  const caseCanonical = await page.locator('link[rel="canonical"]').getAttribute("href");
+  expect(caseCanonical).not.toBeNull();
+  expect(new URL(caseCanonical!).pathname).toBe("/cases/map-competitors-before-comparing/");
+  await expect(page).toHaveTitle("先划清竞品边界，再做对比｜AI Skill 案例 - MARKET//SKILLS");
+  await expect(page.locator('meta[property="og:type"]')).toHaveAttribute("content", "article");
+
+  const caseJsonLd = await page.locator('script[type="application/ld+json"]').allTextContents();
+  const caseStructuredData = JSON.parse(caseJsonLd[0]) as { "@graph": Array<{ "@type": string }> };
+  expect(caseStructuredData["@graph"].map((item) => item["@type"])).toEqual([
+    "Article",
+    "BreadcrumbList",
+  ]);
+  expect(await sitemap.text()).toContain(caseCanonical!);
 });

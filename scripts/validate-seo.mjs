@@ -5,10 +5,6 @@ const outRoot = path.join(process.cwd(), "out");
 const sitemap = fs.readFileSync(path.join(outRoot, "sitemap.xml"), "utf8");
 const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
 
-if (sitemapUrls.length !== 13) {
-  throw new Error("sitemap.xml 应包含 13 个页面，实际为 " + sitemapUrls.length);
-}
-
 const siteOrigin = new URL(sitemapUrls[0]).origin;
 const skillFiles = fs
   .readdirSync(path.join(outRoot, "skills"), { withFileTypes: true })
@@ -17,13 +13,28 @@ const skillFiles = fs
     file: path.join(outRoot, "skills", entry.name, "index.html"),
     route: "/skills/" + entry.name + "/",
   }));
+const caseFiles = fs
+  .readdirSync(path.join(outRoot, "cases"), { withFileTypes: true })
+  .filter((entry) => entry.isDirectory())
+  .map((entry) => ({
+    file: path.join(outRoot, "cases", entry.name, "index.html"),
+    route: "/cases/" + entry.name + "/",
+  }));
 
 const pages = [
   { file: path.join(outRoot, "index.html"), route: "/" },
   { file: path.join(outRoot, "skills", "index.html"), route: "/skills/" },
+  { file: path.join(outRoot, "cases", "index.html"), route: "/cases/" },
   { file: path.join(outRoot, "install", "index.html"), route: "/install/" },
   ...skillFiles,
+  ...caseFiles,
 ];
+
+if (sitemapUrls.length !== pages.length) {
+  throw new Error(
+    "sitemap.xml 页面数应与静态内容一致，预期 " + pages.length + "，实际为 " + sitemapUrls.length,
+  );
+}
 
 const titles = new Set();
 const descriptions = new Set();
@@ -37,6 +48,9 @@ function readTag(html, pattern, label, route) {
 for (const page of pages) {
   const html = fs.readFileSync(page.file, "utf8");
   const canonical = siteOrigin + page.route;
+  if (!sitemapUrls.includes(canonical)) {
+    throw new Error("sitemap.xml 缺少页面：" + canonical);
+  }
   const title = readTag(html, /<title>([^<]+)<\/title>/, "title", page.route);
   const description = readTag(
     html,

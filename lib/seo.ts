@@ -7,6 +7,10 @@ type PageMetadataOptions = {
   path: string;
   keywords?: string[];
   includeImages?: boolean;
+  article?: {
+    publishedTime: string;
+    modifiedTime?: string;
+  };
 };
 
 export function createPageMetadata({
@@ -15,6 +19,7 @@ export function createPageMetadata({
   path,
   keywords = [],
   includeImages = true,
+  article,
 }: PageMetadataOptions): Metadata {
   const socialTitle = title ? title + " - " + siteConfig.name : siteConfig.title;
   const canonical = absoluteUrl(path);
@@ -29,7 +34,13 @@ export function createPageMetadata({
       title: socialTitle,
       description,
       url: canonical,
-      type: "website",
+      ...(article
+        ? {
+            type: "article" as const,
+            publishedTime: article.publishedTime,
+            modifiedTime: article.modifiedTime ?? article.publishedTime,
+          }
+        : { type: "website" as const }),
       locale: "zh_CN",
       siteName: siteConfig.name,
       ...(includeImages

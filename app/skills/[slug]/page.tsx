@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/json-ld";
 import { InstallCommand } from "@/components/install-command";
+import { getCasesForSkill } from "@/lib/cases";
 import { createPageMetadata } from "@/lib/seo";
 import { absoluteUrl, getInstallCommand, siteConfig } from "@/lib/site-config";
 import { getSkill, getSkills } from "@/lib/skills";
@@ -31,6 +32,7 @@ export default async function SkillDetailPage({ params }: SkillPageProps) {
   if (!skill) notFound();
   const skillPath = "/skills/" + skill.slug + "/";
   const skillUrl = absoluteUrl(skillPath);
+  const relatedCases = getCasesForSkill(skill.slug);
   const skillJsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -145,6 +147,25 @@ export default async function SkillDetailPage({ params }: SkillPageProps) {
             </div>
           </aside>
         </div>
+
+        {relatedCases.length > 0 && (
+          <section className="skill-cases-panel">
+            <div>
+              <span className="panel-kicker">FIELD REPORT / 使用案例</span>
+              <h2>看它怎样进入一次完整工作。</h2>
+              <p>案例保留了任务背景、起始材料、执行轨迹、输出节选和必须由人完成的判断。</p>
+            </div>
+            <div className="skill-case-links">
+              {relatedCases.map((caseStudy) => (
+                <Link href={`/cases/${caseStudy.slug}`} key={caseStudy.slug}>
+                  <span>CASE.{String(caseStudy.order).padStart(2, "0")} / 合成演示</span>
+                  <strong>{caseStudy.title}</strong>
+                  <em>OPEN REPORT ↗</em>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
 
         <section className="files-panel">
           <div>

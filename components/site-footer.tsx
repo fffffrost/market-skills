@@ -13,6 +13,7 @@ export function SiteFooter() {
         </div>
         <div className="footer-links">
           <Link href="/skills">全部 Skill</Link>
+          <Link href="/cases">实战案例</Link>
           <Link href="/install">安装指南</Link>
           {siteConfig.isRepoConfigured ? (
             <a href={siteConfig.githubUrl} target="_blank" rel="noreferrer">GitHub ↗</a>

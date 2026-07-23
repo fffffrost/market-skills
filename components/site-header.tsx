@@ -2,6 +2,7 @@ import Link from "next/link";
 
 const navigation = [
   { href: "/skills", label: "技能库" },
+  { href: "/cases", label: "案例" },
   { href: "/install", label: "安装" },
   { href: "/#principles", label: "标准" },
 ];

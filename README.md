@@ -1,6 +1,6 @@
 # MARKET//SKILLS
 
-面向中文市场从业者的开源 AI Agent Skill Hub。10 个首发 Skill 覆盖洞察、策略、内容、执行与复盘，并按 Open Agent Skills 目录格式发布。
+面向中文市场从业者的开源 AI Agent Skill Hub。10 个首发 Skill 覆盖洞察、策略、内容、执行与复盘，并按 Open Agent Skills 目录格式发布；3 篇合成案例展示 Skill 如何进入具体工作。
 
 ## 本地运行
 
