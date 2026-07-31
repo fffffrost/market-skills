@@ -8,6 +8,10 @@ test("home exposes the complete workflow and install path", async ({ page }) => 
   await expect(page.getByRole("link", { name: "竞品研究" })).toBeVisible();
   await expect(page.getByRole("link", { name: /先划清竞品边界/ })).toBeVisible();
   await expect(page.getByText(/npx skills add [\w-]+\/market-skills/).first()).toBeVisible();
+  await expect(page.getByRole("link", { name: "赣ICP备2026013493号-2" })).toHaveAttribute(
+    "href",
+    "https://beian.miit.gov.cn/",
+  );
 });
 
 test("query links filter the static skill directory", async ({ page }) => {

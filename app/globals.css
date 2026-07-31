@@ -1031,6 +1031,13 @@ select {
 .footer-links { display: flex; flex-direction: column; gap: 10px; color: var(--muted); font-size: 14px; }
 .footer-links a:hover { color: var(--acid); }
 .footer-meta { display: flex; flex-direction: column; gap: 9px; text-align: right; color: var(--dim); font: 500 8px/1 var(--mono); }
+.footer-compliance {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+.footer-compliance a:hover { color: var(--acid); }
 
 .page-shell,
 .install-page {
@@ -2124,6 +2131,7 @@ select {
   .copy-button { grid-column: 1 / -1; min-height: 46px; border-left: 0; border-top: 1px solid var(--line-bright); }
   .footer-grid { grid-template-columns: 1fr; gap: 28px; }
   .footer-meta { grid-column: 1; text-align: left; }
+  .footer-compliance { grid-column: 1; text-align: left; }
   .page-shell, .install-page { padding-top: 58px; }
   .library-header, .install-header { margin-bottom: 46px; }
   .library-header h1, .install-header h1 { font-size: 52px; }

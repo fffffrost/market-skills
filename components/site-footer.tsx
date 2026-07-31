@@ -25,6 +25,11 @@ export function SiteFooter() {
           <span>MIT LICENSE</span>
           <span>ZH-CN / 2026</span>
         </div>
+        <div className="footer-compliance">
+          <a href="https://beian.miit.gov.cn/" target="_blank" rel="noreferrer">
+            赣ICP备2026013493号-2
+          </a>
+        </div>
       </div>
     </footer>
   );
