@@ -184,6 +184,8 @@ test("SEO metadata is page-specific and machine-readable", async ({ page, reques
   expect(await bingVerification.text()).toBe(
     '<?xml version="1.0"?>\n<users>\n\t<user>E2EB048BA176209B1D8604CB20F6EACF</user>\n</users>\n',
   );
+  const baiduVerification = await request.get("/baidu_verify_codeva-3lLXIjjpkx.html");
+  expect(await baiduVerification.text()).toBe("a09948960d30b88f6c8543f28e1345c3\n");
 
   await page.goto("/cases/map-competitors-before-comparing");
   const caseCanonical = await page.locator('link[rel="canonical"]').getAttribute("href");
