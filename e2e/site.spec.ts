@@ -2,7 +2,7 @@ import { expect, test } from "@playwright/test";
 
 test("home exposes the complete workflow and install path", async ({ page }) => {
   await page.goto("/");
-  await expect(page.getByRole("heading", { name: /进入中国市场/ })).toBeVisible();
+  await expect(page.getByRole("heading", { name: /中国市场.*不是翻译题/ })).toBeVisible();
   await expect(page.getByText(/为进入和深耕中国市场的团队打造/)).toBeVisible();
   await expect(page.getByText("10", { exact: true })).toBeVisible();
   await expect(page.getByRole("link", { name: /中国市场竞品地图/ }).first()).toBeVisible();
@@ -56,7 +56,7 @@ test("install help and feedback paths are reachable within two clicks", async ({
   await page.goto("/");
   await page.getByRole("link", { name: "反馈与隐私" }).click();
   await expect(page).toHaveURL(/\/feedback\/$/);
-  await expect(page.getByRole("heading", { name: /让真实问题变成/ })).toBeVisible();
+  await expect(page.getByRole("heading", { name: /把真实问题.*变成下一次改进/ })).toBeVisible();
   await expect(page.getByRole("link", { name: /报告安装问题/ })).toHaveAttribute("href", /install-failure\.yml/);
   await expect(page.getByRole("link", { name: /报告 Skill 问题/ })).toHaveAttribute("href", /skill-problem\.yml/);
   await expect(page.getByRole("link", { name: /提交需求信号/ })).toHaveAttribute("href", /skill-request\.yml/);
@@ -73,7 +73,7 @@ test("copying an install command records a fixed intent event", async ({ page })
 
 test("case library shows a reproducible synthetic work trace", async ({ page }) => {
   await page.goto("/cases");
-  await expect(page.getByRole("heading", { name: /看 Skill 怎样/ })).toBeVisible();
+  await expect(page.getByRole("heading", { name: /Skill 怎样工作.*看一次完整案例/ })).toBeVisible();
   await expect(page.getByText(/首批案例均使用虚构场景与合成数据/)).toBeVisible();
   await expect(page.getByRole("link", { name: /先划清竞品边界/ })).toBeVisible();
 
@@ -87,15 +87,21 @@ test("case library shows a reproducible synthetic work trace", async ({ page }) 
 });
 
 test("Chinese and English layouts do not create horizontal page overflow", async ({ page }) => {
-  for (const route of ["/", "/skills/research-competitors", "/cases", "/install", "/feedback", "/en", "/en/skills/research-competitors", "/en/cases", "/en/install", "/en/feedback"]) {
+  const controlledChineseHeadings = new Set(["/skills", "/cases", "/install", "/feedback"]);
+  for (const route of ["/", "/skills", "/skills/research-competitors", "/cases", "/install", "/feedback", "/en", "/en/skills", "/en/skills/research-competitors", "/en/cases", "/en/install", "/en/feedback"]) {
     await page.goto(route);
     const sizes = await page.evaluate(() => ({ width: window.innerWidth, scroll: document.documentElement.scrollWidth }));
     expect(sizes.scroll, route).toBeLessThanOrEqual(sizes.width + 1);
+    if (controlledChineseHeadings.has(route)) await expect(page.locator("main h1")).toHaveCSS("white-space", "nowrap");
   }
 });
 
 test("primary body copy keeps a readable type size", async ({ page }) => {
   await page.goto("/");
+  await expect(page.locator(".hero h1")).toHaveCSS("white-space", "nowrap");
+  await expect(page.locator(".hero h1")).toHaveCSS("font-size", page.viewportSize()?.width === 375 ? "52px" : "89.6px");
+  await expect(page.locator(".principles-copy h2")).toHaveCSS("white-space", "nowrap");
+  await expect(page.locator(".cta-copy h2")).toHaveCSS("white-space", "nowrap");
   await expect(page.locator(".section-heading > p").first()).toHaveCSS("font-size", "17px");
   await expect(page.locator(".skill-summary").first()).toHaveCSS("font-size", "16px");
   await expect(page.locator(".panel-topline")).toHaveCSS("font-size", "11px");

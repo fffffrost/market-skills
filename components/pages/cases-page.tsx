@@ -17,7 +17,7 @@ export const casesPageCopy = {
   zh: {
     title: "中国市场 AI Skill 实战案例",
     description: "查看中国市场 AI Agent Skill 的完整合成案例，包括输入、执行步骤、证据边界、输出节选与人工判断点。",
-    heading: <>看 Skill 怎样<br /><span>进入完整的中国市场工作。</span></>,
+    heading: <>Skill 怎样工作，<br /><span>看一次完整案例。</span></>,
     intro: "不是成功故事，也不是万能模板。每篇案例都展示一项决策如何被界定、哪些证据支持结论，以及哪些判断仍然必须由人完成。",
     notice: "首批案例均使用虚构场景与合成数据，不对应任何真实客户、公司、项目或市场结果。",
     methodTitle: "先看决策，再看输出。",

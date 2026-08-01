@@ -31,7 +31,7 @@ export const installPageCopy = {
   zh: {
     title: "中国市场 Agent Skill 安装指南",
     description: "安装单个中国市场 AI Agent Skill 或完整开源工作流库，并在使用前审查所有指令与依赖。",
-    heading: <>给你的 Agent<br /><span>装上中国市场工作层。</span></>,
+    heading: <>给 Agent 装上<br /><span>中国市场工作流。</span></>,
     intro: "可一次安装十个工作流，也可以只选当前需要的任务。源码保持开放，可在自己的环境中审查与修改。",
     allTitle: "安装全部十个 Skill", allBody: "在项目目录执行命令，安装器会发现仓库中所有兼容 Skill。",
     oneTitle: "只安装一个 Skill", oneBody: "在命令末尾添加 --skill 和稳定的英文 slug。每个详情页都有精确命令。", oneLink: "去技能库选择 →",
@@ -59,7 +59,7 @@ export function InstallPage({ locale }: { locale: Locale }) {
   return (
     <div className="install-page shell">
       <JsonLd data={jsonLd} />
-      <header className="install-header"><span className="section-code">INSTALL / OPEN AGENT SKILLS</span><h1>{content.heading}</h1><p>{content.intro}</p></header>
+      <header className="install-header"><div><span className="section-code">INSTALL / OPEN AGENT SKILLS</span><h1>{content.heading}</h1></div><p>{content.intro}</p></header>
       <section className="install-step"><div className="step-number">01</div><div className="step-content"><span className="panel-kicker">RECOMMENDED / ALL MODULES</span><h2>{content.allTitle}</h2><p>{content.allBody}</p><InstallCommand command={getInstallCommand()} label="ALL MODULES" eventSource="install_all_modules" locale={locale} /></div></section>
       <section className="install-step"><div className="step-number">02</div><div className="step-content"><span className="panel-kicker">OR / PICK ONE</span><h2>{content.oneTitle}</h2><p>{content.oneBody}</p><InstallCommand command={getInstallCommand(firstSkill.slug)} label="SINGLE MODULE" eventSource="install_single_module" locale={locale} /><Link className="text-link" href={localizedPath(locale, "/skills")}>{content.oneLink}</Link></div></section>
       <section className="install-step"><div className="step-number">03</div><div className="step-content"><span className="panel-kicker">MANUAL ROUTE</span><h2>{content.manualTitle}</h2><p>{content.manualBody}</p><div className="path-grid"><div><span>Codex</span><code>~/.codex/skills/&lt;skill-name&gt;</code></div><div><span>Project scope</span><code>.agents/skills/&lt;skill-name&gt;</code></div><div><span>Claude Code</span><code>.claude/skills/&lt;skill-name&gt;</code></div></div></div></section>

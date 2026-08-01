@@ -24,7 +24,7 @@ export const feedbackPageCopy = {
   zh: {
     title: "反馈与隐私说明",
     description: "反馈 MARKET//SKILLS 的安装问题、Skill 使用问题或新的中国市场工作流需求，并了解站点的最小化数据记录。",
-    heading: <>让真实问题变成<br />下一次改进。</>,
+    heading: <>把真实问题，<br />变成下一次改进。</>,
     intro: "选择最接近的一类，在公开 GitHub Issue 中继续。提交前请移除客户名称、账号、密钥、内部数据和未公开材料。",
     options: [
       ["ISSUE.01", "安装失败", "命令报错、目录未生成、宿主无法识别，或升级后行为异常。", "install-failure", "报告安装问题 ↗", "feedback_install_failure"],
