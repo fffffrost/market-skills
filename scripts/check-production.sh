@@ -36,8 +36,8 @@ if [ "$redirect_target" != "${site_origin}/monitor-check?source=github-actions" 
   exit 1
 fi
 
-if ! openssl s_client -servername "$site_host" -connect "${site_host}:443" </dev/null 2>/dev/null \
-  | openssl x509 -noout -checkend 1814400; then
+certificate_pem=$(openssl s_client -servername "$site_host" -connect "${site_host}:443" </dev/null 2>/dev/null || true)
+if [ -z "$certificate_pem" ] || ! printf '%s\n' "$certificate_pem" | openssl x509 -noout -checkend 1814400; then
   echo "TLS certificate is unavailable or expires within 21 days." >&2
   exit 1
 fi
