@@ -1,11 +1,17 @@
 ---
 name: content-repurposing
-description: Adapt a verified source article, report, webinar, interview, launch, or case study into channel-native Chinese content without drifting from the source. Use for 一稿多发、内容拆条、公众号转社媒、长文转短帖、视频口播提炼、销售内容复用, or planning a multi-channel content package.
+description: Localize a verified global source into channel-native China content without claim drift. Use for WeChat, REDnote, Bilibili, Zhihu, Baidu-oriented content, Chinese sales enablement, or planning a multi-platform localization package.
 ---
 
-# Content Repurposing
+# China Content Localization
 
 Create new channel experiences from one source of truth instead of shortening the same copy repeatedly.
+
+## Choose channels from the audience job
+
+Do not start with a fixed list of popular China platforms. Define the audience, search or discovery behavior, content job, account access, production resources, and CTA first. Select only channels that have a credible role in the journey.
+
+For every target surface, separate durable editorial patterns from current platform rules. Verify time-sensitive format, account, advertising, linking, or moderation claims from current first-party sources when they affect the deliverable.
 
 ## Lock the source of truth
 
@@ -64,5 +70,4 @@ Do not use this skill to invent a content strategy without a source asset or fac
 
 ## Compatibility and license
 
-Works with Agent Skills-compatible tools and readable source materials. Version 1.0.0, MIT License.
-
+Works with Agent Skills-compatible tools and readable source materials. Version 2.0.0, MIT License.

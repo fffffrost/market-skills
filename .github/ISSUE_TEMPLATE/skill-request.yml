@@ -1,0 +1,48 @@
+name: Request a workflow / 建议新 Skill
+description: Submit a repeated China marketing job worth productizing / 提交真实任务信号
+title: "[Workflow request] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        New skills are demand-led. Describe the job and decision criteria without real client material or internal data. / 请描述任务与判断标准，不要提交敏感材料。
+  - type: textarea
+    id: job
+    attributes:
+      label: Job to be done / 要完成的真实任务
+      description: Who needs to make what decision or deliver what result, in which context? / 谁在什么场景下需要什么结果？
+    validations:
+      required: true
+  - type: textarea
+    id: current_method
+    attributes:
+      label: Current method / 现在怎样完成
+      description: Describe the current process, effort, and most common failure. / 说明现有流程与最容易出错之处。
+    validations:
+      required: true
+  - type: textarea
+    id: inputs_outputs
+    attributes:
+      label: Minimum input and expected output / 最低输入与期望输出
+      placeholder: "Minimum input: ...; expected output: ... / 最低输入：…；期望输出：…"
+    validations:
+      required: true
+  - type: textarea
+    id: frequency
+    attributes:
+      label: Frequency and users / 出现频率与使用者
+      description: How often does this occur, and which roles face it? / 这个任务多久出现一次、哪些角色会遇到？
+    validations:
+      required: true
+  - type: textarea
+    id: existing_skill
+    attributes:
+      label: Why existing skills are insufficient / 为什么现有 Skill 不够
+      description: If you tried an existing skill, explain the gap. / 如果已经试过，请说明缺口。
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety confirmation / 提交确认
+      options:
+        - label: I did not submit client names, accounts, keys, internal metrics, or unpublished material. / 我没有提交敏感或未公开信息。
+          required: true

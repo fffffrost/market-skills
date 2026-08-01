@@ -1,4 +1,4 @@
 interface:
-  display_name: "B2B 产品发布文案"
-  short_description: "把产品事实与定位组织成稳健可信、可正式发布的中文官宣内容"
-  default_prompt: "Use $b2b-announcement-copy to turn these product materials into a publishable announcement."
+  display_name: "Chinese B2B Messaging"
+  short_description: "Turn approved product facts and positioning into credible Chinese launch, executive, and sales copy"
+  default_prompt: "Use $b2b-announcement-copy to turn these approved product materials into credible Chinese B2B messaging."

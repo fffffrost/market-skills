@@ -1,11 +1,17 @@
 ---
 name: voice-of-customer-synthesis
-description: Synthesize Chinese customer interviews, survey answers, reviews, support tickets, sales notes, and social comments into evidence-backed themes, tensions, segments, and actions. Use for 用户访谈整理、VOC 分析、评论洞察、客户反馈归因、需求聚类, or turning mixed qualitative materials into marketing decisions.
+description: Synthesize Chinese customer interviews, reviews, support records, sales notes, and social comments for a China marketing decision. Use when platform context, original Chinese wording, customer stage, sample boundaries, and traceable evidence must survive the analysis.
 ---
 
-# Voice of Customer Synthesis
+# China Voice of Customer Synthesis
 
 Turn messy customer language into traceable insight without inventing representativeness.
+
+## Preserve China-specific context
+
+Keep the original Chinese alongside any translation used for an English-speaking team. Record platform, geography, role, customer stage, date, and recruitment method because a REDnote comment, sales call, support ticket, and enterprise interview do not represent the same population.
+
+Explain culturally or commercially specific terms instead of replacing them with a convenient global equivalent. Do not treat platform popularity, social engagement, or repeated wording as proof of national demand.
 
 ## Start with the decision
 
@@ -74,5 +80,4 @@ Map each strong insight to one or more actions: message to test, content questio
 
 ## Compatibility and license
 
-Works with Agent Skills-compatible tools and common text, spreadsheet, PDF, or document inputs when the host can read them. Version 1.0.0, MIT License.
-
+Works with Agent Skills-compatible tools and common text, spreadsheet, PDF, or document inputs when the host can read them. Version 2.0.0, MIT License.

@@ -12,9 +12,28 @@ if (process.env.NODE_ENV === "production" && (!isRepoConfigured || !isSiteConfig
 
 export const siteConfig = {
   name: "MARKET//SKILLS",
-  title: "MARKET//SKILLS - 市场人的 AI Skill Hub",
-  description: "为中文市场工作提炼的可安装 AI Agent Skills：从洞察、策略、内容到执行与复盘。",
-  keywords: ["Agent Skills", "市场营销", "AI 营销", "Codex Skills", "中文 Skill"],
+  title: "MARKET//SKILLS - 中国市场 AI Skill Hub",
+  description: "为进入和深耕中国市场的团队提供可安装、可审查的 AI Agent Skills。",
+  keywords: [
+    "Agent Skills",
+    "中国市场营销",
+    "AI 营销",
+    "中文本地化",
+  ],
+  locales: {
+    en: {
+      title: "MARKET//SKILLS - China Marketing Skills for AI Agents",
+      description:
+        "Open-source, evidence-based AI agent skills for global teams researching, localizing, launching, and learning in China.",
+      keywords: ["China marketing", "China market entry", "WeChat marketing", "Baidu SEO"],
+    },
+    zh: {
+      title: "MARKET//SKILLS - 中国市场 AI Skill Hub",
+      description:
+        "为进入和深耕中国市场的团队提供可安装、可审查的 AI Agent Skills。",
+      keywords: ["Agent Skills", "中国市场营销", "AI 营销", "中文本地化"],
+    },
+  },
   githubRepo,
   githubUrl: "https://github.com/" + githubRepo,
   siteUrl,

@@ -1,11 +1,17 @@
 ---
 name: campaign-retrospective
-description: Turn Chinese campaign objectives, channel data, execution records, feedback, and team observations into a decision-ready marketing retrospective. Use for 营销复盘、Campaign 复盘、活动复盘、投放总结、项目复盘、效果分析, or extracting reusable lessons and next actions without overstating attribution.
+description: Turn China campaign objectives, platform metrics, CRM exports, agency records, execution changes, and team observations into a decision-ready retrospective without overstating cross-platform attribution.
 ---
 
-# Campaign Retrospective
+# China Campaign Retrospective
 
 Explain what happened, why it likely happened, what remains uncertain, and what the team will change next.
+
+## Reconcile the local evidence system
+
+List every China platform, account, agency report, landing page, CRM source, event record, sales handoff, and offline input. Record metric definitions, time windows, deduplication rules, missing fields, and who owns each source before comparing performance.
+
+Do not combine platform-reported exposure, first-party behavior, leads, and revenue into one causal story. State where cross-platform identity, UTM coverage, walled-garden measurement, agency transformations, or offline follow-up limit attribution.
 
 ## Reconstruct the original contract
 
@@ -69,5 +75,4 @@ Prioritize no more than five actions. A long list without ownership is not a ret
 
 ## Compatibility and license
 
-Works with Agent Skills-compatible tools. Spreadsheet or analytics access depends on the host; supplied exports are sufficient. Version 1.0.0, MIT License.
-
+Works with Agent Skills-compatible tools. Spreadsheet or analytics access depends on the host; supplied exports are sufficient. Version 2.0.0, MIT License.

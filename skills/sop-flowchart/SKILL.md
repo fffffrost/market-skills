@@ -1,11 +1,17 @@
 ---
 name: sop-flowchart
-description: Create or revise readable business and marketing SOP flowcharts, call scripts, qualification logic, decision trees, handoff processes, and operations diagrams. Use for Mermaid、流程图、逻辑图、SOP 图、一线执行路径, especially when rules are complex or previous arrows and labels overlap.
+description: Create or revise readable China marketing SOP flowcharts for platform review, agency collaboration, lead qualification, sales handoff, account operations, and exceptions. Use when local rules, owners, systems, records, and decision paths must become maintainable Mermaid source.
 ---
 
-# SOP Flowchart
+# China Marketing SOP Flowchart
 
 Turn operating rules into a frontline-readable action path with maintainable source.
+
+## Capture the China operating boundary
+
+Record which rules come from the business, a platform, an agency contract, a local system, or a regulated process. Add the source owner and last-confirmed date for rules that may change. Never invent an approval or compliance step when the rule is unknown.
+
+Make Chinese node labels operational and concise. Show account ownership, platform review, agency and internal handoffs, required records, CRM state, response time, and escalation paths where they change the next action.
 
 ## Separate the information
 
@@ -64,5 +70,4 @@ Do not use absolute-position arrows for a normal SOP. Do not use this skill when
 
 ## Compatibility and license
 
-Works with Agent Skills-compatible tools. Mermaid rendering improves visual validation but is not required for source generation. Version 1.0.0, MIT License.
-
+Works with Agent Skills-compatible tools. Mermaid rendering improves visual validation but is not required for source generation. Version 2.0.0, MIT License.

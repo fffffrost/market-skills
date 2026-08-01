@@ -1,11 +1,17 @@
 ---
 name: wechat-article-editor
-description: Diagnose, restructure, edit, and polish Chinese WeChat official account long-form articles while preserving factual meaning and the author’s voice. Use for 公众号长文审稿、结构优化、标题与摘要、语言精简、逻辑诊断、发布前校对, or comparing multiple article versions.
+description: Diagnose, restructure, edit, and package Chinese WeChat Official Account long-form articles while preserving factual meaning and author voice. Use for structural editing, titles and abstracts, publication review, localized B2B thought leadership, or comparing draft versions.
 ---
 
 # WeChat Article Editor
 
 Edit for reader progression, credibility, and publication readiness rather than decorating every sentence.
+
+## Confirm the local publishing context
+
+Record the account identity, follower relationship, target reader, content objective, approved terminology, CTA destination, and review owner. If the user needs current platform limits or operational publishing rules, verify them from current first-party documentation instead of relying on memory.
+
+Keep editorial quality separate from platform operation. This skill prepares copy and review notes; it does not access the account, choose distribution, or guarantee reach.
 
 ## Confirm the editing mode
 
@@ -60,5 +66,4 @@ For a diagnostic-only request, lead with the five highest-impact issues and quot
 
 ## Compatibility and license
 
-Works with Agent Skills-compatible tools and plain text or readable document inputs. Version 1.0.0, MIT License.
-
+Works with Agent Skills-compatible tools and plain text or readable document inputs. Version 2.0.0, MIT License.

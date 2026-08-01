@@ -1,11 +1,17 @@
 ---
 name: positioning-proposal
-description: Develop and critique evidence-based positioning proposals for Chinese products, services, brands, and B2B offerings. Use for 产品定位、品牌定位、价值主张、目标人群、差异化、品类定义、定位语评审, or turning research and product evidence into a testable positioning direction.
+description: Develop an evidence-based China market positioning for a global or local product. Use when a team must choose the local buyer, buying moment, category frame, alternative, value promise, and China-specific proof instead of translating global messaging.
 ---
 
-# Positioning Proposal
+# China Market Positioning
 
 Build a positioning choice that guides product narrative and go-to-market decisions, not merely a slogan.
+
+## Separate localization from positioning
+
+Start by auditing the global position, but do not treat it as the answer. Reconfirm the China buyer, user, approver, procurement path, category language, local alternatives, trust barriers, distribution reality, and proof that is valid in this market.
+
+Label each global proof point as locally usable, locally explainable, needs adaptation, or not yet valid. Never present translation fluency as market fit.
 
 ## Establish the evidence base
 
@@ -79,5 +85,4 @@ Treat it as a decision tool, not mandatory public copy.
 
 ## Compatibility and license
 
-Works with Agent Skills-compatible tools. Research materials improve quality but no external service is required. Version 1.0.0, MIT License.
-
+Works with Agent Skills-compatible tools. China customer and competitor evidence improves quality but no external service is required. Version 2.0.0, MIT License.

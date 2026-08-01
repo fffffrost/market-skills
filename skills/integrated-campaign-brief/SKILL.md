@@ -1,11 +1,17 @@
 ---
 name: integrated-campaign-brief
-description: Turn business objectives, audience insight, product messages, budget constraints, and channel context into an executable integrated marketing campaign brief. Use for 整合营销方案、Campaign Brief、传播战役、上市推广、营销主题、渠道协同、代理商 Brief, or reviewing whether a campaign plan can actually be executed and measured.
+description: Turn a China business objective, local audience insight, platform constraints, product evidence, budget, and timing into an executable integrated campaign brief. Use for China launches, agency briefs, WeChat or REDnote campaigns, Baidu search, partner programs, and sales-led activation.
 ---
 
-# Integrated Campaign Brief
+# China Integrated Campaign Brief
 
 Translate a business objective into one coordinated campaign system with a clear audience response, channel roles, deliverables, and measurement logic.
+
+## Establish the China operating context
+
+Confirm mainland China scope, priority cities or regions, target buyer, local language, available entities and accounts, agency or partner roles, data access, approval path, platform constraints, holidays, and regulated claims. Do not assume a global media mix or customer journey transfers directly.
+
+Use current platform information when the plan depends on formats, targeting, account verification, advertising access, or measurement. Mark unverified platform claims and policy-sensitive steps for local owner review.
 
 ## Diagnose the request
 
@@ -66,5 +72,4 @@ Do not use this skill for a simple content calendar with no campaign objective.
 
 ## Compatibility and license
 
-Works with Agent Skills-compatible tools. No external service is required; access to performance baselines improves planning. Version 1.0.0, MIT License.
-
+Works with Agent Skills-compatible tools. No external service is required; current China platform guidance and performance baselines improve planning. Version 2.0.0, MIT License.

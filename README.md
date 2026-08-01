@@ -1,8 +1,10 @@
 # MARKET//SKILLS
 
-面向中文市场从业者的开源 AI Agent Skill Hub。10 个首发 Skill 覆盖洞察、策略、内容、执行与复盘，并按 Open Agent Skills 目录格式发布；3 篇合成案例展示 Skill 如何进入具体工作。
+Open-source, installable AI agent skills for global teams operating in China. The first 10 skills cover market intelligence, positioning, Chinese messaging, local content channels, campaign execution, and measurement. Three synthetic cases show how the skills support real decisions without presenting invented client results.
 
-## 本地运行
+MARKET//SKILLS 是面向中国市场工作的开源 AI Agent Skill Hub。中文主站位于 [`mktskill.com`](https://mktskill.com/)，英文版位于 [`mktskill.com/en/`](https://mktskill.com/en/)。两种语言共享同一套 Skill、安装路径和版本。
+
+## Local development / 本地运行
 
 ```bash
 npm install
@@ -10,29 +12,30 @@ cp .env.example .env.local
 npm run dev
 ```
 
-复制示例环境变量后，本地页面会使用真实 GitHub 仓库。生产构建使用：
+The example environment uses the public GitHub repository. Production builds require:
 
 ```env
 NEXT_PUBLIC_GITHUB_REPO=fffffrost/market-skills
 NEXT_PUBLIC_SITE_URL=https://mktskill.com
 ```
 
-未配置真实 GitHub 仓库时，生产构建会主动失败，避免线上展示不可用的安装命令。
+A production build fails when the repository is not configured, preventing unusable install commands from being published.
 
-## 质量检查
+## Quality checks / 质量检查
 
 ```bash
 npm run validate:skills
 npm run typecheck
 npm run lint
 npm test
-npm run test:e2e
 npm run build
+npm run validate:seo
+npm run test:e2e
 ```
 
-`npm run verify` 会依次执行静态检查、Skill 校验、组件测试、生产构建和浏览器端到端测试。
+`npm run verify` runs the complete sequence, including the bilingual static export and desktop/mobile browser tests. Run `npm run build` before invoking `npm run test:e2e` by itself.
 
-## Skill 结构
+## Skill structure / Skill 结构
 
 ```text
 skills/<skill-name>/
@@ -42,21 +45,21 @@ skills/<skill-name>/
 └── references/<task-template>.md
 ```
 
-- `SKILL.md`：给 Agent 使用的触发描述和工作协议。
-- `listing.yaml`：网站展示、搜索和筛选所需的目录元数据。
-- `agents/openai.yaml`：Codex 等宿主的界面元数据。
-- `references/`：执行具体任务时按需读取的模板。
+- `SKILL.md`: agent instructions, triggers, workflow, and boundaries.
+- `listing.yaml`: bilingual website metadata, search fields, version, and protocol steps.
+- `agents/openai.yaml`: interface metadata for compatible hosts such as Codex.
+- `references/`: task templates loaded only when needed.
 
-## 安装验证
+## Installation / 安装
 
-仓库发布后可整包或单独安装：
+Install the complete collection or one skill from GitHub:
 
 ```bash
 npx skills add fffffrost/market-skills
 npx skills add fffffrost/market-skills --skill research-competitors
 ```
 
-本地仓库也可以作为安装源：
+Use a local checkout as the source:
 
 ```bash
 npx skills add . --list

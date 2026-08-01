@@ -1,11 +1,17 @@
 ---
 name: event-promotion-plan
-description: Build a practical Chinese event promotion plan covering audience, registration funnel, channel cadence, assets, owners, follow-up, and measurement. Use for 线上直播、线下沙龙、行业大会、发布会、活动传播排期、报名转化、会后跟进, or auditing whether an event marketing plan is execution-ready.
+description: Build a practical China event promotion plan covering local audience, registration and qualification, WeChat or partner cadence, communities, sales outreach, assets, owners, attendance, follow-up, and measurement.
 ---
 
-# Event Promotion Plan
+# China Event Promotion Plan
 
 Plan the full event conversion loop from qualified attention to attendance and post-event action.
+
+## Apply the local calendar and channel reality
+
+Confirm the mainland China city or online scope, local date and holiday risks, registration access, account ownership, attendee communication method, partner and agency lead times, sales handoff, privacy expectations, and on-site or streaming constraints.
+
+Do not assume email is the primary reminder or follow-up channel. Choose WeChat, enterprise messaging, phone, SMS, partner, community, or email roles from the actual audience and available permissions.
 
 ## Establish the event baseline
 
@@ -60,5 +66,4 @@ Do not use this skill for event agenda design alone or venue operations without 
 
 ## Compatibility and license
 
-Works with Agent Skills-compatible tools. Spreadsheet or calendar output depends on host capabilities. Version 1.0.0, MIT License.
-
+Works with Agent Skills-compatible tools. Spreadsheet or calendar output depends on host capabilities. Version 2.0.0, MIT License.

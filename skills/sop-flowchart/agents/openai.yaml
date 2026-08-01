@@ -1,4 +1,4 @@
 interface:
-  display_name: "市场 SOP 流程图"
-  short_description: "把主路径、决策规则和交接关系整理成一线可用的流程图"
-  default_prompt: "Use $sop-flowchart to turn this operating process into a readable Mermaid flowchart."
+  display_name: "China Marketing SOP Flowchart"
+  short_description: "Map platform review, agency, lead, system, and exception handoffs into a maintainable operating flow"
+  default_prompt: "Use $sop-flowchart to turn this China marketing process into a readable and maintainable Mermaid flowchart."

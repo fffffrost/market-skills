@@ -6,25 +6,36 @@ import { z } from "zod";
 const root = path.join(process.cwd(), "skills");
 const validPhases = ["insight", "strategy", "content", "execution", "review"];
 
-const listingSchema = z.object({
-  slug: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
+const localizedListingSchema = z.object({
   title: z.string().min(2),
-  english_name: z.string().min(2),
   summary: z.string().min(20),
-  phase: z.enum(validPhases),
   phase_label: z.string().min(2),
   roles: z.array(z.string()).min(1),
   tasks: z.array(z.string()).min(1),
   inputs: z.array(z.string()).min(1),
   outputs: z.array(z.string()).min(1),
-  protocol_steps: z.array(z.string().regex(/[\u3400-\u9fff]/)).min(3).max(6),
-  compatibility: z.array(z.string()).min(1),
+  limitations: z.array(z.string().regex(/[\u3400-\u9fff]/)).min(2).max(4),
+  failure_modes: z.array(z.string()).min(2).max(4),
+  protocol_steps: z.array(z.string()).min(3).max(6),
   dependencies: z.array(z.string()).min(1),
+  example_prompt: z.string().min(12),
+});
+
+const listingSchema = z.object({
+  slug: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
+  english_name: z.string().min(2),
+  phase: z.enum(validPhases),
+  locales: z.object({
+    en: localizedListingSchema.omit({ limitations: true }).extend({
+      limitations: z.array(z.string()).min(2).max(4),
+    }),
+    zh: localizedListingSchema,
+  }),
+  compatibility: z.array(z.string()).min(1),
   version: z.string().regex(/^\d+\.\d+\.\d+$/),
   updated_at: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
   featured: z.boolean(),
   order: z.number().int().positive(),
-  example_prompt: z.string().min(12),
 });
 
 const errors = [];
@@ -64,10 +75,6 @@ for (const directory of directories) {
   }
   if (/\[TODO|TODO:/i.test(markdown)) errors.push(`${directory.name}: 仍包含 TODO`);
   if (markdown.split("\n").length > 500) errors.push(`${directory.name}: SKILL.md 超过 500 行`);
-  if (!/Version 1\.0\.0, MIT License\./.test(markdown)) {
-    errors.push(`${directory.name}: 缺少版本或 MIT 授权说明`);
-  }
-
   let listing;
   try {
     listing = listingSchema.parse(parse(fs.readFileSync(listingPath, "utf8")));
@@ -77,6 +84,9 @@ for (const directory of directories) {
   }
 
   if (listing.slug !== directory.name) errors.push(`${directory.name}: listing slug 与目录名不一致`);
+  if (!markdown.includes(`Version ${listing.version}, MIT License.`)) {
+    errors.push(`${directory.name}: SKILL.md 版本与 listing.yaml 不一致或缺少 MIT 授权说明`);
+  }
   if (orders.has(listing.order)) errors.push(`${directory.name}: order ${listing.order} 重复`);
   orders.add(listing.order);
 

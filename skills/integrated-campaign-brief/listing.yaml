@@ -1,18 +1,35 @@
 slug: integrated-campaign-brief
-title: 整合营销 Brief
-english_name: Integrated Campaign Brief
-summary: 把商业目标、受众洞察和渠道约束组织成一份创意、媒介与执行团队都能直接使用的 Brief。
+english_name: China Integrated Campaign Brief
 phase: strategy
-phase_label: 策略
-roles: [整合营销, 品牌, 产品市场, 市场负责人]
-tasks: [Campaign Brief, 上市推广, 传播战役, 渠道协同]
-inputs: [商业目标, 受众洞察, 产品信息, 预算与时间]
-outputs: [核心 Brief, 渠道角色, 交付清单, 衡量框架]
-protocol_steps: [诊断任务与约束, 搭建整合营销逻辑, 按团队使用顺序交付, 通过评审关卡]
+locales:
+  en:
+    title: China Integrated Campaign Brief
+    summary: Turn a China business objective, audience insight, platform constraints, proof, budget, and timing into an executable cross-channel campaign brief.
+    phase_label: Strategy
+    roles: [Integrated marketing, Brand, Product marketing, China market lead]
+    tasks: [China campaign brief, Market launch, Channel strategy, Agency brief]
+    inputs: [China business objective, Local audience insight, Product evidence, Budget and timing]
+    outputs: [Executive brief, Channel roles, Deliverable matrix, Measurement framework]
+    limitations: [Does not approve budgets media buys or agency commitments, Requires named China audiences and platform constraints before scheduling, Cannot guarantee campaign outcomes or platform distribution]
+    failure_modes: [Global channel plans are copied without assigning China platform jobs, Communication metrics replace the underlying business behavior, Deliverables lack owners specifications approvals or tracking]
+    protocol_steps: [Diagnose the China objective and constraints, Define one audience behavior, Build the proposition and local proof, Assign distinct channel jobs, Plan cadence and handoffs, Define measurement and risk]
+    dependencies: [Current platform rules and performance baselines improve planning]
+    example_prompt: Build a China launch brief for our enterprise product across WeChat, REDnote, Baidu search, partners, and sales outreach with a measurable journey.
+  zh:
+    title: 中国整合营销 Brief
+    summary: 把中国业务目标、本地人群洞察、平台约束、产品证据、预算和时间组织成可执行的跨渠道 Brief。
+    phase_label: 策略
+    roles: [整合营销, 品牌, 产品市场, 中国市场负责人]
+    tasks: [中国 Campaign Brief, 市场上市, 渠道策略, 代理商 Brief]
+    inputs: [中国业务目标, 本地人群洞察, 产品证据, 预算与时间]
+    outputs: [核心 Brief, 渠道角色, 交付矩阵, 衡量框架]
+    limitations: [不代替预算审批媒介采买或代理商承诺, 排期前必须明确中国目标人群与平台约束, 不能保证最终结果或平台分发效果]
+    failure_modes: [照搬全球渠道方案却没有定义中国平台角色, 传播指标取代需要改变的业务行为, 交付物缺少负责人规格审批与追踪]
+    protocol_steps: [诊断中国目标与约束, 定义一个目标行为, 建立主张与本地证据, 为各渠道分配不同职责, 设计节奏与交接, 定义衡量与风险]
+    dependencies: [最新平台规则与表现基线会提升计划质量]
+    example_prompt: 为我们的企业级产品制定中国上市 Brief，覆盖微信、小红书、百度搜索、合作伙伴和销售触达。
 compatibility: [Codex, Claude Code, Cursor, OpenCode]
-dependencies: [无强制外部依赖]
-version: 1.0.0
-updated_at: 2026-07-21
+version: 2.0.0
+updated_at: 2026-08-01
 featured: true
 order: 4
-example_prompt: 为这次新品上市建立一份整合营销 Brief，预算 50 万，目标是获得 3000 个有效试用。

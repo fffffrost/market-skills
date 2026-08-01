@@ -1,18 +1,35 @@
 slug: campaign-retrospective
-title: Campaign 复盘
-english_name: Campaign Retrospective
-summary: 从目标、漏斗、执行和解释四层复盘结果，明确证据强度、归因边界与下一步负责人。
+english_name: China Campaign Retrospective
 phase: review
-phase_label: 复盘
-roles: [整合营销, 增长, 活动营销, 市场负责人]
-tasks: [Campaign 复盘, 效果分析, 活动总结, 经验沉淀]
-inputs: [原始目标, 渠道数据, 执行记录, 团队反馈]
-outputs: [结果记分卡, 关键发现, 归因边界, 行动清单]
-protocol_steps: [还原最初目标与约定, 建立统一证据表, 分四层分析表现, 把复盘结论转成决策, 按决策顺序交付, 守住归因与证据边界]
+locales:
+  en:
+    title: China Campaign Retrospective
+    summary: Reconcile China campaign goals, platform metrics, CRM data, agency records, and local execution changes into evidence-bounded next decisions.
+    phase_label: Review
+    roles: [Integrated marketing, Growth, Event marketing, China market lead]
+    tasks: [China campaign review, Cross-platform analysis, Agency review, Next-action planning]
+    inputs: [Original brief, Platform and CRM exports, Execution timeline, Team and agency notes]
+    outputs: [Result scorecard, Evidence-backed findings, Attribution limits, Owned action plan]
+    limitations: [Cannot finalize a retrospective before the decision period is complete, Missing or changed tracking definitions must remain explicit uncertainty, Does not infer causal attribution from platform correlations]
+    failure_modes: [Platform metrics are compared without normalizing definitions and time windows, Agency reports and first-party evidence are accepted without reconciliation, Actions lack owners deadlines measurement points or data repairs]
+    protocol_steps: [Reconstruct the original China contract, Normalize platform and CRM evidence, Analyze outcome funnel execution and explanation, State attribution limits, Convert learning into owned decisions, Set the next measurement point]
+    dependencies: [Spreadsheet or analytics access improves efficiency but supplied exports are sufficient]
+    example_prompt: Review this China campaign using WeChat, REDnote, Baidu, event, CRM, and agency records; separate facts, hypotheses, attribution limits, and next owners.
+  zh:
+    title: 中国 Campaign 复盘
+    summary: 对齐中国 Campaign 目标、平台指标、CRM 数据、代理商记录和本地执行变化，生成证据有边界的下一步决策。
+    phase_label: 复盘
+    roles: [整合营销, 增长, 活动营销, 中国市场负责人]
+    tasks: [中国 Campaign 复盘, 跨平台分析, 代理商复盘, 下一步行动]
+    inputs: [原始 Brief, 平台与 CRM 导出, 执行时间线, 团队与代理商记录]
+    outputs: [结果记分卡, 证据化发现, 归因边界, 有负责人的行动计划]
+    limitations: [决策周期未结束时不能完成最终复盘, 缺失或变更的追踪口径必须保留为明确不确定性, 不会根据平台相关性直接推断因果归因]
+    failure_modes: [比较平台指标时没有对齐定义与时间窗口, 代理商报告与一方证据未经对账就被接受, 行动缺少负责人截止日期衡量点或数据修复]
+    protocol_steps: [还原原始中国 Campaign 约定, 统一平台与 CRM 证据, 从结果漏斗执行和解释分析, 明确归因边界, 把学习转成有负责人的决策, 设置下一个衡量点]
+    dependencies: [表格或分析能力可提高效率但用户导出文件已足够]
+    example_prompt: 结合微信、小红书、百度、活动、CRM 和代理商记录复盘这次中国 Campaign，区分事实、假设、归因边界和下一步负责人。
 compatibility: [Codex, Claude Code, Cursor, OpenCode]
-dependencies: [数据文件读取能力可提升分析效率]
-version: 1.0.0
-updated_at: 2026-07-21
+version: 2.0.0
+updated_at: 2026-08-01
 featured: true
 order: 10
-example_prompt: 基于原始 Brief、渠道数据和团队记录复盘这次 Campaign，区分事实、推断和待验证假设。

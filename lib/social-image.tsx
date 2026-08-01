@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const socialImageAlt = "MARKET//SKILLS - 市场人的 AI Skill Hub";
+export const socialImageAlt = "MARKET//SKILLS - 中国市场 AI Skill Hub";
 export const socialImageSize = { width: 1200, height: 630 };
 export const socialImageContentType = "image/png";
 
@@ -33,7 +33,7 @@ export function createSocialImage() {
             <span>SKILLS</span>
           </div>
           <div style={{ display: "flex", marginTop: 24, color: "#b8c2bd", fontSize: 34, letterSpacing: 1 }}>
-            AI SKILL HUB FOR MARKETING TEAMS
+            CHINA MARKETING SKILLS FOR AI AGENTS
           </div>
         </div>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>

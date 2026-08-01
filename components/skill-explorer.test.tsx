@@ -9,6 +9,8 @@ vi.mock("next/navigation", () => ({
 }));
 
 const base: Omit<SkillListing, "slug" | "title" | "english_name" | "summary" | "phase" | "phase_label" | "roles" | "tasks" | "inputs" | "outputs" | "order" | "example_prompt"> = {
+  limitations: ["不替代专业审查", "不在缺少材料时编造事实"],
+  failure_modes: ["目标没有说清楚", "关键输入材料不完整"],
   protocol_steps: ["准备材料", "执行分析", "整理交付"],
   compatibility: ["Codex"],
   dependencies: ["无"],
@@ -52,7 +54,7 @@ const skills: SkillListing[] = [
 
 describe("SkillExplorer", () => {
   it("searches in Chinese task content and can reset", async () => {
-    render(<SkillExplorer skills={skills} />);
+    render(<SkillExplorer skills={skills} locale="zh" />);
     const search = screen.getByRole("searchbox");
 
     await userEvent.type(search, "竞品");
@@ -64,7 +66,7 @@ describe("SkillExplorer", () => {
   });
 
   it("combines phase and role filters and shows the empty state", async () => {
-    render(<SkillExplorer skills={skills} />);
+    render(<SkillExplorer skills={skills} locale="zh" />);
     const selects = screen.getAllByRole("combobox");
     await userEvent.selectOptions(selects[0], "review");
     await userEvent.selectOptions(selects[1], "产品市场");

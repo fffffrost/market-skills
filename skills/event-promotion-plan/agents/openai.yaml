@@ -1,4 +1,4 @@
 interface:
-  display_name: "活动传播排期"
-  short_description: "从报名漏斗倒推活动前中后的渠道、素材、责任与传播节奏"
-  default_prompt: "Use $event-promotion-plan to build a practical promotion timeline for this event."
+  display_name: "China Event Promotion Plan"
+  short_description: "Plan local channels, partners, registration, attendance, owners, and follow-up for a China event"
+  default_prompt: "Use $event-promotion-plan to build a practical China promotion timeline for this event."

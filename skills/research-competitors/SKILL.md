@@ -1,11 +1,17 @@
 ---
 name: research-competitors
-description: Research, classify, compare, and monitor product competitors using multi-angle discovery, strict competition layers, source-backed evidence, and decision-oriented synthesis. Use for 竞品调研、竞品分析、竞争格局、替代方案、官网对标、新兴竞品雷达, or updating a dated competitor report.
+description: Research and classify competitors for a China market-entry, positioning, or go-to-market decision. Use to discover local products, platform-native capabilities, agencies, and substitutes through Chinese and official sources while keeping evidence dates, confidence, and market boundaries explicit.
 ---
 
-# Research Competitors
+# China Competitor Landscape
 
-Build a decision-ready competitor landscape without treating every similar product as a direct competitor.
+Build a decision-ready China competitor landscape without treating every similar product or global brand as a direct competitor.
+
+## Apply the China market lens
+
+Define the target geography, buyer, language, regulatory context, platform ecosystem, and market-entry decision before searching. Include Chinese-language queries and local sources when available. Keep global competitors, local competitors, platform-native capabilities, agencies, channel partners, and substitutes in separate pools.
+
+Never infer current availability in mainland China from a global website. Verify market presence, access, pricing, distribution, and product state with dated sources. Treat translation gaps and inaccessible sources as unknowns.
 
 ## Choose the depth
 
@@ -90,5 +96,4 @@ Lead the deliverable with the decision implication, then show the evidence and l
 
 ## Compatibility and license
 
-Works with Agent Skills-compatible tools that can browse or receive source material. Web access is required for live research. Version 1.0.0, MIT License.
-
+Works with Agent Skills-compatible tools that can browse or receive source material. Web access is required for live research. Version 2.0.0, MIT License.

@@ -1,4 +1,4 @@
 interface:
-  display_name: "定位提案"
-  short_description: "把产品、客户与竞争证据转化为清晰可验证的市场定位选择"
-  default_prompt: "Use $positioning-proposal to develop an evidence-based positioning proposal for this product."
+  display_name: "China Market Positioning"
+  short_description: "Choose a locally credible China buyer, category frame, value promise, proof set, and validation route"
+  default_prompt: "Use $positioning-proposal to develop an evidence-based China market positioning for this product."

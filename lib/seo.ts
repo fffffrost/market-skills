@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { absoluteUrl, siteConfig } from "@/lib/site-config";
+import { languageAlternates, localeConfig, localizedPath, type Locale } from "@/lib/site-content";
 
 type PageMetadataOptions = {
   title?: string;
@@ -11,6 +12,7 @@ type PageMetadataOptions = {
     publishedTime: string;
     modifiedTime?: string;
   };
+  locale?: Locale;
 };
 
 export function createPageMetadata({
@@ -20,16 +22,23 @@ export function createPageMetadata({
   keywords = [],
   includeImages = true,
   article,
+  locale = "zh",
 }: PageMetadataOptions): Metadata {
-  const socialTitle = title ? title + " - " + siteConfig.name : siteConfig.title;
-  const canonical = absoluteUrl(path);
-  const imageAlt = "MARKET//SKILLS - 市场人的 AI Skill Hub";
+  const localized = localizedPath(locale, path);
+  const socialTitle = title ? title + " - " + siteConfig.name : siteConfig.locales[locale].title;
+  const canonical = absoluteUrl(localized);
+  const imageAlt = siteConfig.locales[locale].title;
 
   return {
     ...(title ? { title } : {}),
     description,
-    keywords: [...siteConfig.keywords, ...keywords],
-    alternates: { canonical },
+    keywords: [...siteConfig.locales[locale].keywords, ...keywords],
+    alternates: {
+      canonical,
+      languages: Object.fromEntries(
+        Object.entries(languageAlternates(path)).map(([key, value]) => [key, absoluteUrl(value)]),
+      ),
+    },
     openGraph: {
       title: socialTitle,
       description,
@@ -41,7 +50,8 @@ export function createPageMetadata({
             modifiedTime: article.modifiedTime ?? article.publishedTime,
           }
         : { type: "website" as const }),
-      locale: "zh_CN",
+      locale: localeConfig[locale].openGraphLocale,
+      alternateLocale: locale === "en" ? ["zh_CN"] : ["en_US"],
       siteName: siteConfig.name,
       ...(includeImages
         ? {

@@ -1,6 +1,7 @@
 import "server-only";
 
 import type { SkillPhase } from "@/lib/skill-schema";
+import type { Locale } from "@/lib/site-content";
 
 export type CaseStudy = {
   slug: string;
@@ -29,7 +30,7 @@ export type CaseStudy = {
   keywords: string[];
 };
 
-const cases: CaseStudy[] = [
+const casesZh: CaseStudy[] = [
   {
     slug: "map-competitors-before-comparing",
     order: 1,
@@ -360,14 +361,234 @@ const cases: CaseStudy[] = [
   },
 ];
 
-export function getCases() {
-  return cases;
+const casesEn: CaseStudy[] = [
+  {
+    slug: "map-competitors-before-comparing",
+    order: 1,
+    title: "Map the China market before comparing competitors",
+    english_name: "Map the China market before comparing competitors",
+    summary:
+      "A synthetic B2B AI team tests China market entry. The case shows how local products, platform-native capabilities, agencies, and workflow substitutes become separate evidence pools.",
+    phase: "insight",
+    phase_label: "Insight",
+    skill_slug: "research-competitors",
+    published_at: "2026-08-01",
+    role: "Global product marketing lead",
+    work_type: "China market-entry research",
+    task:
+      "Build a China competitor landscape for an AI marketing workspace before choosing a local category, partner model, and sales narrative.",
+    decision:
+      "Which local options can replace the product, which platforms can absorb its core job, and which companies are only useful references?",
+    context: [
+      { label: "Available material", value: "Global product brief, assumed China ICP, and four familiar global competitors" },
+      { label: "Market scope", value: "Mainland China, public evidence, and a twelve-month time boundary" },
+      { label: "Business use", value: "Entry thesis, local positioning, and partner conversations" },
+      { label: "Key constraint", value: "A translated feature list is not evidence of local competition" },
+    ],
+    inputs: [
+      "One-sentence product definition and delivery model",
+      "Proposed China buyer, user, and core job",
+      "The entry or positioning decisions the research must support",
+      "Known local and global candidates, including agencies or platforms",
+    ],
+    prompt:
+      "Map the mainland China competitor landscape for this B2B AI marketing workspace. Discover Chinese products, platform-native capabilities, agencies, and substitutes before comparing. Use dated evidence, keep unknowns visible, and finish with implications for entry and positioning.",
+    steps: [
+      {
+        title: "Turn a broad scan into an entry decision",
+        body:
+          "The team began with a list of familiar global names. The skill first defined the China buyer, core workflow, procurement path, and three decisions the landscape needed to change.",
+        checkpoint: "If removing a candidate would not change an entry decision, it does not belong in the priority set.",
+      },
+      {
+        title: "Discover through local routes",
+        body:
+          "Chinese-language queries, platform ecosystems, local directories, agency offers, and workflow alternatives produced a wider candidate pool than English searches alone.",
+        checkpoint: "Discovery sources surface candidates; official pages and dated first-party evidence support conclusions.",
+      },
+      {
+        title: "Classify before comparing",
+        body:
+          "Candidates were separated into structural direct competitors, platform-native capabilities, segment specialists, agencies, substitutes, references, and a watchlist.",
+        checkpoint: "Feature overlap alone never qualifies an object as a direct competitor.",
+      },
+      {
+        title: "Translate evidence into market choices",
+        body:
+          "The final view changed the proposed category language, identified two proof gaps for enterprise buyers, and moved platform bundling into the entry-risk register.",
+        checkpoint: "Each recommendation names the evidence, confidence, owner, and next validation action.",
+      },
+    ],
+    artifacts: [
+      { label: "DIRECT", title: "Structural competitors", body: "Overlap in buyer, core job, procurement path, and plausible replacement decision." },
+      { label: "PLATFORM", title: "Platform-native capabilities", body: "Narrower tools with first-party data, distribution, account, or bundling advantages." },
+      { label: "SERVICE", title: "Agencies and managed services", body: "Alternative operating models that buyers may choose instead of internal tooling." },
+      { label: "UNKNOWN", title: "Evidence gaps", body: "Availability, pricing, adoption, or product claims that remain unverified in mainland China." },
+    ],
+    deliverables: [
+      "Layered China competitor landscape",
+      "Anchored comparison of priority candidates",
+      "Dated evidence ledger with confidence and unknowns",
+      "Entry, positioning, product, and partner implications",
+    ],
+    human_checks: [
+      "Confirm the proposed China buyer and procurement reality",
+      "Verify time-sensitive availability, pricing, and regulatory claims",
+      "Decide whether local interviews or hands-on product access are required",
+    ],
+    good_fit: ["China market-entry planning", "Local positioning review", "A competitor list dominated by global names"],
+    poor_fit: ["Copying a feature table", "Live facts without web access", "A product with no defined China buyer or job"],
+    takeaway:
+      "The moat is not knowing more brand names. It is classifying the local market in a way that changes an entry decision and keeps every important claim reviewable.",
+    keywords: ["China competitor analysis", "China market entry", "local competitors", "China marketing tools"],
+  },
+  {
+    slug: "edit-a-wechat-draft-for-publishing",
+    order: 2,
+    title: "Turn a translated launch draft into a credible WeChat article",
+    english_name: "Turn a translated launch draft into a credible WeChat article",
+    summary:
+      "A synthetic global B2B launch draft is factually sound but reads like translated headquarters copy. The case rebuilds the Chinese reading path while preserving approved claims.",
+    phase: "content",
+    phase_label: "Content",
+    skill_slug: "wechat-article-editor",
+    published_at: "2026-08-01",
+    role: "China content editor",
+    work_type: "WeChat launch localization",
+    task:
+      "Edit a 2,600-character Chinese product launch draft into a publishable WeChat Official Account article with titles, abstract, edit notes, and an approval queue.",
+    decision:
+      "Which global narrative elements still work in Chinese, what must be rebuilt for the local reader, and which claims need local approval?",
+    context: [
+      { label: "Draft state", value: "Accurate product facts but translated structure, repeated value claims, and a distant opening" },
+      { label: "Target reader", value: "Enterprise IT and marketing operations leaders in China" },
+      { label: "Account voice", value: "Calm, practical, and specific; no inflated efficiency claims" },
+      { label: "Required package", value: "Body copy, three titles, abstract, edit notes, and unresolved facts" },
+    ],
+    inputs: [
+      "Chinese draft and approved global source",
+      "China reader, account identity, and intended action",
+      "Approved Chinese terminology and prohibited claims",
+      "A product owner who can confirm local availability and proof",
+    ],
+    prompt:
+      "Edit this WeChat launch article in structural mode. Preserve approved facts and the author voice, rebuild the reading path for Chinese enterprise buyers, and flag local availability, product naming, and performance claims that still need approval.",
+    steps: [
+      {
+        title: "Agree on an editing mode",
+        body:
+          "Because the source facts were usable, the editor chose a structural edit rather than a new article. This protected approved content while allowing the narrative to change.",
+        checkpoint: "A fresh surface is not a reason to replace a sound product argument.",
+      },
+      {
+        title: "Separate global facts from local assumptions",
+        body:
+          "Product capabilities remained approved facts. Mainland availability, Chinese product terminology, customer proof, and performance language moved into a separate confirmation queue.",
+        checkpoint: "Global approval does not automatically make a claim locally usable.",
+      },
+      {
+        title: "Rebuild the reading path",
+        body:
+          "The new structure moved from the reader's operating problem to the broken workflow, the product mechanism, credible proof, and a bounded next step.",
+        checkpoint: "Every section must earn the reader's move into the next one.",
+      },
+      {
+        title: "Deliver the publication package",
+        body:
+          "The editor returned paste-ready body copy first, then titles, abstract, change notes, and a compact list of claims requiring product or legal review.",
+        checkpoint: "Final platform preview, links, images, and account publishing remain human checks.",
+      },
+    ],
+    artifacts: [
+      { label: "BEFORE", title: "A global trend opening", body: "The draft spent its first screen explaining a category trend before naming the reader's actual problem." },
+      { label: "AFTER", title: "A local operating problem", body: "The revised opening gives a concrete role, broken workflow, and reason to continue reading." },
+      { label: "STRUCTURE", title: "From feature order to reader order", body: "Problem, old workaround, product mechanism, proof boundary, and next step replace the source deck sequence." },
+      { label: "APPROVAL", title: "Claims stay visible", body: "Local availability, naming, proof, and performance statements remain outside publishable copy until confirmed." },
+    ],
+    deliverables: ["Publishable revised body", "Three distinct title routes and an abstract", "Change log by structure evidence and language", "Local approval queue"],
+    human_checks: ["Confirm local availability and product naming", "Review regulated or performance claims", "Complete the final WeChat preview and link check"],
+    good_fit: ["Translated global draft", "Sound facts but weak Chinese reading path", "Publication package needed"],
+    poor_fit: ["No factual source", "Account operation or distribution request", "A request to manufacture clickbait"],
+    takeaway:
+      "Good localization changes the reader journey before it changes individual sentences, while making every unresolved local claim easier to review.",
+    keywords: ["WeChat article editing", "Chinese content localization", "China B2B messaging", "WeChat marketing"],
+  },
+  {
+    slug: "turn-campaign-data-into-next-actions",
+    order: 3,
+    title: "Reconcile China campaign data before assigning credit",
+    english_name: "Reconcile China campaign data before assigning credit",
+    summary:
+      "A synthetic China report campaign exceeds download targets but misses qualified-lead and follow-up goals. The case reconciles platform, CRM, agency, and execution evidence.",
+    phase: "review",
+    phase_label: "Review",
+    skill_slug: "campaign-retrospective",
+    published_at: "2026-08-01",
+    role: "China integrated marketing lead",
+    work_type: "Cross-platform campaign retrospective",
+    task:
+      "Review a China industry-report campaign and decide whether the next cycle needs more traffic, a different conversion path, or repaired lead definitions and follow-up.",
+    decision:
+      "Which result is proven, where does the funnel break, what cannot be attributed, and what should the local team change first?",
+    context: [
+      { label: "Original goal", value: "900 downloads, 320 qualified leads, and 90% follow-up within 48 hours" },
+      { label: "Evidence", value: "WeChat, REDnote, Baidu, landing page, CRM, event, agency, and sales records" },
+      { label: "Data gap", value: "32% of leads lack a complete normalized source" },
+      { label: "Review rule", value: "Facts, interpretations, hypotheses, and unknowns must stay separate" },
+    ],
+    inputs: ["Original China campaign brief", "Platform and first-party exports", "CRM definitions and lead states", "Execution timeline and agency or team notes"],
+    prompt:
+      "Review this China campaign across platform, landing-page, CRM, event, agency, and sales evidence. Normalize definitions first, state attribution limits, and return no more than five owned actions with measurement points.",
+    steps: [
+      {
+        title: "Restore the original contract",
+        body:
+          "The review locked the original download, qualified-lead, and follow-up definitions instead of promoting new engagement metrics after results were known.",
+        checkpoint: "A retrospective cannot rewrite success criteria to rescue the outcome.",
+      },
+      {
+        title: "Normalize the evidence",
+        body:
+          "Platform exposure, first-party visits, downloads, deduplicated leads, qualification, and sales follow-up were kept as different metric families with named owners.",
+        checkpoint: "Metrics with different definitions or time windows cannot be compared directly.",
+      },
+      {
+        title: "Limit cross-platform attribution",
+        body:
+          "Because source fields were incomplete and several platforms were walled gardens, the review did not declare a winning channel. It identified tracking repair as a prerequisite for the next decision.",
+        checkpoint: "Unknown attribution is a finding, not a license to invent a story.",
+      },
+      {
+        title: "Create owned next actions",
+        body:
+          "The final actions covered source normalization, form qualification, lead handoff cadence, and one controlled message test, each with an owner and measurement point.",
+        checkpoint: "A recommendation without an owner and verification method does not enter the action plan.",
+      },
+    ],
+    artifacts: [
+      { label: "DOWNLOAD", title: "Top-line target exceeded", body: "Downloads are a clear result but cannot stand in for qualified demand or revenue impact." },
+      { label: "QUALIFIED", title: "Lead target missed", body: "The gap points to audience, form, qualification, or data-definition questions that need separate checks." },
+      { label: "HANDOFF", title: "Follow-up lagged", body: "The local market and sales handoff weakened the value of front-end acquisition." },
+      { label: "ATTRIBUTION", title: "Channel credit is limited", body: "Incomplete source mapping and platform boundaries prevent a defensible single-channel winner." },
+    ],
+    deliverables: ["Original-goal scorecard", "Normalized cross-platform evidence table", "Attribution limits and evidence-backed findings", "Owned next-action plan"],
+    human_checks: ["Align the qualified-lead definition with sales", "Confirm deduplication and agency transformations", "Secure owner agreement on deadlines and measurement"],
+    good_fit: ["Cross-platform China campaign", "Agency and first-party reports disagree", "The team needs next actions rather than a victory deck"],
+    poor_fit: ["No original goals or raw records", "A request for unsupported causal attribution", "An external performance press release"],
+    takeaway:
+      "The retrospective creates value by showing which evidence is comparable, which attribution is impossible, and which operating change should happen before buying more traffic.",
+    keywords: ["China campaign analysis", "China marketing attribution", "campaign retrospective", "China demand generation"],
+  },
+];
+
+export function getCases(locale: Locale = "zh") {
+  return locale === "en" ? casesEn : casesZh;
 }
 
-export function getCase(slug: string) {
-  return cases.find((caseStudy) => caseStudy.slug === slug);
+export function getCase(slug: string, locale: Locale = "zh") {
+  return getCases(locale).find((caseStudy) => caseStudy.slug === slug);
 }
 
-export function getCasesForSkill(skillSlug: string) {
-  return cases.filter((caseStudy) => caseStudy.skill_slug === skillSlug);
+export function getCasesForSkill(skillSlug: string, locale: Locale = "zh") {
+  return getCases(locale).filter((caseStudy) => caseStudy.skill_slug === skillSlug);
 }

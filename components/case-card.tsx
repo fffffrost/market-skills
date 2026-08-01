@@ -1,17 +1,19 @@
 import Link from "next/link";
 import type { CaseStudy } from "@/lib/cases";
+import { localizedPath, type Locale } from "@/lib/site-content";
 
 type CaseCardProps = {
   caseStudy: CaseStudy;
+  locale: Locale;
 };
 
-export function CaseCard({ caseStudy }: CaseCardProps) {
+export function CaseCard({ caseStudy, locale }: CaseCardProps) {
   return (
     <article className={`case-card phase-${caseStudy.phase}`}>
-      <Link href={`/cases/${caseStudy.slug}`} className="case-card-link">
+      <Link href={localizedPath(locale, `/cases/${caseStudy.slug}`)} className="case-card-link">
         <div className="case-card-topline">
           <span>CASE.{String(caseStudy.order).padStart(2, "0")}</span>
-          <span>{caseStudy.phase_label} / 合成演示</span>
+          <span>{caseStudy.phase_label} / {locale === "en" ? "SYNTHETIC" : "合成演示"}</span>
         </div>
         <div className="case-card-body">
           <span className="case-card-role">{caseStudy.role}</span>

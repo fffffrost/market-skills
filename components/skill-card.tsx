@@ -1,16 +1,17 @@
 import Link from "next/link";
 import type { SkillListing } from "@/lib/skill-schema";
+import { localizedPath, type Locale } from "@/lib/site-content";
 
-export function SkillCard({ skill, index }: { skill: SkillListing; index: number }) {
+export function SkillCard({ skill, index, locale }: { skill: SkillListing; index: number; locale: Locale }) {
   return (
     <article className={`skill-card phase-${skill.phase}`}>
-      <Link href={`/skills/${skill.slug}`} className="skill-card-link" aria-label={`打开 ${skill.title}`}>
+      <Link href={localizedPath(locale, `/skills/${skill.slug}`)} className="skill-card-link" aria-label={`${locale === "en" ? "Open" : "打开"} ${skill.title}`}>
         <div className="card-index">MOD.{String(index).padStart(2, "0")}</div>
         <div className="card-phase">{skill.phase_label}</div>
         <h3>{skill.title}</h3>
-        <p className="skill-english">{skill.english_name}</p>
+        {locale === "zh" && <p className="skill-english">{skill.english_name}</p>}
         <p className="skill-summary">{skill.summary}</p>
-        <div className="task-tags" aria-label="任务标签">
+        <div className="task-tags" aria-label={locale === "en" ? "Task tags" : "任务标签"}>
           {skill.tasks.slice(0, 3).map((task) => <span key={task}>{task}</span>)}
         </div>
         <div className="card-footer">
@@ -21,4 +22,3 @@ export function SkillCard({ skill, index }: { skill: SkillListing; index: number
     </article>
   );
 }
-

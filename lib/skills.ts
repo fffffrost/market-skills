@@ -3,6 +3,7 @@ import "server-only";
 import fs from "node:fs";
 import path from "node:path";
 import { parse } from "yaml";
+import type { Locale } from "@/lib/site-content";
 import { skillListingSchema, type SkillListing } from "@/lib/skill-schema";
 
 export type Skill = SkillListing & {
@@ -39,7 +40,7 @@ function listFiles(directory: string, prefix = ""): string[] {
   });
 }
 
-export function getSkills(): Skill[] {
+export function getSkills(locale: Locale = "zh"): Skill[] {
   if (!fs.existsSync(skillsRoot)) return [];
 
   return fs
@@ -58,8 +59,11 @@ export function getSkills(): Skill[] {
         throw new Error(`Skill 名称不一致: ${entry.name}`);
       }
 
+      const { locales, ...sharedListing } = listing;
+
       return {
-        ...listing,
+        ...sharedListing,
+        ...locales[locale],
         description: markdown.frontmatter.description,
         body: markdown.body,
         files: listFiles(directory).sort(),
@@ -68,6 +72,6 @@ export function getSkills(): Skill[] {
     .sort((a, b) => a.order - b.order);
 }
 
-export function getSkill(slug: string) {
-  return getSkills().find((skill) => skill.slug === slug);
+export function getSkill(slug: string, locale: Locale = "zh") {
+  return getSkills(locale).find((skill) => skill.slug === slug);
 }

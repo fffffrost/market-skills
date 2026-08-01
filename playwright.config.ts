@@ -1,15 +1,20 @@
 import { defineConfig, devices } from "@playwright/test";
 
+const chromiumExecutablePath = process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH;
+
 export default defineConfig({
   testDir: "./e2e",
   use: {
     baseURL: "http://localhost:3000",
     trace: "on-first-retry",
+    ...(chromiumExecutablePath ? { launchOptions: { executablePath: chromiumExecutablePath } } : {}),
   },
   webServer: {
-    command: "npm run dev",
+    command: "npm start",
     url: "http://localhost:3000",
-    reuseExistingServer: true,
+    reuseExistingServer: false,
+    stdout: "ignore",
+    stderr: "ignore",
   },
   projects: [
     { name: "desktop", use: { ...devices["Desktop Chrome"] } },

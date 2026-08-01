@@ -1,11 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import { trackEvent } from "@/lib/telemetry";
 
 type CopyButtonProps = {
   value: string;
   label?: string;
   className?: string;
+  eventSource?: string;
+  locale?: "en" | "zh";
 };
 
 async function copyText(value: string) {
@@ -25,20 +28,26 @@ async function copyText(value: string) {
   }
 }
 
-export function CopyButton({ value, label = "复制命令", className = "" }: CopyButtonProps) {
+export function CopyButton({ value, label, className = "", eventSource, locale = "en" }: CopyButtonProps) {
   const [state, setState] = useState<"idle" | "copied" | "failed">("idle");
 
   async function handleCopy() {
     try {
       await copyText(value);
       setState("copied");
+      if (eventSource) trackEvent("copy_install", eventSource);
     } catch {
       setState("failed");
     }
     window.setTimeout(() => setState("idle"), 1800);
   }
 
-  const text = state === "copied" ? "已复制 ✓" : state === "failed" ? "请手动复制" : label;
+  const idleLabel = label ?? (locale === "en" ? "Copy command" : "复制命令");
+  const text = state === "copied"
+    ? locale === "en" ? "Copied ✓" : "已复制 ✓"
+    : state === "failed"
+      ? locale === "en" ? "Copy manually" : "请手动复制"
+      : idleLabel;
 
   return (
     <button className={`copy-button ${className}`.trim()} type="button" onClick={handleCopy}>
@@ -46,4 +55,3 @@ export function CopyButton({ value, label = "复制命令", className = "" }: Co
     </button>
   );
 }
-

@@ -4,36 +4,36 @@ import path from "node:path";
 const outRoot = path.join(process.cwd(), "out");
 const sitemap = fs.readFileSync(path.join(outRoot, "sitemap.xml"), "utf8");
 const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
-
 const siteOrigin = new URL(sitemapUrls[0]).origin;
-const skillFiles = fs
-  .readdirSync(path.join(outRoot, "skills"), { withFileTypes: true })
-  .filter((entry) => entry.isDirectory())
-  .map((entry) => ({
-    file: path.join(outRoot, "skills", entry.name, "index.html"),
-    route: "/skills/" + entry.name + "/",
-  }));
-const caseFiles = fs
-  .readdirSync(path.join(outRoot, "cases"), { withFileTypes: true })
-  .filter((entry) => entry.isDirectory())
-  .map((entry) => ({
-    file: path.join(outRoot, "cases", entry.name, "index.html"),
-    route: "/cases/" + entry.name + "/",
-  }));
 
-const pages = [
-  { file: path.join(outRoot, "index.html"), route: "/" },
-  { file: path.join(outRoot, "skills", "index.html"), route: "/skills/" },
-  { file: path.join(outRoot, "cases", "index.html"), route: "/cases/" },
-  { file: path.join(outRoot, "install", "index.html"), route: "/install/" },
-  ...skillFiles,
-  ...caseFiles,
-];
+function detailFiles(localeRoot, routeRoot, directoryName) {
+  const directory = path.join(localeRoot, directoryName);
+  return fs.readdirSync(directory, { withFileTypes: true })
+    .filter((entry) => entry.isDirectory())
+    .map((entry) => ({
+      file: path.join(directory, entry.name, "index.html"),
+      route: `${routeRoot}/${directoryName}/${entry.name}/`.replace(/\/+/g, "/"),
+    }));
+}
+
+function localePages(prefix, language) {
+  const localeRoot = prefix ? path.join(outRoot, prefix) : outRoot;
+  const routeRoot = prefix ? `/${prefix}` : "";
+  return [
+    { file: path.join(localeRoot, "index.html"), route: routeRoot ? `${routeRoot}/` : "/", language },
+    { file: path.join(localeRoot, "skills", "index.html"), route: `${routeRoot}/skills/`, language },
+    { file: path.join(localeRoot, "cases", "index.html"), route: `${routeRoot}/cases/`, language },
+    { file: path.join(localeRoot, "install", "index.html"), route: `${routeRoot}/install/`, language },
+    { file: path.join(localeRoot, "feedback", "index.html"), route: `${routeRoot}/feedback/`, language },
+    ...detailFiles(localeRoot, routeRoot, "skills").map((item) => ({ ...item, language })),
+    ...detailFiles(localeRoot, routeRoot, "cases").map((item) => ({ ...item, language })),
+  ];
+}
+
+const pages = [...localePages("", "zh-CN"), ...localePages("en", "en")];
 
 if (sitemapUrls.length !== pages.length) {
-  throw new Error(
-    "sitemap.xml 页面数应与静态内容一致，预期 " + pages.length + "，实际为 " + sitemapUrls.length,
-  );
+  throw new Error(`sitemap.xml page count mismatch: expected ${pages.length}, received ${sitemapUrls.length}`);
 }
 
 const titles = new Set();
@@ -41,26 +41,27 @@ const descriptions = new Set();
 
 function readTag(html, pattern, label, route) {
   const value = html.match(pattern)?.[1];
-  if (!value) throw new Error(route + " 缺少 " + label);
+  if (!value) throw new Error(`${route} is missing ${label}`);
   return value;
+}
+
+function logicalRoute(route) {
+  if (route === "/en/") return "/";
+  return route.startsWith("/en/") ? route.slice(3) : route;
 }
 
 for (const page of pages) {
   const html = fs.readFileSync(page.file, "utf8");
   const canonical = siteOrigin + page.route;
-  if (!sitemapUrls.includes(canonical)) {
-    throw new Error("sitemap.xml 缺少页面：" + canonical);
-  }
-  const title = readTag(html, /<title>([^<]+)<\/title>/, "title", page.route);
-  const description = readTag(
-    html,
-    /<meta name="description" content="([^"]+)"/,
-    "description",
-    page.route,
-  );
+  if (!sitemapUrls.includes(canonical)) throw new Error(`sitemap.xml is missing ${canonical}`);
 
-  if (titles.has(title)) throw new Error(page.route + " 的 title 与其他页面重复");
-  if (descriptions.has(description)) throw new Error(page.route + " 的 description 与其他页面重复");
+  const htmlLanguage = readTag(html, /<html lang="([^"]+)"/, "html lang", page.route);
+  if (htmlLanguage !== page.language) throw new Error(`${page.route} html lang should be ${page.language}, received ${htmlLanguage}`);
+
+  const title = readTag(html, /<title>([^<]+)<\/title>/, "title", page.route);
+  const description = readTag(html, /<meta name="description" content="([^"]+)"/, "description", page.route);
+  if (titles.has(title)) throw new Error(`${page.route} has a duplicate title`);
+  if (descriptions.has(description)) throw new Error(`${page.route} has a duplicate description`);
   titles.add(title);
   descriptions.add(description);
 
@@ -74,23 +75,30 @@ for (const page of pages) {
     [/<meta name="twitter:description" content="([^"]+)"/, "twitter:description"],
     [/<meta name="twitter:image" content="([^"]+)"/, "twitter:image"],
   ];
-
   for (const [pattern, label, expected] of checks) {
     const value = readTag(html, pattern, label, page.route);
-    if (expected && value !== expected) {
-      throw new Error(page.route + " 的 " + label + " 应为 " + expected + "，实际为 " + value);
-    }
+    if (expected && value !== expected) throw new Error(`${page.route} ${label} should be ${expected}, received ${value}`);
+  }
+
+  const logical = logicalRoute(page.route);
+  const expectedAlternates = {
+    en: siteOrigin + (logical === "/" ? "/en/" : `/en${logical}`),
+    "zh-CN": siteOrigin + logical,
+    "x-default": siteOrigin + logical,
+  };
+  for (const [language, expected] of Object.entries(expectedAlternates)) {
+    const pattern = new RegExp(`<link rel="alternate" hrefLang="${language}" href="([^"]+)"`);
+    const value = readTag(html, pattern, `hreflang ${language}`, page.route);
+    if (value !== expected) throw new Error(`${page.route} hreflang ${language} should be ${expected}, received ${value}`);
   }
 
   const jsonLdBlocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
-  if (jsonLdBlocks.length === 0) throw new Error(page.route + " 缺少 JSON-LD");
+  if (jsonLdBlocks.length === 0) throw new Error(`${page.route} is missing JSON-LD`);
   for (const block of jsonLdBlocks) JSON.parse(block[1]);
 }
 
 for (const url of sitemapUrls) {
-  if (new URL(url).pathname !== "/" && !new URL(url).pathname.endsWith("/")) {
-    throw new Error("sitemap URL 缺少尾斜杠：" + url);
-  }
+  if (new URL(url).pathname !== "/" && !new URL(url).pathname.endsWith("/")) throw new Error(`Sitemap URL is missing a trailing slash: ${url}`);
 }
 
-console.log("SEO validation passed: " + pages.length + " pages with unique metadata, canonical URLs, social images, and JSON-LD.");
+console.log(`SEO validation passed: ${pages.length} bilingual pages with unique metadata, canonical URLs, hreflang, social images, and JSON-LD.`);

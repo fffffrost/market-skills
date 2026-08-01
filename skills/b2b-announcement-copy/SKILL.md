@@ -1,11 +1,17 @@
 ---
 name: b2b-announcement-copy
-description: Review, rewrite, and compare Chinese B2B or SaaS product announcements, WeChat launch articles, repost copy, and PR-style positioning text. Use when product materials, drafts, colleague edits, or reference announcements need to become accurate, steady, differentiated, and publishable.
+description: Turn approved product facts and China positioning into credible Chinese B2B launch communication. Use for product announcements, executive messages, WeChat launch articles, sales repost copy, or reviewing localized drafts for accuracy, natural Chinese, claim strength, and local relevance.
 ---
 
-# B2B Announcement Copy
+# Chinese B2B Messaging
 
 Turn product facts into credible Chinese launch communication without exaggeration or reference-copy imitation.
+
+## Localize the message before the sentences
+
+Define the China reader, buying context, category vocabulary, approved Chinese product name, terminology, proof, availability, and intended action. Decide which global narrative elements remain relevant and which need a local evidence sequence.
+
+Do not translate legal claims, customer proof, availability, superlatives, or performance statements as if approval transfers across markets. Put unresolved terminology and claims into a separate local approval queue.
 
 ## Establish the source hierarchy
 
@@ -64,4 +70,4 @@ Do not use this skill for consumer ad slogans, fictional launches, or a general 
 
 ## Compatibility and license
 
-Works with Agent Skills-compatible tools. No external service is required. Version 1.0.0, MIT License.
+Works with Agent Skills-compatible tools. No external service is required. Version 2.0.0, MIT License.

@@ -1,18 +1,35 @@
 slug: b2b-announcement-copy
-title: B2B 产品发布文案
-english_name: B2B Announcement Copy
-summary: 把产品事实、定位与能力证据组织成稳健、可信、适合正式发布和转发的中文官宣内容。
+english_name: Chinese B2B Messaging
 phase: content
-phase_label: 内容
-roles: [产品市场, 公关, 内容, 品牌]
-tasks: [产品官宣, 发布文章, 转发文案, 稿件审校]
-inputs: [产品资料, 事实口径, 现有草稿, 参考文章]
-outputs: [发布长文, 开篇段落, 转发语, 编辑说明]
-protocol_steps: [确立信息来源优先级, 明确本次交付形式, 搭建发布叙事, 检查表达边界, 按发布顺序交付]
+locales:
+  en:
+    title: Chinese B2B Messaging
+    summary: Turn approved product facts and positioning into credible Chinese B2B launch copy, executive messages, WeChat posts, and sales-ready language.
+    phase_label: Content
+    roles: [Product marketing, Communications, Content, Brand]
+    tasks: [Chinese launch copy, B2B messaging, Executive announcement, Sales repost copy]
+    inputs: [Approved product facts, China positioning, Existing draft, Voice guidance]
+    outputs: [Chinese launch article, Opening section, Repost copy, Editorial notes]
+    limitations: [Does not invent product claims customer proof or performance data, Does not replace legal communications or sector compliance review, Cannot localize credibly from slogans without a factual source base]
+    failure_modes: [Global copy is translated literally without rebuilding the Chinese narrative, Facts approved claims and interpretation are mixed together, Headlines repost copy and body use different evidence strength]
+    protocol_steps: [Establish the source hierarchy, Define the China audience and deliverable, Build a locally credible narrative, Draft in natural Chinese, Check claims and terminology, Deliver copy with an approval queue]
+    dependencies: [No mandatory external dependency]
+    example_prompt: Turn these approved global launch materials into a credible Chinese B2B announcement and flag every claim that still needs local approval.
+  zh:
+    title: 中文 B2B 信息表达
+    summary: 把已确认的产品事实与中国定位组织成可信的中文 B2B 官宣、高管信息、微信内容与销售转发文案。
+    phase_label: 内容
+    roles: [产品市场, 公关, 内容, 品牌]
+    tasks: [中文产品官宣, B2B 信息表达, 高管发布, 销售转发文案]
+    inputs: [已批准产品事实, 中国市场定位, 现有草稿, 语气指南]
+    outputs: [中文发布长文, 开篇段落, 转发文案, 编辑说明]
+    limitations: [不会编造产品声明客户背书或效果数据, 不替代法务公关或行业合规审查, 缺少事实底稿时不能从口号做出可信本地化]
+    failure_modes: [直译全球稿件却没有重建中文叙事, 事实官方口径和分析推断被混写, 标题转发语与正文的证据强度不一致]
+    protocol_steps: [确立信息来源优先级, 定义中国读者与交付形式, 建立本地可信叙事, 用自然中文撰写, 检查表述与术语边界, 带待审队列交付]
+    dependencies: [无强制外部依赖]
+    example_prompt: 把这些已批准的全球发布材料改成可信的中文 B2B 官宣，并标出仍需本地确认的表述。
 compatibility: [Codex, Claude Code, Cursor, OpenCode]
-dependencies: [无强制外部依赖]
-version: 1.0.0
-updated_at: 2026-07-21
+version: 2.0.0
+updated_at: 2026-08-01
 featured: true
 order: 5
-example_prompt: 基于产品资料和现有草稿，改成一篇稳健的 B2B 产品官宣文章，并标出待确认事实。

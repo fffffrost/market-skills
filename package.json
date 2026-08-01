@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
-    "build": "npm run validate:skills && next build",
+    "build": "npm run validate:skills && next build && node scripts/localize-export-html.mjs",
     "start": "python3 -m http.server 3000 --directory out",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",

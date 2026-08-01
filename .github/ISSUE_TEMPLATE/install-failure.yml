@@ -1,0 +1,55 @@
+name: Installation failure / 安装失败
+description: Report command, directory, or host discovery problems / 报告安装或宿主识别问题
+title: "[Installation] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting this. GitHub issues are public. Remove accounts, keys, client names, internal paths, and unpublished material before submitting. / GitHub Issue 是公开内容，请先移除敏感信息和未公开材料。
+  - type: dropdown
+    id: host
+    attributes:
+      label: Host / 使用的宿主
+      options:
+        - Codex
+        - Claude Code
+        - Cursor
+        - OpenCode
+        - Other compatible host / 其他兼容工具
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: OS and runtime / 操作系统与运行环境
+      description: For example, macOS 15 and Node.js 22. Do not include usernames or full local paths. / 请勿填写用户名或完整路径。
+      placeholder: macOS 15 / Node.js 22
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: Command / 执行的命令
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: error
+    attributes:
+      label: Error / 实际错误
+      description: Paste only the relevant, sanitized error. / 只粘贴已脱敏的关键错误。
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: tried
+    attributes:
+      label: Troubleshooting tried / 已尝试的排查
+      placeholder: For example, checked Node.js and retried one skill. / 例如确认 Node.js 并重试单个 Skill。
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety confirmation / 提交确认
+      options:
+        - label: I removed credentials, personal data, internal paths, and unpublished material. / 我已移除敏感和未公开信息。
+          required: true

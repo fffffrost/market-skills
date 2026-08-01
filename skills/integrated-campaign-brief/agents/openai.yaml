@@ -1,4 +1,4 @@
 interface:
-  display_name: "整合营销 Brief"
-  short_description: "把商业目标、受众洞察与渠道约束转化为可执行营销战役"
-  default_prompt: "Use $integrated-campaign-brief to turn this objective into an executable campaign brief."
+  display_name: "China Integrated Campaign Brief"
+  short_description: "Turn a China objective, audience, platform mix, proof, budget, and timing into an executable campaign brief"
+  default_prompt: "Use $integrated-campaign-brief to turn this China market objective into an executable cross-channel campaign brief."

@@ -1,4 +1,4 @@
 interface:
-  display_name: "Campaign 复盘"
-  short_description: "从目标、数据与执行证据形成有归因边界和负责人的复盘结论"
-  default_prompt: "Use $campaign-retrospective to turn these campaign results into a decision-ready retrospective."
+  display_name: "China Campaign Retrospective"
+  short_description: "Reconcile platform, CRM, agency, and execution evidence into bounded findings and owned next actions"
+  default_prompt: "Use $campaign-retrospective to turn these China campaign results into a decision-ready retrospective."
