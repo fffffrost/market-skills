@@ -86,6 +86,29 @@ test("case library shows a reproducible synthetic work trace", async ({ page }) 
   await expect(page.getByRole("link", { name: /查看 Skill 详情/ })).toBeVisible();
 });
 
+test("English competitor page provides a decision-ready analysis template", async ({ page }) => {
+  await page.goto("/en/skills/research-competitors");
+  await expect(page.getByRole("heading", { level: 1, name: "China Competitor Analysis Template" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Classify the market before you compare it." })).toBeVisible();
+  await expect(page.locator(".competitor-layer-grid article")).toHaveCount(4);
+  await expect(page.getByText("01 / DIRECT")).toBeVisible();
+  await expect(page.getByText("02 / PLATFORM")).toBeVisible();
+  await expect(page.getByText("03 / ADJACENT")).toBeVisible();
+  await expect(page.getByText("04 / SUBSTITUTE")).toBeVisible();
+  await expect(page.getByRole("button", { name: "Copy template" })).toBeVisible();
+  await expect(page.locator(".competitor-template-console pre")).toContainText("EVIDENCE LEDGER");
+  await expect(page.getByRole("link", { name: /Open the full synthetic case/ })).toHaveAttribute(
+    "href",
+    "/en/cases/map-competitors-before-comparing/",
+  );
+  await expect(page.getByText(/--skill research-competitors/)).toBeVisible();
+  await expect(page).toHaveTitle("China Competitor Analysis Template & AI Skill - MARKET//SKILLS");
+  await expect(page.locator('meta[name="description"]')).toHaveAttribute(
+    "content",
+    /classify direct rivals, platform-native capabilities/,
+  );
+});
+
 test("Chinese and English layouts do not create horizontal page overflow", async ({ page }) => {
   const controlledChineseHeadings = new Set(["/skills", "/cases", "/install", "/feedback"]);
   for (const route of ["/", "/skills", "/skills/research-competitors", "/cases", "/install", "/feedback", "/en", "/en/skills", "/en/skills/research-competitors", "/en/cases", "/en/install", "/en/feedback"]) {
@@ -187,9 +210,9 @@ test("English routes are complete, indexable, and linked to the Chinese counterp
   await page.getByRole("link", { name: "EN", exact: true }).click();
   await expect(page).toHaveURL(/\/en\/skills\/research-competitors\/?$/);
   await expect(page.locator("html")).toHaveAttribute("lang", "en");
-  await expect(page.getByRole("heading", { name: "China Competitor Landscape" })).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1, name: "China Competitor Analysis Template" })).toBeVisible();
   await expect(page.getByText("MINIMUM INPUT")).toBeVisible();
-  await expect(page).toHaveTitle("China Competitor Landscape AI Skill - MARKET//SKILLS");
+  await expect(page).toHaveTitle("China Competitor Analysis Template & AI Skill - MARKET//SKILLS");
 
   const canonical = await page.locator('link[rel="canonical"]').getAttribute("href");
   expect(new URL(canonical!).pathname).toBe("/en/skills/research-competitors/");

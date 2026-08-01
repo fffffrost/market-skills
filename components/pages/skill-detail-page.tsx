@@ -1,9 +1,11 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ChinaCompetitorTemplate } from "@/components/china-competitor-template";
 import { InstallCommand } from "@/components/install-command";
 import { JsonLd } from "@/components/json-ld";
 import { TrackedGithubLink } from "@/components/tracked-github-link";
 import { getCasesForSkill } from "@/lib/cases";
+import { chinaCompetitorTemplate } from "@/lib/china-competitor-template";
 import { getFeedbackUrl } from "@/lib/feedback";
 import { absoluteUrl, getInstallCommand, siteConfig } from "@/lib/site-config";
 import { localeConfig, localizedPath, type Locale } from "@/lib/site-content";
@@ -42,6 +44,9 @@ export function SkillDetailPage({ slug, locale }: { slug: string; locale: Locale
   const logicalPath = `/skills/${skill.slug}/`;
   const skillPath = localizedPath(locale, logicalPath);
   const skillUrl = absoluteUrl(skillPath);
+  const isChinaCompetitorTemplate = locale === "en" && skill.slug === "research-competitors";
+  const pageTitle = isChinaCompetitorTemplate ? chinaCompetitorTemplate.pageTitle : skill.title;
+  const pageSummary = isChinaCompetitorTemplate ? chinaCompetitorTemplate.pageSummary : skill.summary;
   const relatedCases = getCasesForSkill(skill.slug, locale);
   const feedbackUrl = getFeedbackUrl("skill-problem", locale === "en" ? `[Skill problem] ${skill.title}: ` : `[Skill 问题] ${skill.title}：`);
   const skillJsonLd = {
@@ -49,14 +54,14 @@ export function SkillDetailPage({ slug, locale }: { slug: string; locale: Locale
     "@graph": [
       {
         "@type": "WebPage", "@id": absoluteUrl(skillPath + "#webpage"), url: skillUrl,
-        name: `${skill.title} AI Skill`, description: skill.summary, inLanguage: localeConfig[locale].languageTag,
+        name: isChinaCompetitorTemplate ? chinaCompetitorTemplate.seoTitle : `${skill.title} AI Skill`, description: pageSummary, inLanguage: localeConfig[locale].languageTag,
         isPartOf: { "@id": absoluteUrl(localizedPath(locale) + "#website") }, mainEntity: { "@id": absoluteUrl(skillPath + "#skill") },
       },
       {
         "@type": "BreadcrumbList", itemListElement: [
           { "@type": "ListItem", position: 1, name: locale === "en" ? "Home" : "首页", item: absoluteUrl(localizedPath(locale)) },
           { "@type": "ListItem", position: 2, name: content.library, item: absoluteUrl(localizedPath(locale, "/skills/")) },
-          { "@type": "ListItem", position: 3, name: skill.title, item: skillUrl },
+          { "@type": "ListItem", position: 3, name: pageTitle, item: skillUrl },
         ],
       },
       {
@@ -71,16 +76,16 @@ export function SkillDetailPage({ slug, locale }: { slug: string; locale: Locale
   };
 
   return (
-    <article className={`skill-detail phase-${skill.phase}`}>
+    <article className={`skill-detail phase-${skill.phase}${isChinaCompetitorTemplate ? " competitor-entry-detail" : ""}`}>
       <JsonLd data={skillJsonLd} />
       <div className="shell">
         <nav className="breadcrumbs" aria-label={content.breadcrumb}><Link href={localizedPath(locale, "/skills")}>{content.library}</Link><span>/</span><span>{skill.slug}</span></nav>
         <header className="detail-hero">
           <div className="detail-title-block">
             <div className="eyebrow"><span>{skill.phase_label}</span> / MOD.{String(skill.order).padStart(2, "0")} / v{skill.version}</div>
-            <h1>{skill.title}</h1>
+            <h1>{pageTitle}</h1>
             {locale === "zh" && <p className="detail-english">{skill.english_name}</p>}
-            <p className="detail-summary">{skill.summary}</p>
+            <p className="detail-summary">{pageSummary}</p>
             <div className="task-tags detail-tags">{skill.tasks.map((task) => <span key={task}>{task}</span>)}</div>
           </div>
           <div className="detail-status-panel">
@@ -90,6 +95,7 @@ export function SkillDetailPage({ slug, locale }: { slug: string; locale: Locale
         </header>
         <InstallCommand command={getInstallCommand(skill.slug)} label={`INSTALL / ${skill.slug}`} eventSource="skill_detail" locale={locale} />
         {!siteConfig.isRepoConfigured && <p className="config-notice">{content.dev}</p>}
+        {isChinaCompetitorTemplate && <ChinaCompetitorTemplate />}
 
         <div className="detail-grid">
           <section className="io-panel"><span className="panel-kicker">{content.minimum}</span><ul>{skill.inputs.map((item) => <li key={item}>{item}</li>)}</ul></section>
