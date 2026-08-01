@@ -180,6 +180,10 @@ test("SEO metadata is page-specific and machine-readable", async ({ page, reques
   expect(await googleVerification.text()).toBe(
     "google-site-verification: google6454058a6171256b.html\n",
   );
+  const bingVerification = await request.get("/BingSiteAuth.xml");
+  expect(await bingVerification.text()).toBe(
+    '<?xml version="1.0"?>\n<users>\n\t<user>E2EB048BA176209B1D8604CB20F6EACF</user>\n</users>\n',
+  );
 
   await page.goto("/cases/map-competitors-before-comparing");
   const caseCanonical = await page.locator('link[rel="canonical"]').getAttribute("href");
