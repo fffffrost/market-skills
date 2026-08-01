@@ -3,12 +3,14 @@ import { notFound } from "next/navigation";
 import { ChinaCompetitorTemplate } from "@/components/china-competitor-template";
 import { InstallCommand } from "@/components/install-command";
 import { JsonLd } from "@/components/json-ld";
+import { SeoChecklistTemplate } from "@/components/seo-checklist-template";
 import { TrackedGithubLink } from "@/components/tracked-github-link";
 import { getCasesForSkill } from "@/lib/cases";
 import { chinaCompetitorTemplate } from "@/lib/china-competitor-template";
 import { getFeedbackUrl } from "@/lib/feedback";
 import { absoluteUrl, getInstallCommand, siteConfig } from "@/lib/site-config";
 import { localeConfig, localizedPath, type Locale } from "@/lib/site-content";
+import { getSeoChecklistPage } from "@/lib/seo-checklist-pages";
 import { getSkill } from "@/lib/skills";
 
 const copy = {
@@ -45,8 +47,12 @@ export function SkillDetailPage({ slug, locale }: { slug: string; locale: Locale
   const skillPath = localizedPath(locale, logicalPath);
   const skillUrl = absoluteUrl(skillPath);
   const isChinaCompetitorTemplate = locale === "en" && skill.slug === "research-competitors";
-  const pageTitle = isChinaCompetitorTemplate ? chinaCompetitorTemplate.pageTitle : skill.title;
-  const pageSummary = isChinaCompetitorTemplate ? chinaCompetitorTemplate.pageSummary : skill.summary;
+  const checklistPage = locale === "en" ? getSeoChecklistPage(skill.slug) : undefined;
+  const isSeoEntry = isChinaCompetitorTemplate || Boolean(checklistPage);
+  const pageTitle = isChinaCompetitorTemplate ? chinaCompetitorTemplate.pageTitle : checklistPage?.pageTitle ?? skill.title;
+  const pageSummary = isChinaCompetitorTemplate ? chinaCompetitorTemplate.pageSummary : checklistPage?.pageSummary ?? skill.summary;
+  const pageSeoTitle = isChinaCompetitorTemplate ? chinaCompetitorTemplate.seoTitle : checklistPage?.seoTitle ?? `${skill.title} AI Skill`;
+  const pageKeywords = isChinaCompetitorTemplate ? chinaCompetitorTemplate.keywords : checklistPage?.keywords;
   const relatedCases = getCasesForSkill(skill.slug, locale);
   const feedbackUrl = getFeedbackUrl("skill-problem", locale === "en" ? `[Skill problem] ${skill.title}: ` : `[Skill 问题] ${skill.title}：`);
   const skillJsonLd = {
@@ -54,7 +60,8 @@ export function SkillDetailPage({ slug, locale }: { slug: string; locale: Locale
     "@graph": [
       {
         "@type": "WebPage", "@id": absoluteUrl(skillPath + "#webpage"), url: skillUrl,
-        name: isChinaCompetitorTemplate ? chinaCompetitorTemplate.seoTitle : `${skill.title} AI Skill`, description: pageSummary, inLanguage: localeConfig[locale].languageTag,
+        name: pageSeoTitle, description: pageSummary, inLanguage: localeConfig[locale].languageTag,
+        ...(pageKeywords ? { keywords: pageKeywords.join(", ") } : {}),
         isPartOf: { "@id": absoluteUrl(localizedPath(locale) + "#website") }, mainEntity: { "@id": absoluteUrl(skillPath + "#skill") },
       },
       {
@@ -76,7 +83,7 @@ export function SkillDetailPage({ slug, locale }: { slug: string; locale: Locale
   };
 
   return (
-    <article className={`skill-detail phase-${skill.phase}${isChinaCompetitorTemplate ? " competitor-entry-detail" : ""}`}>
+    <article className={`skill-detail phase-${skill.phase}${isSeoEntry ? " seo-entry-detail" : ""}`}>
       <JsonLd data={skillJsonLd} />
       <div className="shell">
         <nav className="breadcrumbs" aria-label={content.breadcrumb}><Link href={localizedPath(locale, "/skills")}>{content.library}</Link><span>/</span><span>{skill.slug}</span></nav>
@@ -96,6 +103,7 @@ export function SkillDetailPage({ slug, locale }: { slug: string; locale: Locale
         <InstallCommand command={getInstallCommand(skill.slug)} label={`INSTALL / ${skill.slug}`} eventSource="skill_detail" locale={locale} />
         {!siteConfig.isRepoConfigured && <p className="config-notice">{content.dev}</p>}
         {isChinaCompetitorTemplate && <ChinaCompetitorTemplate />}
+        {checklistPage && <SeoChecklistTemplate page={checklistPage} />}
 
         <div className="detail-grid">
           <section className="io-panel"><span className="panel-kicker">{content.minimum}</span><ul>{skill.inputs.map((item) => <li key={item}>{item}</li>)}</ul></section>

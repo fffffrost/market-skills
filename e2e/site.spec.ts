@@ -109,9 +109,37 @@ test("English competitor page provides a decision-ready analysis template", asyn
   );
 });
 
+test("English localization and WeChat pages provide copyable task checklists", async ({ page }) => {
+  await page.goto("/en/skills/content-repurposing");
+  await expect(page.getByRole("heading", { level: 1, name: "China Content Localization Checklist" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Localize the job, not just the language." })).toBeVisible();
+  await expect(page.locator(".checklist-step-grid article")).toHaveCount(6);
+  await expect(page.getByText("01 / SOURCE")).toBeVisible();
+  await expect(page.getByText("06 / REVIEW")).toBeVisible();
+  await expect(page.getByRole("button", { name: "Copy checklist" })).toBeVisible();
+  await expect(page.locator(".competitor-template-console pre")).toContainText("SOURCE TRUTH");
+  await expect(page).toHaveTitle("China Content Localization Checklist & AI Skill - MARKET//SKILLS");
+  await expect(page.locator('meta[name="description"]')).toHaveAttribute("content", /adapt global content for WeChat, REDnote/);
+
+  await page.goto("/en/skills/wechat-article-editor");
+  await expect(page.getByRole("heading", { level: 1, name: "WeChat Article Editing Checklist" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Edit the reading path before you polish sentences." })).toBeVisible();
+  await expect(page.locator(".checklist-step-grid article")).toHaveCount(6);
+  await expect(page.getByText("01 / MODE")).toBeVisible();
+  await expect(page.getByText("06 / PACKAGE")).toBeVisible();
+  await expect(page.getByRole("button", { name: "Copy checklist" })).toBeVisible();
+  await expect(page.locator(".competitor-template-console pre")).toContainText("PUBLISHING PACKAGE");
+  await expect(page.getByRole("link", { name: /Open the full synthetic editing case/ })).toHaveAttribute(
+    "href",
+    "/en/cases/edit-a-wechat-draft-for-publishing/",
+  );
+  await expect(page).toHaveTitle("WeChat Article Editing Checklist & AI Skill - MARKET//SKILLS");
+  await expect(page.locator('meta[name="description"]')).toHaveAttribute("content", /reader promise, evidence, Chinese rhythm/);
+});
+
 test("Chinese and English layouts do not create horizontal page overflow", async ({ page }) => {
   const controlledChineseHeadings = new Set(["/skills", "/cases", "/install", "/feedback"]);
-  for (const route of ["/", "/skills", "/skills/research-competitors", "/cases", "/install", "/feedback", "/en", "/en/skills", "/en/skills/research-competitors", "/en/cases", "/en/install", "/en/feedback"]) {
+  for (const route of ["/", "/skills", "/skills/research-competitors", "/cases", "/install", "/feedback", "/en", "/en/skills", "/en/skills/research-competitors", "/en/skills/content-repurposing", "/en/skills/wechat-article-editor", "/en/cases", "/en/install", "/en/feedback"]) {
     await page.goto(route);
     const sizes = await page.evaluate(() => ({ width: window.innerWidth, scroll: document.documentElement.scrollWidth }));
     expect(sizes.scroll, route).toBeLessThanOrEqual(sizes.width + 1);

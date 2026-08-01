@@ -1296,7 +1296,7 @@ select {
   font: 500 9px/1.6 var(--mono);
 }
 
-.competitor-entry-detail .detail-title-block h1 {
+.seo-entry-detail .detail-title-block h1 {
   max-width: 900px;
   font-size: clamp(48px, 6vw, 76px);
   line-height: 0.98;
@@ -1375,6 +1375,11 @@ select {
   font-size: 14px;
   line-height: 1.55;
 }
+
+.checklist-step-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.checklist-step-grid article { min-height: 300px; }
+.checklist-step-grid article:nth-child(4) { border-left: 0; }
+.checklist-step-grid article:nth-child(n + 4) { border-top: 1px solid var(--line-bright); }
 
 .competitor-template-console {
   margin-top: 26px;
@@ -2384,6 +2389,8 @@ select {
   .competitor-example-grid article:nth-child(3) { border-left: 0; }
   .competitor-layer-grid article:nth-child(n + 3),
   .competitor-example-grid article:nth-child(n + 3) { border-top: 1px solid var(--line-bright); }
+  .checklist-step-grid article:nth-child(4) { border-left: 1px solid var(--line-bright); }
+  .checklist-step-grid article:nth-child(5) { border-left: 0; }
   .boundary-panel { grid-template-columns: 1fr; }
   .boundary-panel > div + div { border-left: 0; border-top: 1px solid var(--line-bright); }
   .skill-cases-panel { grid-template-columns: 1fr; }
@@ -2451,7 +2458,7 @@ select {
   .filter-grid label:last-child { border-bottom: 0; }
   .detail-hero { margin-bottom: 40px; }
   .detail-title-block h1 { font-size: 53px; }
-  .competitor-entry-detail .detail-title-block h1 { font-size: 36px; line-height: 1.02; }
+  .seo-entry-detail .detail-title-block h1 { font-size: 36px; line-height: 1.02; }
   .detail-summary { font-size: 17px; }
   .competitor-template { margin-top: 54px; padding: 26px; }
   .competitor-template-intro h2 { font-size: 40px; }
@@ -2463,6 +2470,8 @@ select {
   .competitor-layer-grid article:nth-child(3),
   .competitor-example-grid article + article,
   .competitor-example-grid article:nth-child(3) { border-left: 0; border-top: 1px solid var(--line-bright); }
+  .checklist-step-grid article:nth-child(4),
+  .checklist-step-grid article:nth-child(5) { border-left: 0; }
   .competitor-layer-grid strong { margin-top: 30px; }
   .competitor-template-head { min-height: 0; display: grid; padding: 20px; }
   .competitor-template-head .copy-button { min-height: 46px; border: 1px solid var(--line-bright); }
