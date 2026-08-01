@@ -176,6 +176,10 @@ test("SEO metadata is page-specific and machine-readable", async ({ page, reques
   expect(await sitemap.text()).toContain(canonical!);
   const robots = await request.get("/robots.txt");
   expect(await robots.text()).toContain("User-Agent: *");
+  const googleVerification = await request.get("/google6454058a6171256b.html");
+  expect(await googleVerification.text()).toBe(
+    "google-site-verification: google6454058a6171256b.html\n",
+  );
 
   await page.goto("/cases/map-competitors-before-comparing");
   const caseCanonical = await page.locator('link[rel="canonical"]').getAttribute("href");
