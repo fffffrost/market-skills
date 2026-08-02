@@ -2,10 +2,10 @@ import { expect, test } from "@playwright/test";
 
 test("home exposes the complete workflow and install path", async ({ page }) => {
   await page.goto("/");
-  await expect(page.getByRole("heading", { name: /中国市场.*不是翻译题/ })).toBeVisible();
-  await expect(page.getByText(/为进入和深耕中国市场的团队打造/)).toBeVisible();
+  await expect(page.getByRole("heading", { name: /别从空白.*Prompt 开始/ })).toBeVisible();
+  await expect(page.getByText(/为市场人量身打造的 AI Skill Hub/)).toBeVisible();
   await expect(page.getByText("10", { exact: true })).toBeVisible();
-  await expect(page.getByRole("link", { name: /中国市场竞品地图/ }).first()).toBeVisible();
+  await expect(page.getByRole("link", { name: /竞品研究/ }).first()).toBeVisible();
   await expect(page.getByRole("link", { name: /先划清竞品边界/ })).toBeVisible();
   await expect(page.getByText(/npx skills add [\w-]+\/market-skills/).first()).toBeVisible();
   await expect(page.getByRole("link", { name: "赣ICP备2026013493号-2" })).toHaveAttribute(
@@ -17,7 +17,7 @@ test("home exposes the complete workflow and install path", async ({ page }) => 
 test("query links filter the static skill directory", async ({ page }) => {
   await page.goto("/skills?q=公众号");
   await expect(page.getByRole("heading", { name: "公众号长文编辑" })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "中国市场竞品地图" })).toHaveCount(0);
+  await expect(page.getByRole("heading", { name: "竞品研究" })).toHaveCount(0);
   const canonical = await page.locator('link[rel="canonical"]').getAttribute("href");
   expect(canonical).not.toBeNull();
   expect(new URL(canonical!).pathname).toBe("/skills/");
@@ -37,13 +37,13 @@ test("empty search records only a fixed event without the search text", async ({
 
 test("skill detail contains inputs, outputs and an install command", async ({ page }) => {
   await page.goto("/skills/research-competitors");
-  await expect(page.getByRole("heading", { name: "中国市场竞品地图" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "竞品研究" })).toBeVisible();
   await expect(page.getByText("MINIMUM INPUT / 最低输入")).toBeVisible();
   await expect(page.getByText("OUTPUT / 交付结果")).toBeVisible();
   await expect(page.getByText("BOUNDARY / 不适合直接使用")).toBeVisible();
   await expect(page.getByText("FAILURE MODES / 常见失败原因")).toBeVisible();
   await expect(page.getByText("EXECUTION PROTOCOL / 执行流程")).toBeVisible();
-  await expect(page.locator(".protocol-panel li").first()).toContainText("界定中国市场决策");
+  await expect(page.locator(".protocol-panel li").first()).toContainText("确定研究深度");
   await expect(page.getByText(/--skill research-competitors/)).toBeVisible();
   await expect(page.getByRole("link", { name: /先划清竞品边界/ })).toBeVisible();
 });
@@ -54,7 +54,7 @@ test("install help and feedback paths are reachable within two clicks", async ({
   await expect(page.getByRole("link", { name: /报告安装问题/ })).toHaveAttribute("href", /install-failure\.yml/);
 
   await page.goto("/");
-  await page.getByRole("link", { name: "反馈与隐私" }).click();
+  await page.getByRole("link", { name: "反馈与隐私" }).click({ force: true });
   await expect(page).toHaveURL(/\/feedback\/$/);
   await expect(page.getByRole("heading", { name: /把真实问题.*变成下一次改进/ })).toBeVisible();
   await expect(page.getByRole("link", { name: /报告安装问题/ })).toHaveAttribute("href", /install-failure\.yml/);
@@ -73,7 +73,7 @@ test("copying an install command records a fixed intent event", async ({ page })
 
 test("case library shows a reproducible synthetic work trace", async ({ page }) => {
   await page.goto("/cases");
-  await expect(page.getByRole("heading", { name: /Skill 怎样工作.*看一次完整案例/ })).toBeVisible();
+  await expect(page.getByRole("heading", { name: /看 Skill 怎样.*进入真实工作/ })).toBeVisible();
   await expect(page.getByText(/首批案例均使用虚构场景与合成数据/)).toBeVisible();
   await expect(page.getByRole("link", { name: /先划清竞品边界/ })).toBeVisible();
 
@@ -178,16 +178,16 @@ test("SEO metadata is page-specific and machine-readable", async ({ page, reques
   expect(canonical).not.toBeNull();
   expect(new URL(canonical!).pathname).toBe("/skills/research-competitors/");
 
-  await expect(page).toHaveTitle("中国市场竞品地图 AI Skill - MARKET//SKILLS");
+  await expect(page).toHaveTitle("竞品研究 AI Skill - MARKET//SKILLS");
   await expect(page.locator('meta[property="og:url"]')).toHaveAttribute("content", canonical!);
   await expect(page.locator('meta[property="og:title"]')).toHaveAttribute(
     "content",
-    "中国市场竞品地图 AI Skill - MARKET//SKILLS",
+    "竞品研究 AI Skill - MARKET//SKILLS",
   );
   await expect(page.locator('meta[property="og:image"]')).toHaveAttribute("content", /opengraph-image/);
   await expect(page.locator('meta[name="twitter:title"]')).toHaveAttribute(
     "content",
-    "中国市场竞品地图 AI Skill - MARKET//SKILLS",
+    "竞品研究 AI Skill - MARKET//SKILLS",
   );
   await expect(page.locator('meta[name="twitter:image"]')).toHaveAttribute("content", /twitter-image/);
 

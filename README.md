@@ -2,7 +2,7 @@
 
 Open-source, installable AI agent skills for global teams operating in China. The first 10 skills cover market intelligence, positioning, Chinese messaging, local content channels, campaign execution, and measurement. Three synthetic cases show how the skills support real decisions without presenting invented client results.
 
-MARKET//SKILLS 是面向中国市场工作的开源 AI Agent Skill Hub。中文主站位于 [`mktskill.com`](https://mktskill.com/)，英文版位于 [`mktskill.com/en/`](https://mktskill.com/en/)。两种语言共享同一套 Skill、安装路径和版本。
+MARKET//SKILLS 中文版是专属于市场人的开源 AI Agent Skill Hub，覆盖从洞察到复盘的完整工作链；英文版帮助全球团队在中国开展市场工作。中文主站位于 [`mktskill.com`](https://mktskill.com/)，英文版位于 [`mktskill.com/en/`](https://mktskill.com/en/)。两种语言共享同一套 Skill、安装路径和版本。
 
 ## Local development / 本地运行
 

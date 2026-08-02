@@ -1,5 +1,5 @@
 slug: research-competitors
-english_name: China Competitor Landscape
+english_name: Research Competitors
 phase: insight
 locales:
   en:
@@ -16,18 +16,18 @@ locales:
     dependencies: [Live research requires web access and access to relevant Chinese sources]
     example_prompt: Map the China competitor landscape for our B2B AI product, separating direct competitors, platform-native features, agencies, and local substitutes.
   zh:
-    title: 中国市场竞品地图
-    summary: 在做中国市场进入或定位决策前，分层识别本土竞品、平台原生能力、替代方案与证据缺口。
+    title: 竞品研究
+    summary: 广泛发现候选对象，再用严格门槛分层，最终形成能支持产品与市场决策的竞品结论。
     phase_label: 洞察
-    roles: [产品市场, 市场情报, 市场策略, 创始团队]
-    tasks: [中国竞品调研, 竞争格局, 本土替代方案, 平台能力扫描]
-    inputs: [产品资料, 中国目标客群, 待支持决策, 已知竞品]
-    outputs: [分层竞品地图, 锚定式对比, 证据台账, 决策启示]
+    roles: [产品市场, 市场策略, 品牌, 增长]
+    tasks: [竞品调研, 竞争格局, 替代方案, 官网对标]
+    inputs: [产品资料, 目标市场, 研究目标, 已知竞品]
+    outputs: [竞品分层地图, 锚定式对比, 证据台账, 决策建议]
     limitations: [实时市场结论需要联网并查阅中文与官方来源, 不替代法务商业或投资尽调, 不能仅凭功能相似判定直接竞争]
     failure_modes: [发现候选对象前未定义产品与中国买方, 只比较全球品牌而漏掉本土平台和替代方案, 证据没有来源日期或置信等级]
-    protocol_steps: [界定中国市场决策, 建立焦点产品基线, 广泛发现本土候选对象, 严格分层竞争关系, 建立可回查证据台账, 转化为决策启示]
-    dependencies: [实时调研需要联网与相关中文来源]
-    example_prompt: 调研我们 B2B AI 产品的中国竞品地图，区分直接竞品、平台原生能力、代运营服务和本土替代方案。
+    protocol_steps: [确定研究深度, 按竞品研究流程推进, 检查证据与结论边界]
+    dependencies: [实时调研需要联网搜索能力]
+    example_prompt: 调研面向中国连锁零售企业的 AI 营销助手竞品，区分直接竞品、平台原生能力和相邻替代方案。
 compatibility: [Codex, Claude Code, Cursor, OpenCode]
 version: 2.0.0
 updated_at: 2026-08-01

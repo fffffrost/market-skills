@@ -1,5 +1,5 @@
 slug: event-promotion-plan
-english_name: China Event Promotion Plan
+english_name: Event Promotion Plan
 phase: execution
 locales:
   en:
@@ -16,18 +16,18 @@ locales:
     dependencies: [Calendar spreadsheet and platform execution depend on host capabilities]
     example_prompt: Plan a six-week China promotion cadence for our Shanghai industry roundtable using WeChat, partners, communities, and sales outreach.
   zh:
-    title: 中国活动传播排期
-    summary: 围绕自有平台、合作伙伴、社群、销售触达、报名、到场和会后跟进，建立完整的中国活动转化计划。
+    title: 活动传播排期
+    summary: 从目标受众和报名漏斗倒推活动前中后的渠道、素材、负责人、审批和跟进节奏。
     phase_label: 执行
     roles: [活动营销, 整合营销, 社群, 销售协同]
-    tasks: [中国活动传播, 直播报名, 合作伙伴扩散, 会后跟进]
-    inputs: [活动目标, 时间与地点, 中国目标人群, 可用渠道与负责人]
+    tasks: [活动传播, 报名转化, 直播推广, 会后跟进]
+    inputs: [活动目标, 时间地点, 受众, 渠道与资源]
     outputs: [传播节奏, 素材排期, 责任矩阵, 应急预案]
     limitations: [不负责配置报名系统日历或平台账号, 日期人群和资源未定前不能形成可靠排期, 不能承诺报名到场或商机结果]
     failure_modes: [照搬全球节奏而忽略中国节假渠道与审批, 只罗列渠道动作而没有资格与交接逻辑, 忽略素材制作审核和合作伙伴周期]
-    protocol_steps: [确立中国活动基线, 定义人群承诺与漏斗, 围绕本地日期逆向排期, 分配渠道与伙伴角色, 建立素材负责矩阵, 准备应急与会后跟进]
-    dependencies: [日历表格和平台执行取决于宿主能力]
-    example_prompt: 为我们的上海行业圆桌制定六周中国传播排期，使用微信、合作伙伴、社群和销售触达。
+    protocol_steps: [明确活动基线, 设计完整传播节奏, 按执行顺序交付]
+    dependencies: [生成表格或日历取决于宿主能力]
+    example_prompt: 为 9 月 18 日的线下行业沙龙制定六周传播排期，目标是 120 个合格报名和 70% 到场率。
 compatibility: [Codex, Claude Code, Cursor, OpenCode]
 version: 2.0.0
 updated_at: 2026-08-01

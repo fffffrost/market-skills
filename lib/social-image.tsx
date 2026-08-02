@@ -1,10 +1,19 @@
 import { ImageResponse } from "next/og";
+import type { Locale } from "@/lib/site-content";
 
-export const socialImageAlt = "MARKET//SKILLS - 中国市场 AI Skill Hub";
+export const socialImageAlt = {
+  en: "MARKET//SKILLS - China Marketing Skills for AI Agents",
+  zh: "MARKET//SKILLS - 市场人的 AI Skill Hub",
+} as const;
 export const socialImageSize = { width: 1200, height: 630 };
 export const socialImageContentType = "image/png";
 
-export function createSocialImage() {
+export function createSocialImage(locale: Locale) {
+  const topLabel = locale === "en" ? "CHINA_MARKETING_OS" : "CN_MARKETING_OS";
+  const tagline = locale === "en"
+    ? "CHINA MARKETING SKILLS FOR AI AGENTS"
+    : "AI SKILL HUB FOR MARKETING TEAMS";
+
   return new ImageResponse(
     (
       <div
@@ -21,9 +30,9 @@ export function createSocialImage() {
             "radial-gradient(circle at 78% 26%, rgba(124, 255, 182, 0.22), transparent 30%), linear-gradient(135deg, #090d0f 0%, #10191b 100%)",
           fontFamily: "sans-serif",
         }}
-      >
+        >
         <div style={{ display: "flex", justifyContent: "space-between", fontSize: 24, letterSpacing: 4 }}>
-          <span>CN_MARKETING_OS</span>
+          <span>{topLabel}</span>
           <span style={{ color: "#7cffb6" }}>SYS.ONLINE</span>
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
@@ -33,7 +42,7 @@ export function createSocialImage() {
             <span>SKILLS</span>
           </div>
           <div style={{ display: "flex", marginTop: 24, color: "#b8c2bd", fontSize: 34, letterSpacing: 1 }}>
-            CHINA MARKETING SKILLS FOR AI AGENTS
+            {tagline}
           </div>
         </div>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>

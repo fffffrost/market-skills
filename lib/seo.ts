@@ -28,6 +28,7 @@ export function createPageMetadata({
   const socialTitle = title ? title + " - " + siteConfig.name : siteConfig.locales[locale].title;
   const canonical = absoluteUrl(localized);
   const imageAlt = siteConfig.locales[locale].title;
+  const imagePrefix = locale === "en" ? "/en" : "";
 
   return {
     ...(title ? { title } : {}),
@@ -57,7 +58,7 @@ export function createPageMetadata({
         ? {
             images: [
               {
-                url: siteConfig.siteUrl + "/opengraph-image",
+                url: siteConfig.siteUrl + imagePrefix + "/opengraph-image",
                 width: 1200,
                 height: 630,
                 alt: imageAlt,
@@ -75,7 +76,7 @@ export function createPageMetadata({
         ? {
             images: [
               {
-                url: siteConfig.siteUrl + "/twitter-image",
+                url: siteConfig.siteUrl + imagePrefix + "/twitter-image",
                 width: 1200,
                 height: 630,
                 alt: imageAlt,

@@ -9,7 +9,7 @@ const copy = {
     links: ["All skills", "Field cases", "Install guide", "Feedback & privacy"],
   },
   zh: {
-    tagline: "不是更多 Prompt，是更可靠的中国市场工作方法。",
+    tagline: "不是更多 Prompt，是更可靠的工作方法。",
     links: ["全部 Skill", "实战案例", "安装指南", "反馈与隐私"],
   },
 } as const;

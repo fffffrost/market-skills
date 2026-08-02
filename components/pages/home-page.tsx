@@ -20,7 +20,9 @@ const copy = {
       ["Localization", "localization"], ["Review", "retrospective"],
     ],
     panelLabel: "System overview",
+    panelCode: "CHINA_MARKETING_OS",
     language: "EN + ZH",
+    bootLog: ["✓ local context", "✓ evidence ledger", "✓ human checkpoints"],
     phaseHeading: "Work by decision stage, not by tool.",
     phaseIntro: "Each skill owns one clear job, names the evidence it needs, and shows where local judgment must take over.",
     libraryHeading: "Ten China workflows, ready to install.",
@@ -41,34 +43,36 @@ const copy = {
     installLink: "Read the install guide ↗",
   },
   zh: {
-    eyebrow: "READY / 中国市场任务系统 · v2.0",
-    hero: <>中国市场，<br /><span>不是翻译题。</span></>,
-    lead: "为进入和深耕中国市场的团队打造的 AI Skill Hub，覆盖研究、定位、本地化、执行与复盘。",
-    searchLabel: "你现在要完成什么中国市场任务？",
-    searchPlaceholder: "例如：中国竞品、公众号审稿、Campaign 复盘",
+    eyebrow: "READY / 中文市场任务库 · v2.0",
+    hero: <>别从空白<br /><span>Prompt</span> 开始。</>,
+    lead: "为市场人量身打造的 AI Skill Hub。装上经过实战提炼的方法，覆盖从洞察到复盘的完整工作链。",
+    searchLabel: "你现在要完成什么市场任务？",
+    searchPlaceholder: "例如：竞品研究、公众号审稿、活动复盘",
     quick: [
       ["竞品", "竞品"], ["定位", "定位"], ["公众号", "公众号"],
-      ["本地化", "本地化"], ["复盘", "复盘"],
+      ["活动", "活动"], ["复盘", "复盘"],
     ],
     panelLabel: "系统概览",
-    language: "EN + ZH",
-    phaseHeading: <>按决策阶段推进，<br />不按工具堆砌。</>,
-    phaseIntro: "每个 Skill 对应一个清晰任务，说清需要什么证据，也说清哪些判断必须由人完成。",
-    libraryHeading: <>十个工作流，<br />覆盖中国市场。</>,
-    libraryLink: "打开完整技能库 →",
+    panelCode: "CN_MARKETING_OS",
+    language: "ZH-CN",
+    bootLog: ["✓ evidence chain", "✓ output template", "✓ boundary guardrails"],
+    phaseHeading: "按工作推进，不按工具堆砌。",
+    phaseIntro: "每个 Skill 对应一个清晰任务。它知道什么时候介入、需要什么输入，也知道应该在哪里停下。",
+    libraryHeading: "首发技能，全部可用。",
+    libraryLink: "打开完整任务库 →",
     casesHeading: <>方法怎么用，<br />要看一次完整工作。</>,
-    casesIntro: "合成案例展示输入、执行轨迹、证据边界与人工检查点。",
+    casesIntro: "从输入、执行到人工判断点，查看 Skill 怎样进入具体任务。",
     casesLink: "打开案例库 →",
-    principlesHeading: <>中国市场方法，<br />要证据，不要玄学。</>,
-    principlesIntro: "每个 Skill 都把本地语境、证据标准、交付结构和适用边界写进 Agent 的工作方式。",
+    principlesHeading: <>不是写得长，<br />而是做得稳。</>,
+    principlesIntro: "每个 Skill 都把营销工作的判断标准、输入边界和交付结构写进 Agent 的工作方式里。",
     principles: [
-      ["本地语境优先", "生产内容前先定义中国买方、平台、语言、区域和决策。"],
-      ["证据优于传闻", "对时效性声明标记日期，区分官方事实、推断与未知。"],
-      ["交付可执行", "输入、流程、负责人交接和验收标准都有明确结构。"],
-      ["源码可查", "安装前审查全部指令、依赖和局限。"],
+      ["触发准确", "说清适用场景，也写清不该介入的任务。"],
+      ["证据优先", "区分事实、官方口径、分析推断与未知项。"],
+      ["交付明确", "输入、步骤、模板和验收标准都可直接复用。"],
+      ["源码可查", "开源、可修改，安装前能审阅全部指令和依赖。"],
     ],
-    installHeading: <>一次安装，<br />开始中国市场工作。</>,
-    installIntro: "可安装完整系统，也可从一个工作流开始。支持 Codex、Claude Code、Cursor 与其他兼容 Agent Skills 的工具。",
+    installHeading: <>一次安装，<br />补齐整个市场工作链。</>,
+    installIntro: "也可以只选择当前需要的单个 Skill。支持 Codex、Claude Code、Cursor 与其他兼容 Agent Skills 的工具。",
     installLink: "查看安装说明 ↗",
   },
 } as const;
@@ -82,11 +86,11 @@ const phases = {
     ["review", "05", "Review", "Turn evidence into learning", "LEARN"],
   ],
   zh: [
-    ["insight", "01", "洞察", "看见本地现实", "OBSERVE"],
-    ["strategy", "02", "策略", "做出市场选择", "DECIDE"],
-    ["content", "03", "内容", "本地化价值表达", "EXPRESS"],
-    ["execution", "04", "执行", "让交接真正落地", "OPERATE"],
-    ["review", "05", "复盘", "把证据变成学习", "LEARN"],
+    ["insight", "01", "洞察", "看见真正的问题", "OBSERVE"],
+    ["strategy", "02", "策略", "做出清晰的选择", "DECIDE"],
+    ["content", "03", "内容", "把价值表达出来", "EXPRESS"],
+    ["execution", "04", "执行", "让协作真正落地", "OPERATE"],
+    ["review", "05", "复盘", "把经验变成资产", "LEARN"],
   ],
 } as const;
 
@@ -101,7 +105,7 @@ export function HomePage({ locale }: { locale: Locale }) {
     "@id": absoluteUrl(homePath + "#website"),
     url: absoluteUrl(homePath),
     name: siteConfig.name,
-    alternateName: locale === "en" ? "China Marketing Skills for AI Agents" : "中国市场 AI Skill Hub",
+    alternateName: locale === "en" ? "China Marketing Skills for AI Agents" : "市场人的 AI Skill Hub",
     description: siteConfig.locales[locale].description,
     inLanguage: localeConfig[locale].languageTag,
     sameAs: [siteConfig.githubUrl],
@@ -130,7 +134,7 @@ export function HomePage({ locale }: { locale: Locale }) {
         </div>
 
         <div className="mission-panel reveal reveal-2" aria-label={content.panelLabel}>
-          <div className="panel-topline"><span>MISSION.CONTROL</span><span>CHINA_MARKETING_OS</span></div>
+          <div className="panel-topline"><span>MISSION.CONTROL</span><span>{content.panelCode}</span></div>
           <div className="radar-field" aria-hidden="true">
             <div className="radar-ring ring-1" /><div className="radar-ring ring-2" />
             <div className="radar-cross cross-x" /><div className="radar-cross cross-y" /><div className="radar-sweep" />
@@ -143,7 +147,7 @@ export function HomePage({ locale }: { locale: Locale }) {
             <div><span>FORMAT</span><strong>OPEN SKILL</strong></div>
             <div><span>LICENSE</span><strong>MIT</strong></div>
           </div>
-          <div className="boot-log"><span>✓ local context</span><span>✓ evidence ledger</span><span>✓ human checkpoints</span></div>
+          <div className="boot-log">{content.bootLog.map((item) => <span key={item}>{item}</span>)}</div>
         </div>
       </section>
 

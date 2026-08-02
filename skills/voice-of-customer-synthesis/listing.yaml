@@ -1,5 +1,5 @@
 slug: voice-of-customer-synthesis
-english_name: China Voice of Customer Synthesis
+english_name: Voice of Customer Synthesis
 phase: insight
 locales:
   en:
@@ -16,18 +16,18 @@ locales:
     dependencies: [The host must be able to read the supplied Chinese materials]
     example_prompt: Synthesize these Chinese customer interviews and REDnote comments for our market-entry messaging, preserving quotations and sample limits.
   zh:
-    title: 中国用户声音提炼
-    summary: 从中文访谈、评论、销售笔记、工单和社交平台内容中提炼洞察，保留平台语境与样本边界。
+    title: 用户声音提炼
+    summary: 从访谈、评论和客户反馈中识别任务、张力与决策障碍，同时保留证据链和样本边界。
     phase_label: 洞察
     roles: [用户研究, 产品市场, 内容, 客户成功]
-    tasks: [中文访谈整理, 评论洞察, 社交舆情提炼, 需求聚类]
-    inputs: [中文研究材料, 来源元数据, 人群分层, 决策问题]
-    outputs: [证据主题卡, 用户原声, 人群与平台差异, 行动矩阵]
+    tasks: [访谈整理, VOC 分析, 评论洞察, 需求聚类]
+    inputs: [访谈记录, 评论与工单, 销售笔记, 研究目标]
+    outputs: [洞察主题卡, 用户原声, 分群差异, 行动矩阵]
     limitations: [不能把小样本或便利样本外推为中国市场结论, 不替代定量研究或持续舆情监测, 不应在缺少合法依据时处理个人数据]
     failure_modes: [分析前先翻译改写导致用户原话丢失, 不同平台人群和客户阶段被混成一个主题, 统计模式时丢掉来源与样本边界]
-    protocol_steps: [明确中国市场决策, 保留来源与语言语境, 编码原始观察, 比较平台与人群模式, 建立有证据的洞察, 转化为验证行动]
-    dependencies: [宿主需能读取用户提供的中文材料]
-    example_prompt: 为我们的中国市场进入信息整理这些中文客户访谈和小红书评论，保留引用和样本限制。
+    protocol_steps: [先明确要支持的决策, 整理并校验研究材料, 分五轮提炼用户声音, 按决策顺序交付, 守住证据与样本边界]
+    dependencies: [宿主需能读取用户提供的材料]
+    example_prompt: 把这 12 份客户访谈整理成面向新产品定位的 VOC 洞察，保留引用和样本限制。
 compatibility: [Codex, Claude Code, Cursor, OpenCode]
 version: 2.0.0
 updated_at: 2026-08-01

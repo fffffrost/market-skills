@@ -17,9 +17,9 @@ const copy = {
   },
   zh: {
     phaseOptions: [["all", "全部阶段"], ["insight", "洞察"], ["strategy", "策略"], ["content", "内容"], ["execution", "执行"], ["review", "复盘"]],
-    search: "搜索 Skill", placeholder: "输入任务，例如：中国竞品、公众号、本地化、Campaign 复盘",
+    search: "搜索 Skill", placeholder: "输入任务，例如：竞品、公众号、活动复盘",
     phase: "阶段", role: "岗位", task: "任务", allRoles: "全部岗位", allTasks: "全部任务",
-    clear: "清空筛选 ×", emptyTitle: "暂时没有匹配的 Skill", emptyBody: "换一个更具体的中国市场任务，或清空筛选。", reset: "重置检索",
+    clear: "清空筛选 ×", emptyTitle: "暂时没有匹配的 Skill", emptyBody: "换一个更具体的工作任务，或清空筛选查看完整工作链。", reset: "重置检索",
   },
 } as const;
 

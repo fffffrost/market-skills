@@ -5,11 +5,11 @@ import {
   socialImageSize,
 } from "@/lib/social-image";
 
-export const alt = socialImageAlt.zh;
+export const alt = socialImageAlt.en;
 export const size = socialImageSize;
 export const contentType = socialImageContentType;
 export const dynamic = "force-static";
 
 export default function TwitterImage() {
-  return createSocialImage("zh");
+  return createSocialImage("en");
 }

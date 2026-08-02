@@ -17,17 +17,17 @@ locales:
     example_prompt: Edit this WeChat Official Account article for structure and credibility, preserve the author voice, and flag facts that need product approval.
   zh:
     title: 公众号长文编辑
-    summary: 从阅读路径、证据、中文节奏和发布要素诊断并重构微信公众号长文，同时保留作者声音。
+    summary: 从阅读路径、证据、语言节奏和发布要素四层诊断并重构公众号长文，同时保留作者声音。
     phase_label: 内容
     roles: [内容, 公关, 品牌, 产品市场]
-    tasks: [公众号审稿, 长文结构, 标题摘要, 发布前校对]
-    inputs: [中文文章草稿, 事实资料, 目标读者, 账号语气]
-    outputs: [修订正文, 标题与摘要, 修改说明, 待确认事项]
+    tasks: [长文审稿, 结构优化, 标题摘要, 发布校对]
+    inputs: [文章草稿, 事实资料, 目标读者, 账号语气]
+    outputs: [修订正文, 标题摘要, 修改说明, 待确认事项]
     limitations: [不替代事实核验版权检查或正式合规审校, 缺少原始材料时不能创作可信长文, 不会制造标题党或静默改变作者立场]
     failure_modes: [改写前没有确认编辑模式与范围, 只润色句子却保留重复或断裂的阅读路径, 标题摘要正文和配图提示的事实发生漂移]
-    protocol_steps: [确认编辑模式, 明确读者承诺, 修复阅读路径, 强化证据与中文节奏, 建立发布内容包, 标记最终人工检查]
-    dependencies: [宿主需能读取用户提供的中文文稿]
-    example_prompt: 审校这篇微信公众号长文的结构与证据，保留作者声音，并标出需要产品确认的事实。
+    protocol_steps: [确认本次编辑模式, 分层诊断并重写, 按发布顺序交付, 守住事实与作者声音]
+    dependencies: [宿主需能读取用户提供的文稿]
+    example_prompt: 审校这篇公众号长文，重点解决开头绕、结构重复和结论不够稳的问题，不要改变事实口径。
 compatibility: [Codex, Claude Code, Cursor, OpenCode]
 version: 2.0.0
 updated_at: 2026-08-01

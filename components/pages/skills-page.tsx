@@ -13,9 +13,9 @@ export const skillsPageCopy = {
     intro: "Search by the job, not by a tool name. Filter by stage, role, and the decision or deliverable you need.",
   },
   zh: {
-    title: "中国市场 AI Skill 技能库",
-    description: "查找适用于中国市场研究、定位、本地化、微信内容、Campaign 执行与复盘的可安装 AI Agent Skills。",
-    heading: <>找到适合你的<br />中国市场 Skill。</>,
+    title: "AI Agent Skill 技能库",
+    description: "按洞察、策略、内容、执行与复盘，查找适合市场工作的可安装 AI Agent Skill。",
+    heading: <>找到此刻<br />该装的 Skill。</>,
     intro: "从任务出发检索，不需要先知道 Skill 名字。按阶段、岗位和工作目标组合筛选。",
   },
 } as const;

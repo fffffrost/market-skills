@@ -1,5 +1,5 @@
 slug: positioning-proposal
-english_name: China Market Positioning
+english_name: Positioning Proposal
 phase: strategy
 locales:
   en:
@@ -16,18 +16,18 @@ locales:
     dependencies: [China customer and competitor evidence materially improves the result]
     example_prompt: Rework our global positioning for Chinese enterprise buyers, using this local VOC and competitor evidence, and recommend one testable route.
   zh:
-    title: 中国市场定位
-    summary: 围绕具体中国买方、参照系、价值承诺与本地证据重构全球产品定位，而不是直译总部话术。
+    title: 定位提案
+    summary: 从目标人群、参照系、价值承诺和可信证据出发，形成可选择、可验证的定位方向。
     phase_label: 策略
-    roles: [产品市场, 品牌策略, 市场进入, 创始团队]
-    tasks: [中国市场定位, 本地价值主张, 品类定义, 定位评审]
-    inputs: [全球定位, 中国用户证据, 本土竞品地图, 产品边界]
-    outputs: [定位陈述, 策略路线, 信息层级, 验证计划]
+    roles: [产品市场, 品牌, 市场策略, 创始团队]
+    tasks: [产品定位, 价值主张, 品类定义, 定位评审]
+    inputs: [产品资料, 用户洞察, 竞品信息, 商业目标]
+    outputs: [定位陈述, 备选路线, 信息层级, 验证计划]
     limitations: [中国客户证据较弱时只能形成待验证假设, 不替代命名商标或受监管表述审查, 不能靠翻译让全球证据自动获得本地信任]
     failure_modes: [未定义本地购买语境就先翻译全球信息, 只罗列卖点而没有选择人群和替代对象, 推荐路线没有中国本地证据和验证计划]
-    protocol_steps: [审计全球定位, 定义中国购买语境, 选择人群参照价值与证据, 比较不超过三条路线, 推荐一条主路线, 设计本地验证]
-    dependencies: [中国客户与竞品证据会显著提升质量]
-    example_prompt: 结合这份本地 VOC 和竞品证据，为中国企业买方重构我们的全球定位，并推荐一条可验证路线。
+    protocol_steps: [建立证据基础, 做出关键策略选择, 生成并比较定位路线, 组织最终交付, 守住定位边界]
+    dependencies: [无强制外部依赖]
+    example_prompt: 基于这份产品资料、VOC 和竞品报告，给出不超过三条定位路线并推荐一条。
 compatibility: [Codex, Claude Code, Cursor, OpenCode]
 version: 2.0.0
 updated_at: 2026-08-01

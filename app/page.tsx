@@ -5,7 +5,7 @@ import { createPageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "中国市场 AI Skill Hub",
+  title: "市场人的 AI Skill Hub",
   description: siteConfig.locales.zh.description,
   path: "/",
   locale: "zh",

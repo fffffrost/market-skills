@@ -1,5 +1,5 @@
 slug: sop-flowchart
-english_name: China Marketing SOP Flowchart
+english_name: SOP Flowchart
 phase: execution
 locales:
   en:
@@ -16,18 +16,18 @@ locales:
     dependencies: [Mermaid rendering is optional but improves visual validation]
     example_prompt: Turn this China lead-routing process into a vertical Mermaid SOP with platform review, agency handoff, CRM status, and exception rules.
   zh:
-    title: 中国市场 SOP 流程图
-    summary: 把中国市场规则、平台审核、线索资格、代理商交接和异常路径转成一线可读且可维护的运营流程。
+    title: 市场 SOP 流程图
+    summary: 把主路径、决策规则、异常和交接拆开，生成一线人员看得懂、后续也能维护的流程图。
     phase_label: 执行
-    roles: [市场运营, 需求获取, 代理商管理, 团队负责人]
-    tasks: [中国市场 SOP, 平台审核流程, 线索交接, 代理商协作]
-    inputs: [现有流程, 规则与例外, 负责人与系统, 必需记录]
+    roles: [市场运营, SDR, 活动营销, 团队负责人]
+    tasks: [SOP 流程, 资格判断, 话术逻辑, 跨团队交接]
+    inputs: [现有流程, 规则与例外, 角色分工, 交付状态]
     outputs: [Mermaid 源码, 主流程图, 规则表, 交接说明]
     limitations: [未确认的业务或平台规则只能标为待定, 不负责配置自动化系统权限或外部工作流, 受监管或高风险流程仍需领域专家审查]
     failure_modes: [平台审核和代理商交接被藏在模糊通用步骤中, 复杂评分与例外被全部塞进主流程图, 中文节点名称抽象或过长导致一线无法执行]
-    protocol_steps: [拆分主路径规则与交接, 按负责人和输出规范步骤, 只绘制改变行动的分支, 把密集规则与例外移出主图, 验证每个本地交接, 交付可维护源码]
-    dependencies: [Mermaid 渲染不是必需但可提升视觉验证]
-    example_prompt: 把这套中国线索路由流程整理成纵向 Mermaid SOP，包含平台审核、代理商交接、CRM 状态和异常规则。
+    protocol_steps: [拆分流程信息, 绘制主流程与决策点, 交付流程图与规则表, 验证可读性与完整性]
+    dependencies: [可选 Mermaid 渲染能力]
+    example_prompt: 把这份 SDR 线索资格规则整理成纵向 Mermaid 流程图，复杂评分放在图外规则表。
 compatibility: [Codex, Claude Code, Cursor, OpenCode]
 version: 2.0.0
 updated_at: 2026-08-01

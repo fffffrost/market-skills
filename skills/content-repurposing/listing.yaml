@@ -1,5 +1,5 @@
 slug: content-repurposing
-english_name: China Content Localization
+english_name: Content Repurposing
 phase: content
 locales:
   en:
@@ -16,18 +16,18 @@ locales:
     dependencies: [The host must read source materials and current platform guidance may require web access]
     example_prompt: Localize this global report into a WeChat article, REDnote post, Zhihu answer, Baidu search brief, and Chinese sales follow-up without claim drift.
   zh:
-    title: 中国市场内容本地化
-    summary: 把已验证的全球内容重构为适合微信、小红书、哔哩哔哩、知乎、百度搜索和销售使用的本地内容，不让事实漂移。
+    title: 多平台内容改写
+    summary: 先锁定事实底座，再按每个渠道的角色、受众和原生节奏重组内容，而不是机械缩写。
     phase_label: 内容
     roles: [内容, 社媒, 产品市场, 销售赋能]
-    tasks: [中国内容本地化, 小红书改写, 微信内容复用, 百度搜索内容]
-    inputs: [已批准源内容, 中国目标人群, 目标平台, 术语与表述规则]
-    outputs: [本地化内容系统, 平台原生内容, 溯源地图, 审批依赖]
+    tasks: [一稿多发, 内容拆条, 长文转短帖, 视频口播]
+    inputs: [核心内容, 事实口径, 目标渠道, 目标受众]
+    outputs: [渠道内容包, 发布文案, 口播脚本, 溯源说明]
     limitations: [改写前需要已验证源内容和已批准术语, 不负责排期发布或操作外部平台账号, 不能保证排名流量互动或平台审核结果]
     failure_modes: [本地化从逐句翻译开始而非重设人群与渠道, 照搬平台套路却没有检查品牌匹配与最新规则, 不同本地版本之间出现数字结论和术语漂移]
-    protocol_steps: [锁定已批准源内容, 定义中国人群与搜索意图, 为每个平台分配任务, 重建平台原生结构, 保留表述溯源, 通过本地审校]
-    dependencies: [宿主需能读取源材料且最新平台规则可能需联网]
-    example_prompt: 把这份全球报告本地化为公众号长文、小红书笔记、知乎回答、百度搜索 Brief 和中文销售跟进内容，确保表述不漂移。
+    protocol_steps: [锁定事实底稿, 设计多平台内容包, 按渠道顺序交付, 通过发布前质量检查]
+    dependencies: [宿主需能读取源内容]
+    example_prompt: 把这篇产品发布长文改成公众号转发语、三条社媒短帖和一条 60 秒口播，所有事实可追溯。
 compatibility: [Codex, Claude Code, Cursor, OpenCode]
 version: 2.0.0
 updated_at: 2026-08-01

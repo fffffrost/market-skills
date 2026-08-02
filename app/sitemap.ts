@@ -10,7 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const locales: Locale[] = ["zh", "en"];
   const staticRoutes = locales.flatMap((locale) => ["/", "/skills/", "/cases/", "/install/", "/feedback/"].map((route) => ({
     url: absoluteUrl(localizedPath(locale, route)),
-    lastModified: new Date("2026-08-01"),
+    lastModified: new Date("2026-08-02"),
   })));
   const skillRoutes = locales.flatMap((locale) => getSkills(locale).map((skill) => ({
     url: absoluteUrl(localizedPath(locale, `/skills/${skill.slug}/`)),
