@@ -12,6 +12,11 @@ test("home exposes the complete workflow and install path", async ({ page }) => 
     "href",
     "https://beian.miit.gov.cn/",
   );
+  await expect(page.getByRole("link", { name: "赣公网安备36110202000750号" })).toHaveAttribute(
+    "href",
+    "https://beian.mps.gov.cn/#/query/webSearch?code=36110202000750",
+  );
+  await expect(page.locator('img[src="/gongan-beian.png"]')).toBeVisible();
 });
 
 test("query links filter the static skill directory", async ({ page }) => {
@@ -243,6 +248,7 @@ test("English routes are complete, indexable, and linked to the Chinese counterp
   await expect(page.getByRole("heading", { name: /Operate in China/ })).toBeVisible();
   await expect(page.getByText(/Installable AI agent skills for global teams/)).toBeVisible();
   await expect(page.getByRole("link", { name: /China Competitor Landscape/ }).first()).toBeVisible();
+  await expect(page.getByRole("link", { name: "赣公网安备36110202000750号" })).toBeVisible();
 
   await page.goto("/skills/research-competitors");
   await page.getByRole("link", { name: "EN", exact: true }).click();

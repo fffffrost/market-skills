@@ -20,6 +20,7 @@ check_page() {
 }
 
 check_page "/" "MARKET"
+check_page "/" "赣公网安备36110202000750号"
 check_page "/skills/research-competitors/" "MINIMUM INPUT / 最低输入"
 check_page "/cases/map-competitors-before-comparing/" "DATA DISCLOSURE"
 check_page "/install/" "TROUBLESHOOT / 安装排错"
@@ -29,6 +30,11 @@ check_page "/en/skills/research-competitors/" "MINIMUM INPUT"
 check_page "/en/feedback/" "Record only the signal needed"
 check_page "/sitemap.xml" "${site_origin}/en/skills/research-competitors/"
 check_page "/events/collect.txt" "ok"
+
+if ! curl --fail --silent --show-error --max-time 20 --retry 2 --output /dev/null "${site_origin}/gongan-beian.png"; then
+  echo "Public security filing badge is unavailable." >&2
+  exit 1
+fi
 
 redirect_target=$(curl --silent --show-error --output /dev/null --max-time 20 --write-out '%{redirect_url}' "http://${site_host}/monitor-check?source=github-actions")
 if [ "$redirect_target" != "${site_origin}/monitor-check?source=github-actions" ]; then
@@ -42,4 +48,4 @@ if [ -z "$certificate_pem" ] || ! printf '%s\n' "$certificate_pem" | openssl x50
   exit 1
 fi
 
-echo "Chinese and English production paths, redirects, content markers, telemetry endpoint, and TLS expiry are healthy."
+echo "Chinese and English production paths, filing marks, redirects, content markers, telemetry endpoint, and TLS expiry are healthy."

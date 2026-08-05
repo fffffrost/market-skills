@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { TrackedGithubLink } from "@/components/tracked-github-link";
 import { siteConfig } from "@/lib/site-config";
 import { localizedPath, type Locale } from "@/lib/site-content";
@@ -45,6 +46,15 @@ export function SiteFooter({ locale }: { locale: Locale }) {
         <div className="footer-compliance">
           <a href="https://beian.miit.gov.cn/" target="_blank" rel="noreferrer">
             赣ICP备2026013493号-2
+          </a>
+          <a
+            className="public-security-record"
+            href="https://beian.mps.gov.cn/#/query/webSearch?code=36110202000750"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Image src="/gongan-beian.png" alt="" width={18} height={20} unoptimized />
+            <span>赣公网安备36110202000750号</span>
           </a>
         </div>
       </div>
