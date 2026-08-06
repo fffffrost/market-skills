@@ -175,7 +175,7 @@ Publish / review date:`,
       "Use a publication-ready WeChat article editing checklist to repair the reading path, strengthen evidence and Chinese rhythm, align the title and abstract, and surface final human approvals.",
     seoTitle: "WeChat Article Editing Checklist & AI Skill",
     seoDescription:
-      "Use a WeChat article editing checklist for structure, reader promise, evidence, Chinese rhythm, titles, abstracts, visual notes, and final publication review.",
+      "Edit WeChat Official Account articles with a checklist for reader promise, evidence, Chinese rhythm, structure, titles, abstracts, visual notes, and final review.",
     keywords: [
       "WeChat article editing checklist",
       "WeChat Official Account article editor",

@@ -94,6 +94,12 @@ const phases = {
   ],
 } as const;
 
+const englishSeoEntries = [
+  ["Competitor analysis template", "/skills/research-competitors/"],
+  ["Content localization checklist", "/skills/content-repurposing/"],
+  ["WeChat editing checklist", "/skills/wechat-article-editor/"],
+] as const;
+
 export function HomePage({ locale }: { locale: Locale }) {
   const content = copy[locale];
   const skills = getSkills(locale);
@@ -131,6 +137,10 @@ export function HomePage({ locale }: { locale: Locale }) {
             <span>QUICK.RUN</span>
             {content.quick.map(([label, query]) => <Link href={`${localizedPath(locale, "/skills")}?q=${encodeURIComponent(query)}`} key={label}>{label}</Link>)}
           </div>
+          {locale === "en" && <nav className="quick-links" aria-label="High-intent China marketing templates">
+            <span>START.HERE</span>
+            {englishSeoEntries.map(([label, path]) => <Link href={localizedPath(locale, path)} key={path}>{label}</Link>)}
+          </nav>}
         </div>
 
         <div className="mission-panel reveal reveal-2" aria-label={content.panelLabel}>

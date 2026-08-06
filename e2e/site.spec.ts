@@ -29,6 +29,22 @@ test("query links filter the static skill directory", async ({ page }) => {
   expect(new URL(canonical!).search).toBe("");
 });
 
+test("English home links directly to the three high-intent SEO entry points", async ({ page }) => {
+  await page.goto("/en/");
+  await expect(page.getByRole("link", { name: "Competitor analysis template" })).toHaveAttribute(
+    "href",
+    "/en/skills/research-competitors/",
+  );
+  await expect(page.getByRole("link", { name: "Content localization checklist" })).toHaveAttribute(
+    "href",
+    "/en/skills/content-repurposing/",
+  );
+  await expect(page.getByRole("link", { name: "WeChat editing checklist" })).toHaveAttribute(
+    "href",
+    "/en/skills/wechat-article-editor/",
+  );
+});
+
 test("empty search records only a fixed event without the search text", async ({ page }) => {
   await page.goto("/skills");
   const searchText = "尚未存在的保密任务";
@@ -139,7 +155,10 @@ test("English localization and WeChat pages provide copyable task checklists", a
     "/en/cases/edit-a-wechat-draft-for-publishing/",
   );
   await expect(page).toHaveTitle("WeChat Article Editing Checklist & AI Skill - MARKET//SKILLS");
-  await expect(page.locator('meta[name="description"]')).toHaveAttribute("content", /reader promise, evidence, Chinese rhythm/);
+  await expect(page.locator('meta[name="description"]')).toHaveAttribute(
+    "content",
+    /Edit WeChat Official Account articles.*reader promise, evidence, Chinese rhythm/,
+  );
 });
 
 test("Chinese and English layouts do not create horizontal page overflow", async ({ page }) => {
