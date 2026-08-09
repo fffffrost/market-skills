@@ -1,0 +1,35 @@
+slug: content-repurposing
+english_name: Content Repurposing
+phase: content
+locales:
+  en:
+    title: China Content Localization
+    summary: Rebuild a verified global source for WeChat, REDnote, Bilibili, Zhihu, Baidu search, and sales use without drifting from approved facts.
+    phase_label: Content
+    roles: [Content, Social, Product marketing, Sales enablement]
+    tasks: [China content localization, REDnote adaptation, WeChat repurposing, Baidu-ready content]
+    inputs: [Approved source content, China audience, Target platforms, Terminology and claim rules]
+    outputs: [Localized content system, Channel-native assets, Source map, Approval dependencies]
+    limitations: [Requires a verified source asset and approved terminology before adaptation, Does not publish schedule or operate external platform accounts, Cannot guarantee ranking reach engagement or platform approval]
+    failure_modes: [Localization begins as sentence translation instead of audience and channel redesign, Platform conventions are copied without checking brand fit or current rules, Numbers claims and terminology drift across localized versions]
+    protocol_steps: [Lock the approved source, Define the China audience and search intent, Assign a job to each platform, Rebuild channel-native structures, Preserve claim traceability, Run local review gates]
+    dependencies: [The host must read source materials and current platform guidance may require web access]
+    example_prompt: Localize this global report into a WeChat article, REDnote post, Zhihu answer, Baidu search brief, and Chinese sales follow-up without claim drift.
+  zh:
+    title: 多平台内容改写
+    summary: 先锁定事实底座，再按每个渠道的角色、受众和原生节奏重组内容，而不是机械缩写。
+    phase_label: 内容
+    roles: [内容, 社媒, 产品市场, 销售赋能]
+    tasks: [一稿多发, 内容拆条, 长文转短帖, 视频口播]
+    inputs: [核心内容, 事实口径, 目标渠道, 目标受众]
+    outputs: [渠道内容包, 发布文案, 口播脚本, 溯源说明]
+    limitations: [改写前需要已验证源内容和已批准术语, 不负责排期发布或操作外部平台账号, 不能保证排名流量互动或平台审核结果]
+    failure_modes: [本地化从逐句翻译开始而非重设人群与渠道, 照搬平台套路却没有检查品牌匹配与最新规则, 不同本地版本之间出现数字结论和术语漂移]
+    protocol_steps: [锁定事实底稿, 设计多平台内容包, 按渠道顺序交付, 通过发布前质量检查]
+    dependencies: [宿主需能读取源内容]
+    example_prompt: 把这篇产品发布长文改成公众号转发语、三条社媒短帖和一条 60 秒口播，所有事实可追溯。
+compatibility: [Codex, Claude Code, Cursor, OpenCode]
+version: 2.0.0
+updated_at: 2026-08-01
+featured: true
+order: 7

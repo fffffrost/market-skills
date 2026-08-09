@@ -1,0 +1,4 @@
+interface:
+  display_name: "China Event Promotion Plan"
+  short_description: "Plan local channels, partners, registration, attendance, owners, and follow-up for a China event"
+  default_prompt: "Use $event-promotion-plan to build a practical China promotion timeline for this event."

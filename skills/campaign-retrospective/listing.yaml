@@ -1,0 +1,35 @@
+slug: campaign-retrospective
+english_name: Campaign Retrospective
+phase: review
+locales:
+  en:
+    title: China Campaign Retrospective
+    summary: Reconcile China campaign goals, platform metrics, CRM data, agency records, and local execution changes into evidence-bounded next decisions.
+    phase_label: Review
+    roles: [Integrated marketing, Growth, Event marketing, China market lead]
+    tasks: [China campaign review, Cross-platform analysis, Agency review, Next-action planning]
+    inputs: [Original brief, Platform and CRM exports, Execution timeline, Team and agency notes]
+    outputs: [Result scorecard, Evidence-backed findings, Attribution limits, Owned action plan]
+    limitations: [Cannot finalize a retrospective before the decision period is complete, Missing or changed tracking definitions must remain explicit uncertainty, Does not infer causal attribution from platform correlations]
+    failure_modes: [Platform metrics are compared without normalizing definitions and time windows, Agency reports and first-party evidence are accepted without reconciliation, Actions lack owners deadlines measurement points or data repairs]
+    protocol_steps: [Reconstruct the original China contract, Normalize platform and CRM evidence, Analyze outcome funnel execution and explanation, State attribution limits, Convert learning into owned decisions, Set the next measurement point]
+    dependencies: [Spreadsheet or analytics access improves efficiency but supplied exports are sufficient]
+    example_prompt: Review this China campaign using WeChat, REDnote, Baidu, event, CRM, and agency records; separate facts, hypotheses, attribution limits, and next owners.
+  zh:
+    title: Campaign 复盘
+    summary: 从目标、漏斗、执行和解释四层复盘结果，明确证据强度、归因边界与下一步负责人。
+    phase_label: 复盘
+    roles: [整合营销, 增长, 活动营销, 市场负责人]
+    tasks: [Campaign 复盘, 效果分析, 活动总结, 经验沉淀]
+    inputs: [原始目标, 渠道数据, 执行记录, 团队反馈]
+    outputs: [结果记分卡, 关键发现, 归因边界, 行动清单]
+    limitations: [决策周期未结束时不能完成最终复盘, 缺失或变更的追踪口径必须保留为明确不确定性, 不会根据平台相关性直接推断因果归因]
+    failure_modes: [比较平台指标时没有对齐定义与时间窗口, 代理商报告与一方证据未经对账就被接受, 行动缺少负责人截止日期衡量点或数据修复]
+    protocol_steps: [还原最初目标与约定, 建立统一证据表, 分四层分析表现, 把复盘结论转成决策, 按决策顺序交付, 守住归因与证据边界]
+    dependencies: [数据文件读取能力可提升分析效率]
+    example_prompt: 基于原始 Brief、渠道数据和团队记录复盘这次 Campaign，区分事实、推断和待验证假设。
+compatibility: [Codex, Claude Code, Cursor, OpenCode]
+version: 2.0.0
+updated_at: 2026-08-01
+featured: true
+order: 10

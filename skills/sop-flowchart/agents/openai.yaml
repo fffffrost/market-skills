@@ -1,0 +1,4 @@
+interface:
+  display_name: "China Marketing SOP Flowchart"
+  short_description: "Map platform review, agency, lead, system, and exception handoffs into a maintainable operating flow"
+  default_prompt: "Use $sop-flowchart to turn this China marketing process into a readable and maintainable Mermaid flowchart."

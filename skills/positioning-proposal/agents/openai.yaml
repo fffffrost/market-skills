@@ -1,0 +1,4 @@
+interface:
+  display_name: "China Market Positioning"
+  short_description: "Choose a locally credible China buyer, category frame, value promise, proof set, and validation route"
+  default_prompt: "Use $positioning-proposal to develop an evidence-based China market positioning for this product."

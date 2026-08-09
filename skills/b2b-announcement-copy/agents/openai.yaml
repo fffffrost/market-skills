@@ -1,0 +1,4 @@
+interface:
+  display_name: "Chinese B2B Messaging"
+  short_description: "Turn approved product facts and positioning into credible Chinese launch, executive, and sales copy"
+  default_prompt: "Use $b2b-announcement-copy to turn these approved product materials into credible Chinese B2B messaging."

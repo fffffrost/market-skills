@@ -1,0 +1,53 @@
+name: Skill problem / Skill 问题
+description: Report trigger, workflow, output, or boundary problems / 报告 Skill 使用问题
+title: "[Skill] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use fictional or fully sanitized examples. Do not upload real client material or internal business data. / 请使用虚构或充分脱敏的示例。
+  - type: input
+    id: skill
+    attributes:
+      label: Skill name or slug / Skill 名称或 slug
+      placeholder: research-competitors
+    validations:
+      required: true
+  - type: dropdown
+    id: issue_type
+    attributes:
+      label: Problem type / 问题类型
+      options:
+        - Incorrect trigger / 没有正确触发
+        - Weak workflow / 执行步骤不合理
+        - Output structure or quality / 输出结构或质量
+        - Unclear boundary / 适用边界不清楚
+        - Documentation or example / 文档或示例
+    validations:
+      required: true
+  - type: textarea
+    id: task
+    attributes:
+      label: Intended job / 想完成的任务
+      description: Summarize the job, minimum input, and expected deliverable using sanitized content. / 请使用脱敏内容概括。
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: What happened / 实际发生了什么
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result / 更合理的结果
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety confirmation / 提交确认
+      options:
+        - label: I used a fictional or fully sanitized example. / 我使用的是虚构或充分脱敏的示例。
+          required: true

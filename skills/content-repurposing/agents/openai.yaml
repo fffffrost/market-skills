@@ -1,0 +1,4 @@
+interface:
+  display_name: "China Content Localization"
+  short_description: "Rebuild a verified source for WeChat, REDnote, Zhihu, Baidu search, Bilibili, and Chinese sales use"
+  default_prompt: "Use $content-repurposing to localize this verified source into channel-native China content."

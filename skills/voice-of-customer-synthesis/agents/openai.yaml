@@ -1,0 +1,4 @@
+interface:
+  display_name: "China Voice of Customer Synthesis"
+  short_description: "Synthesize Chinese customer evidence while preserving original language, platform context, and sample limits"
+  default_prompt: "Use $voice-of-customer-synthesis to turn these Chinese customer materials into traceable China market insights."

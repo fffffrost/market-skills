@@ -1,0 +1,4 @@
+interface:
+  display_name: "WeChat Article Editor"
+  short_description: "Restructure and edit Chinese WeChat Official Account articles for clarity, credibility, and publication"
+  default_prompt: "Use $wechat-article-editor to edit this draft into a clear and publishable WeChat article."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "China Competitor Landscape"
+  short_description: "Map local competitors, platforms, agencies, substitutes, and evidence gaps for a China market decision"
+  default_prompt: "Use $research-competitors to map the China market and identify decision-relevant local competitors and substitutes."

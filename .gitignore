@@ -1,0 +1,6 @@
+node_modules/
+.DS_Store
+
+# Local project continuity records
+/PROJECT.md
+/WORKLOG.md

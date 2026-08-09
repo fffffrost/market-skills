@@ -1,0 +1,4 @@
+interface:
+  display_name: "China Campaign Retrospective"
+  short_description: "Reconcile platform, CRM, agency, and execution evidence into bounded findings and owned next actions"
+  default_prompt: "Use $campaign-retrospective to turn these China campaign results into a decision-ready retrospective."

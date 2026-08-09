@@ -1,0 +1,14 @@
+{
+  "name": "market-skills",
+  "version": "2.0.0",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "validate:skills": "node scripts/validate-skills.mjs",
+    "verify": "npm run validate:skills"
+  },
+  "dependencies": {
+    "yaml": "2.9.0",
+    "zod": "4.4.3"
+  }
+}
