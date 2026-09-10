@@ -6,6 +6,18 @@ MARKET//SKILLS 是一套面向市场人的开源 AI Agent Skill，覆盖从洞�
 
 Browse the bilingual catalog at [mktskill.com](https://mktskill.com/) or [mktskill.com/en/](https://mktskill.com/en/).
 
+## Use with Mika
+
+[Mika, your AI marketing teammate](https://mktskill.com/en/?utm_source=github&utm_medium=referral&utm_campaign=public_skills), uses these open methods to work from a brief to a reviewable delivery. The English workspace supports research, planning, content and analysis, with task progress, source records, revisions and editable exports.
+
+Start with competitor research for a small B2B marketing team:
+
+- [Free competitor research work pack](https://mktskill.com/en/resources/competitor-research-pack/?utm_source=github&utm_medium=referral&utm_campaign=public_skills): blank Excel workbook, fictional filled example and evidence ledger. No login required to download.
+- [Brevo, Mailchimp and Kit research example](https://mktskill.com/en/research/brevo-mailchimp-kit/?utm_source=github&utm_medium=referral&utm_campaign=public_skills): a real public-source Mika run, reviewed report files and a condensed execution replay. This is a product demonstration, not a customer case.
+- [Open the English workspace](https://app.mktskill.com/?lang=en&utm_source=github&utm_medium=referral&utm_campaign=public_skills): submit your own brief. Task execution uses the Mika credits and eligibility shown in your account.
+
+You can also install the Skills below and use them in your own agent. Installing a Skill and using the hosted workspace are separate paths.
+
 ## Installation / 安装
 
 Install the complete collection:
