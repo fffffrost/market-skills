@@ -18,6 +18,10 @@ Start with competitor research for a small B2B marketing team:
 
 You can also install the Skills below and use them in your own agent. Installing a Skill and using the hosted workspace are separate paths.
 
+Have a webinar transcript to reuse? The free [webinar repurposing kit](https://mktskill.com/en/resources/webinar-repurposing-kit/?utm_source=github&utm_medium=referral&utm_campaign=mika_organic_202609&utm_content=webinar_kit_en) includes a copyable brief, a fictional seven-day schedule and a source-review checklist. Prepare article, post, email and FAQ drafts yourself, or hand the brief to Mika. It does not promise video editing or automatic publishing.
+
+已有直播文字稿？使用免费的[直播内容拆解工具包](https://mktskill.com/resources/webinar-repurposing-kit/?utm_source=github&utm_medium=referral&utm_campaign=mika_organic_202609&utm_content=webinar_kit_zh)，复制任务书，参考七天虚构排期与审核清单。可以自己写，也可以把目标交给小麦；交付文稿和排期，不自动剪辑或发布。
+
 ## Installation / 安装
 
 Install the complete collection:
