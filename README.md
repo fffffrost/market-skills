@@ -22,6 +22,12 @@ Have a webinar transcript to reuse? The free [webinar repurposing kit](https://m
 
 已有直播文字稿？使用免费的[直播内容拆解工具包](https://mktskill.com/resources/webinar-repurposing-kit/?utm_source=github&utm_medium=referral&utm_campaign=mika_organic_202609&utm_content=webinar_kit_zh)，复制任务书，参考七天虚构排期与审核清单。可以自己写，也可以把目标交给小麦；交付文稿和排期，不自动剪辑或发布。
 
+## Worked example / 操作示例
+
+[Competitor evidence handoff / 竞品证据交接](docs/competitor-evidence-handoff.md) walks through three fictional claims: incomparable pricing, missing approval information, and export mistaken for publishing. It includes a filled evidence ledger, a copyable task and an acceptance checklist.
+
+用三张虚构卡片练习：报价怎样比较、未找到功能怎样记录、导出为何不等于发布。示例含填写好的证据表、可复制任务与验收清单，可直接在自己的 Agent 中使用。
+
 ## Installation / 安装
 
 Install the complete collection:
