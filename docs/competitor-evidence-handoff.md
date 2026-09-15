@@ -65,7 +65,55 @@ unsupported. Do not invent prices, vendor URLs, test results or a winner.
 不编造价格、厂商链接、实测结果或排名。
 ```
 
-## 6. Acceptance check / 验收
+## 6. Start with your own materials / 换成自己的材料怎样开始
+
+Added 2026-09-15. The three cards above remain a fictional exercise. The intake below helps you define a real task without copying their invented products into your research.
+
+新增于2026-09-15。上方三张卡片仍是虚构练习。下面的输入单用于准备自己的任务，不要把虚构产品名带入真实研究。
+
+| Supply / 提供 | Enough to begin / 可以开始的输入 | If missing / 缺少时 |
+| --- | --- | --- |
+| Decision / 要支持的决定 | Name one decision, such as selecting options to demonstrate. / 写一个决定，例如筛选演示对象。 | Ask which decision the research must support before ranking options. / 先明确决定，不直接排名。 |
+| Buyer, job and market / 买方、任务与市场 | State who uses it, what they need to do, and the region. / 写使用者、具体工作与地区。 | Keep competitor classification provisional until these are known. / 未明确前，竞品分类只作暂定。 |
+| Material scope / 材料范围 | Supply public source links or excerpts you have permission to use; identify the source for each. / 提供公开链接或有权使用的摘录，每项对应来源。 | Request source discovery as a separate first step; do not claim a completed comparison. / 可先做来源发现，不称已完成比较。 |
+| Evidence limits / 证据缺口 | Mark unavailable plan, date, currency or usage assumptions as unknown. / 套餐、日期、币种或使用假设缺失就标未知。 | Continue the supported parts and list the evidence needed for the rest. / 先处理有依据的部分，其余列待补证据。 |
+
+**Copy this intake / 复制填写：**
+
+```text
+Decision to support:
+Buyer / user and job:
+Market / region:
+Known candidates, or request candidate discovery:
+Public links or authorized excerpts, with source locations:
+Must-have conditions and exclusions:
+Known evidence gaps:
+Return: a decision summary, evidence ledger, and verification checklist.
+If a gap prevents a conclusion, name that gap and the next verification
+action. Do not invent sources, prices, tests or a purchase winner.
+```
+
+```text
+要支持的决定：
+买方／使用者与具体任务：
+市场／地区：
+已知候选，或说明需要先发现候选：
+公开链接或有权使用的摘录，以及各自来源位置：
+必须条件与排除条件：
+已知证据缺口：
+请交付：决定摘要、证据表、下一步验证清单。
+缺口影响结论时，写清缺什么和怎样核实；不编造来源、价格、测试或采购赢家。
+```
+
+**Intake example — illustrative, not an execution record / 输入示例——非执行记录：** A team asks for “the best content tool” but supplies only the export card S3. The next response should ask whether the job is written-content reuse or video editing, who will use it, and which market matters. S3 alone cannot define the competitor set. If the task is already scoped and only pricing evidence is missing, work can continue on supported feature claims while cost stays unknown.
+
+团队只说“找最好的内容工具”，却只提供导出卡片S3时，应先问清是文字复用还是视频剪辑、由谁使用、面向哪个市场；S3不能决定完整竞品名单。若任务范围已清楚，仅缺价格材料，可继续整理有依据的功能判断，把成本保持为未知，不必停下整份研究。
+
+Only include material you are entitled to share. Do not paste credentials or unrelated personal information. This intake defines a task; it does not grant access to private systems or authorize contacting vendors. Using a hosted workspace still depends on its current account and credit requirements.
+
+只提供有权分享的材料，不粘贴凭据或无关个人资料。输入单只定义任务，不授予私有系统访问权，也不代表授权联系厂商；使用托管工作台仍以其当前账号与额度要求为准。
+
+## 7. Acceptance check / 验收
 
 - Each conclusion identifies the card that supports it; unsupported conclusions remain unknown. / 每条结论对应来源，缺乏支持的结论保持未知。
 - Different units and payment periods are not treated as comparable prices. / 不把不同单位和付款周期当作可比价格。

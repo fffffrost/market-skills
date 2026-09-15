@@ -24,7 +24,7 @@ Have a webinar transcript to reuse? The free [webinar repurposing kit](https://m
 
 ## Worked example / 操作示例
 
-[Competitor evidence handoff / 竞品证据交接](docs/competitor-evidence-handoff.md) walks through three fictional claims: incomparable pricing, missing approval information, and export mistaken for publishing. It includes a filled evidence ledger, a copyable task and an acceptance checklist.
+[Competitor evidence handoff / 竞品证据交接](docs/competitor-evidence-handoff.md) walks through three fictional claims: incomparable pricing, missing approval information, and export mistaken for publishing. It includes a filled evidence ledger, a copyable task, an intake for your own materials and an acceptance checklist. 附双语最低输入单，说明哪些缺口需要先澄清、哪些部分可以继续研究。
 
 用三张虚构卡片练习：报价怎样比较、未找到功能怎样记录、导出为何不等于发布。示例含填写好的证据表、可复制任务与验收清单，可直接在自己的 Agent 中使用。
 
