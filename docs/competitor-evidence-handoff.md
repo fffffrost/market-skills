@@ -122,3 +122,78 @@ Only include material you are entitled to share. Do not paste credentials or unr
 - The result does not claim real vendor research, completed tests, or human approval. / 不冒充真实厂商调查、已完成测试或人工审核。
 
 For an editable workbook, see the [English competitor research pack](https://mktskill.com/en/resources/competitor-research-pack/?utm_source=github&utm_medium=referral&utm_campaign=mika_organic_202609&utm_content=evidence_handoff_en) （[英文竞品研究工作包](https://mktskill.com/en/resources/competitor-research-pack/?utm_source=github&utm_medium=referral&utm_campaign=mika_organic_202609&utm_content=evidence_handoff_zh)，下载文件为英文）. The static downloads are separate from hosted task execution, whose eligibility and credits are shown in the workspace.
+
+
+## 8. Refresh an existing sales brief / 更新已有销售材料
+
+Added 2026-09-21. Use this when you already have a comparison or battlecard and need to identify which statements to update. This is an AI-generated, automatically checked teaching exercise, **not human-reviewed**. All cards and statements below are synthetic; this is not a customer result, a vendor update or an executed Mika task.
+
+新增于2026-09-21。适用于已有竞品对比或销售应对卡、需要明确修改哪些说法的任务。本练习由AI生成、经自动校验，**未经人工审核**。以下卡片与说法均为合成材料，不是客户成果、真实厂商变化或Mika执行记录。
+
+### Two snapshots and one existing brief / 两版材料与一份旧稿
+
+Version dates identify fictional snapshots, not real access times. Keep both snapshots when using your own material; never overwrite the earlier source.
+
+日期仅标识虚构材料版本，并非真实访问时间。换用自己的材料时保留新旧两版，不覆盖旧证据。
+
+| ID | Synthetic input / 合成输入 |
+| --- | --- |
+| B0 | Existing brief: “Alpha exports drafts. Approval roles are unverified. Entry-plan automation limits are unknown.” / 旧稿：“甲支持导出草稿。审核角色未核实。入门套餐自动化上限未知。” |
+| V1 · 2026-09-14 | Alpha feature card: “Draft export.” No approval statement or plan details. / 甲功能卡：“导出草稿。”未说明审核角色或套餐。 |
+| V2 · 2026-09-21 | Alpha feature card: “Draft export. Reviewer and editor roles on Team.” No role test, price, region or automation limit supplied. / 甲功能卡：“导出草稿。Team套餐含审核者与编辑者角色。”未提供权限实测、价格、地区或自动化上限。 |
+| F2 · 2026-09-21 | The automation-limit page could not be retrieved. No current content captured. / 自动化上限页面读取失败，未取得当前内容。 |
+
+### Expected handoff / 预期交接
+
+| Item / 项目 | Evidence and status / 依据与状态 | Exact edit or next check / 具体修改或核验 |
+| --- | --- | --- |
+| Draft export / 草稿导出 | V1 and V2 both mention it: no change in these cards. / V1、V2均提及，本组材料内未变。 | Keep B0's export sentence. Do not infer publishing. / 保留B0导出句，不推断发布能力。 |
+| Approval roles / 审核角色 | Newly stated in V2, scoped to Team; product behavior remains untested. / V2新增说法，仅限Team，未实测产品行为。 | Replace B0's approval sentence with: “The supplied V2 card states that Team has reviewer and editor roles; permissions are not tested.” / 替换为：“所提供V2卡片称Team有审核者与编辑者角色；权限未经实测。” |
+| Automation limit / 自动化上限 | F2 is a retrieval failure, not proof that a limit or feature was removed. / F2是读取失败，不能证明上限或功能已取消。 | Keep “unknown”; assign the research owner to retry the official source. / 保持未知，由研究负责人重查官方来源。 |
+| Sales implication / 销售影响 | Inference: remove an unsupported blanket claim that Alpha lacks approval roles, if such a claim appears elsewhere. No superiority or purchase conclusion follows. / 推断：若其他材料写“甲无审核角色”，应移除该无依据的概括；不据此下优劣或采购结论。 | Ask the product reviewer to test reviewer/editor permissions before stronger wording is approved. / 更强表述获准前，由产品审核人验证两种角色权限。 |
+
+The revised brief is still a draft for review. A changed vendor statement, a tested product behavior and an approved sales claim are three separate states. An inaccessible source does not silently invalidate the previous observation; retain its original date and flag its current status as unverified.
+
+修订后仍是待审核草稿。厂商说法变更、产品行为实测、销售表述获准是三种不同状态。来源当前不可访问，不自动推翻历史观察；保留原日期并标注当前未核实。
+
+### Copy a refresh task / 复制更新任务书
+
+Replace every bracketed field. For this exercise, use B0/V1/V2/F2 and do not browse for the fictional Alpha. For real work, provide public or authorized excerpts with source locations and actual dates; missing historical evidence stays missing.
+
+替换所有方括号。本练习使用B0/V1/V2/F2，不联网查找虚构甲。真实任务提供公开或有权使用的摘录、来源位置与真实日期；没有历史证据时不得补造。
+
+```text
+Update an existing competitor brief; do not rebuild the full market study.
+Decision and audience: [which sales conversation or decision this supports]
+Existing text: [paste the brief and its version date]
+Earlier evidence: [source ID, location, date, plan and market, or unavailable]
+Current evidence: [same fields; label retrieval failures separately]
+Priority claims: [up to three statements that affect the decision]
+Return:
+1. A change ledger: claim, old/new source IDs, scope, evidence status.
+2. Exact replacement sentences; retain supported unchanged statements.
+3. Unresolved checks and role owners; then the revised brief for review.
+Do not equate retrieval failure with removal, changed wording with tested
+behavior, or missing plan details with availability on every plan.
+Label inferences. Do not invent history or approval. Do not publish, send,
+contact vendors or create a recurring task.
+```
+
+```text
+更新已有竞品简报，不重做整份市场研究。
+决定与读者：[要支持的销售沟通或决定]
+现有文案：[粘贴旧稿及版本日期]
+历史证据：[来源编号、位置、日期、套餐、市场，或说明缺失]
+当前证据：[相同字段；读取失败单独标明]
+优先核查：[最多三条会影响决定的说法]
+请交付：
+1. 变化表：说法、新旧来源编号、适用范围、证据状态。
+2. 可直接替换的句子；保留有依据且未变的表述。
+3. 未决核验及责任角色，再给出待审核完整修订稿。
+不把读取失败当取消，不把文案变化当实测，不把套餐缺失当全套餐可用。
+标明推断，不补造历史或审核结论；不发布、不发送、不联系厂商、不建定时任务。
+```
+
+Use the existing [research Skill](../skills/research-competitors/SKILL.md), or copy your completed brief into [Mika in English](https://app.mktskill.com/?lang=en). Hosted execution requires the account's current verification and credits; this exercise does not set up monitoring or automatic publishing. To check the result, require V1/V2 on the unchanged export row, V2 and Team on the roles row, F2 marked unobserved, and a reviewer on every consequential unknown.
+
+可用现有[竞品研究Skill](../skills/research-competitors/SKILL.md)，或把填好的任务书粘贴到[小麦中文工作台](https://app.mktskill.com/?lang=zh)。托管执行受当前邮箱验证与麦粒要求约束；本练习不会设置监控或自动发布。验收时检查：导出行对应V1/V2；角色行对应V2并保留Team范围；F2标记未观察到；影响决定的未知项都有审核角色。
