@@ -24,7 +24,7 @@ Have a webinar transcript to reuse? The free [webinar repurposing kit](https://m
 
 ## Worked example / 操作示例
 
-[Webinar transcript to six drafts / 文字稿拆成六项内容](docs/webinar-repurposing/README.md) includes the complete synthetic source, Chinese and English drafts, source references and actual revision examples. AI-generated and automatically checked; not human-reviewed. 附完整虚构源稿、六项中英文稿及实际修订对照；经自动校验，未经人工审核，邮件未发送。
+[Webinar transcript to six drafts / 文字稿拆成六项内容](docs/webinar-repurposing/README.md) includes the complete synthetic source, Chinese and English drafts, source references, actual revision examples, and a passage-selection exercise with wording corrections. AI-generated and automatically checked; not human-reviewed. 附完整虚构源稿、六项中英文稿及实际修订对照，新增选段与措辞纠正练习；经自动校验，未经人工审核，邮件未发送。
 
 [Competitor evidence handoff / 竞品证据交接](docs/competitor-evidence-handoff.md) walks through three fictional claims: incomparable pricing, missing approval information, and export mistaken for publishing. It includes a filled evidence ledger, a copyable task, an intake for your own materials and an acceptance checklist. 附双语最低输入单，说明哪些缺口需要先澄清、哪些部分可以继续研究。 The incremental refresh exercise compares two source versions and gives exact sales-brief edits while preserving unknowns. 新增旧稿更新练习：对照两版证据，给出可替换句子，区分来源读取失败与功能取消；AI生成、自动校验、未经人工审核。
 

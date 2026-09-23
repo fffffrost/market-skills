@@ -43,6 +43,63 @@ The Chinese run produced v1 and v2 on 2026-09-14. The first delivery had two val
 | Destination / 行动入口 | Each language uses only its corresponding P15 webinar brief destination. / 每种语言只用对应任务书入口。 |
 | Publication status / 发布状态 | These are public teaching drafts; the email and proposed channel schedule remain unexecuted. / 教学文稿公开，排期与邮件未执行。 |
 
+## Select moments before drafting / 先选片段，再写正文
+
+Added 2026-09-23. This is a new editorial exercise using the existing synthetic source, not another Mika execution or an observed time saving. AI-generated, automatically checked, **not human-reviewed**. The six original drafts above remain unchanged.
+
+新增于2026-09-23。本节用原有合成源稿演示编辑选择，不是新增Mika执行，也没有节省时间的实测；由AI生成、经自动校验，**未经人工审核**。上方六项原稿保持不变。
+
+Choose a reader question first, then a passage that can answer it without inventing context. Here the reader is the small B2B marketing team in P01. A passage can support a short post, serve as background, or be left out; a transcript does not need to become every format.
+
+先确定读者问题，再选择能独立回答它的片段。本例读者是P01中的小型B2B市场团队。片段可以写成短内容、作为背景，也可以不选；不必把每份文字稿拆成所有形式。
+
+| Candidate / 候选 | Editorial decision / 选择与理由 | Boundary to retain / 必须保留的边界 |
+| --- | --- | --- |
+| P03 + P05: comparing quotes / 比较报价 | Select for A2: the two billing methods give a concrete contrast for “Can I compare these prices?” / 选入A2：两种计费方式可回答“这些价格能直接比吗”。 | Keep plan, unit/period/currency, task and evidence context; missing usage, tax, region and extras prevent a total-cost verdict. / 保留套餐、单位/周期/币种、任务与证据背景；使用量、税费、地区及附加服务缺失，不能判总价高低。 |
+| P07 + P08: link versus evidence / 链接与证据 | Select for A3: a saved URL does not explain which statement it supports. / 选入A3：收藏链接未说明它支持哪句话。 | Preserve the nine fields and the fictional status of E01; this is not a universal industry standard. / 保留九字段和E01的虚构性质，不称行业统一标准。 |
+| P12: absence of evidence / 未找到依据 | Select for A4: it supplies a usable replacement for an unsupported negative claim. / 选入A4：给出可替换无依据否定判断的表述。 | “Not found in the checked material” is not “unsupported by the product.” / “所查材料中未找到”不等于“产品不支持”。 |
+| P01: setup / 开场 | Background for A1; do not make a fourth short post by repeating the introduction. / 用作A1背景，不把开场再包装成第四条短内容。 | The team and handoff scenario are fictional; no customer testimonial. / 团队和交接场景为虚构，不写成客户见证。 |
+| P15: destination / 行动入口 | Use the matching-language kit as the CTA, not as a standalone insight. / 用对应语言任务书作行动入口，不单独凑成观点。 | No replay, booking, private-message or purchase promise. / 不承诺回看、预约、私信或购买入口。 |
+
+### Keep the useful wording / 保留有用的表达
+
+The following contrast is newly authored for this exercise. The rejected lines are deliberately bad examples, **not quotes from the earlier Mika run**. The replacement draws only on P12; it illustrates source fidelity, not a verified match to a real person's voice.
+
+以下对照为本节新写的教学例子。反例刻意写错，**不是此前Mika输出的引文**。替换句只依据P12，演示忠于来源，不声称已模仿某位真人的口吻。
+
+| Version / 版本 | Example / 示例 |
+| --- | --- |
+| Reject / 不采用 | “Unlock better decisions with a complete competitor map: if a feature isn't listed, it isn't supported.” / “用完整竞品地图赋能决策：没有列出的功能，就是不支持。” |
+| Replace / 替换 | “Couldn't find the feature in the material you checked? Keep it unverified. Say what you checked, what evidence is missing, and who will verify it.” / “在所查材料中没找到这项能力？先写待核实，再列出查过什么、缺什么证据、由谁核实。” |
+
+The rejected line adds an unsupported promise and reverses P12's meaning. The replacement keeps a concrete question and action while preserving uncertainty. For your own voice, supply two short excerpts you are allowed to reuse and describe which traits to retain; without them, request a neutral editorial tone, not an invented brand voice.
+
+反例添加无依据的承诺，并把P12的意思写反。替换句保留具体问题与动作，也保留不确定性。需要贴近自己的语气时，提供两段有权复用的短文并说明要保留的特点；未提供时使用中性编辑语气，不编造品牌口吻。
+
+### Add this selection pass to your brief / 在任务书中加入选段步骤
+
+```text
+Before drafting, identify up to three source passages for [reader question].
+For each: source IDs, supported takeaway, destination format, necessary
+context, and why select/defer it. Do not force three if fewer are supported.
+Voice references: [two authorized excerpts and traits, or neutral tone].
+Draft one selected passage first. Return its source map and any wording
+that changes scope, certainty or meaning. Do not invent a hook, quote,
+result or time-saving claim. Keep the matching-language CTA from the brief.
+```
+
+```text
+写正文前，围绕[读者问题]选最多三个来源片段。
+逐项列出：来源编号、有依据的要点、适合的形式、必要上下文、选用或暂缓理由。
+有依据的不足三条就少选。语气参考：[两段授权短文与保留特点，或中性语气]。
+先写一个选中片段，交付来源映射，并标出改变范围、确定性或原意的措辞。
+不编造吸引点、引语、成果或节省时间承诺；沿用任务书对应语言的行动入口。
+```
+
+Check that each selected draft answers a different question, retains its source limits and has no invented evidence. This pass is an optional starting step for your own task, not an additional automated approval or a requirement to publish all six example formats.
+
+核对每条回答不同问题、保留来源限制且没有补造证据。选段是换用自己材料时的可选起步步骤，不代表新增自动审核能力，也不要求把示例六项全部发布。
+
 ## Use your own transcript / 换成自己的文字稿
 
 1. Supply text you are allowed to use; retain paragraph IDs and mark missing facts. / 提供获准使用的文字稿，保留段落编号，标明缺失事实。
