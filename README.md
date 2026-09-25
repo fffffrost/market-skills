@@ -26,7 +26,7 @@ Have a webinar transcript to reuse? The free [webinar repurposing kit](https://m
 
 [Webinar transcript to six drafts / 文字稿拆成六项内容](docs/webinar-repurposing/README.md) includes the complete synthetic source, Chinese and English drafts, source references, actual revision examples, and a passage-selection exercise with wording corrections. AI-generated and automatically checked; not human-reviewed. 附完整虚构源稿、六项中英文稿及实际修订对照，新增选段与措辞纠正练习；经自动校验，未经人工审核，邮件未发送。
 
-[Competitor evidence handoff / 竞品证据交接](docs/competitor-evidence-handoff.md) walks through three fictional claims: incomparable pricing, missing approval information, and export mistaken for publishing. It includes a filled evidence ledger, a copyable task, an intake for your own materials and an acceptance checklist. 附双语最低输入单，说明哪些缺口需要先澄清、哪些部分可以继续研究。 The incremental refresh exercise compares two source versions and gives exact sales-brief edits while preserving unknowns. 新增旧稿更新练习：对照两版证据，给出可替换句子，区分来源读取失败与功能取消；AI生成、自动校验、未经人工审核。
+[Competitor evidence handoff / 竞品证据交接](docs/competitor-evidence-handoff.md) walks through three fictional claims: incomparable pricing, missing approval information, and export mistaken for publishing. It includes a filled evidence ledger, a copyable task, an intake for your own materials and an acceptance checklist. 附双语最低输入单，说明哪些缺口需要先澄清、哪些部分可以继续研究。 The incremental refresh exercise compares two source versions and gives exact sales-brief edits while preserving unknowns. A claim-to-asset map identifies affected locations and keeps regional evidence gaps explicit. 新增旧稿更新练习：对照两版证据，给出可替换句子，区分来源读取失败与功能取消；附说法与材料位置映射，保留地区证据缺口；AI生成、自动校验、未经人工审核。
 
 用三张虚构卡片练习：报价怎样比较、未找到功能怎样记录、导出为何不等于发布。示例含填写好的证据表、可复制任务与验收清单，可直接在自己的 Agent 中使用。
 

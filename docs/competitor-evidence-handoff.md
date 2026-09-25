@@ -156,6 +156,45 @@ The revised brief is still a draft for review. A changed vendor statement, a tes
 
 修订后仍是待审核草稿。厂商说法变更、产品行为实测、销售表述获准是三种不同状态。来源当前不可访问，不自动推翻历史观察；保留原日期并标注当前未核实。
 
+### Find the affected materials / 找出受影响的材料
+
+Added 2026-09-25. When the same claim appears in several assets, a changed source does not mean every asset needs rewriting. The inventory below is **synthetic**, AI-generated, automatically checked and **not human-reviewed**. It extends B0/V1/V2/F2; no real sales library was scanned or updated.
+
+新增于2026-09-25。同一句说法出现在多份材料时，来源变化不等于所有材料都要重写。下表是沿用B0/V1/V2/F2的**合成示例**，由AI生成、经自动校验，**未经人工审核**；没有扫描或修改真实销售资料库。
+
+Assign a stable claim ID, then list exact occurrences in the assets you actually supplied. These three asset locations are invented for the exercise. Missing assets remain outside the checked scope.
+
+给每条说法一个稳定编号，再列出已提供材料中的具体位置。下列三个材料位置均为教学虚构；未提供的材料不在核验范围内。
+
+| Claim / 说法 | Supplied occurrence / 提供的位置 | Impact and proposed action / 影响与拟议动作 | Review role / 审核角色 |
+| --- | --- | --- | --- |
+| C1 · draft export / 草稿导出 | EN one-page brief v1, sentence 1: “Alpha exports drafts.” / 英文单页简报v1第1句 | Keep: V1/V2 both support this narrow statement. No publishing claim follows. / 保留：V1/V2均支持该有限说法，不延伸为发布能力。 | Content owner checks the retained sentence. / 内容负责人核对保留句。 |
+| C2 · approval roles / 审核角色 | EN battlecard v1, row 2: “Alpha has no approval roles.” / 英文销售卡v1第2行 | Correct the unsupported blanket negative using the exact V2/Team replacement above; still a review draft, not tested permissions. / 用上方V2/Team替换句纠正无依据的概括否定，仍是待审稿，非权限实测。 | Product reviewer tests permissions before a stronger claim. / 产品审核人实测后才可加强表述。 |
+| C2 · approval roles / 审核角色 | ZH regional deck v1, slide 4: “甲在中国没有审核角色。” / 中文地区版幻灯片v1第4页 | Flag and propose removing the unsupported regional negative. V2 states Team roles but supplies no regional evidence; do not replace it with a claim of China availability. Regional status stays unverified. / 标记并建议删除无依据的地区否定；V2有Team角色说法但无地区证据，不能改为“中国可用”，地区状态保持未核实。 | Regional owner obtains region-specific evidence. / 地区负责人补充对应地区证据。 |
+
+C2 has two supplied occurrences with different scope requirements. Match the meaning and qualifiers, not only identical words. Record both affected locations, but do not copy the English replacement into the regional deck as if it proved local availability. C1 stays unchanged. F2 still leaves automation limits unknown; an absent occurrence in this small inventory does not prove that no other asset mentions them.
+
+C2有两处已提供引用，但适用范围不同。按含义和限定条件匹配，不能只找相同字词。记录两处影响，不把英文替换句直接用于地区版并当作当地可用的证明。C1保持不变。F2仍使自动化上限未知；本小表没列该项引用，不代表其他材料中不存在。
+
+Optional addition to the refresh task / 可选加入更新任务书：
+
+```text
+Supplied asset inventory: [asset ID/version, language/market, exact location,
+current sentence, claim ID]. For each changed claim, list affected supplied
+locations, proposed replacement or unresolved scope, and review role.
+Return unchanged locations separately. List missing/unreadable assets as
+not checked. Do not claim a complete library scan or edit/publish any asset.
+
+已提供材料清单：[材料编号/版本、语言/市场、具体位置、现有原句、说法编号]。
+逐条列出变化说法影响的已提供位置、拟替换句或未决范围、审核角色。
+未变位置单列；缺失或无法读取的材料标为未核验。
+不声称已扫描完整资料库，不直接修改或发布任何材料。
+```
+
+Acceptance check: C1 is retained; both C2 locations are listed; the regional row remains unverified; every proposed change has a review role; missing assets are not counted as checked. This is a way to request a scoped handoff, not an automated sync or monitoring feature.
+
+验收：C1保留，两处C2都列出，地区行保持未核实，每项拟修改有审核角色，缺失材料不计为已核验。这是限定交接范围的方法，不是自动同步或监控功能。
+
 ### Copy a refresh task / 复制更新任务书
 
 Replace every bracketed field. For this exercise, use B0/V1/V2/F2 and do not browse for the fictional Alpha. For real work, provide public or authorized excerpts with source locations and actual dates; missing historical evidence stays missing.
